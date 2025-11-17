@@ -305,13 +305,27 @@
   border-bottom: 1px solid var(--stargate-border-accent);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   backdrop-filter: blur(10px);
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .mobile-topbar-left,
 .mobile-topbar-right {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.mobile-topbar-right {
+  overflow-x: auto;
+  padding-right: 8px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.mobile-topbar-right::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }
 
 .mobile-topbar-center {
@@ -332,17 +346,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
   background: var(--stargate-card-bg);
   border: 1px solid var(--stargate-card-border);
   color: var(--stargate-text-secondary);
-  font-size: 1.1rem;
+  font-size: 1rem;
   transition: all 0.3s ease;
   position: relative;
   cursor: pointer;
   box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  flex-shrink: 0;
 }
 
 .mobile-nav-btn:hover,
@@ -395,10 +410,10 @@
 /* Responsive visibility for navbars */
 @media (max-width: 991.98px) {
   .mobile-topbar {
-    display: flex;
+    display: flex !important;
   }
   .desktop-navbar {
-    display: none;
+    display: none !important;
   }
 }
 

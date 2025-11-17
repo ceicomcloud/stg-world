@@ -25,22 +25,33 @@
         </div>
         
         <div class="mobile-topbar-right">
+            <!-- Main game navigation -->
+            <a href="{{ route('game.index') }}" class="mobile-nav-btn {{ request()->routeIs('game.index') ? 'active' : '' }}" title="Accueil">
+                <i class="fas fa-home"></i>
+            </a>
+            <a href="{{ route('game.mission.index') }}" class="mobile-nav-btn {{ request()->routeIs('game.mission.index') ? 'active' : '' }}" title="Missions">
+                <i class="fas fa-bullseye"></i>
+            </a>
+            <a href="{{ route('game.construction.type', ['type' => 'building']) }}" class="mobile-nav-btn {{ request()->routeIs('game.construction.type') ? 'active' : '' }}" title="Construction">
+                <i class="fas fa-hammer"></i>
+            </a>
+            <a href="{{ route('game.technology') }}" class="mobile-nav-btn {{ request()->routeIs('game.technology') ? 'active' : '' }}" title="Technologies">
+                <i class="fas fa-flask"></i>
+            </a>
+            
             <!-- Social buttons -->
-            <a href="{{ route('game.chatbox') }}" class="mobile-nav-btn {{ request()->routeIs('game.chatbox') ? 'active' : '' }}">
+            <a href="{{ route('game.chatbox') }}" class="mobile-nav-btn {{ request()->routeIs('game.chatbox') ? 'active' : '' }}" title="Chat">
                 <i class="fas fa-comments"></i>
                 @if(($unreadChatCount ?? 0) > 0)<span class="message-count">{{ ($unreadChatCount ?? 0) > 9 ? '9+' : ($unreadChatCount ?? 0) }}</span>@endif
             </a>
-            <a href="{{ route('game.private') }}" class="mobile-nav-btn {{ request()->routeIs('game.private') ? 'active' : '' }}">
+            <a href="{{ route('game.private') }}" class="mobile-nav-btn {{ request()->routeIs('game.private') ? 'active' : '' }}" title="Messages">
                 <i class="fas fa-envelope"></i>
                 @if($unreadMessagesCount > 0)<span class="message-count">{{ $unreadMessagesCount }}</span>@endif
-            </a>
-            <a href="{{ route('game.forum') }}" class="mobile-nav-btn {{ request()->routeIs('game.forum') ? 'active' : '' }}">
-                <i class="fas fa-users"></i>
             </a>
             
             <!-- Profile dropdown -->
             <div class="mobile-nav-item dropdown" x-data="{ open: false }" x-on:click.outside="open = false" x-cloak>
-                <button class="mobile-nav-btn" x-on:click="open = !open">
+                <button class="mobile-nav-btn" x-on:click="open = !open" title="Profil">
                     <i class="fas fa-user"></i>
                     <i class="fas fa-chevron-down dropdown-icon" :class="{ 'rotated': open }"></i>
                 </button>
