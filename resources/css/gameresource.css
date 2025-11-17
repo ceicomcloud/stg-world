@@ -1128,7 +1128,7 @@
 
 /* Compact Resource List */
 [layout="gameresource"] .resource-list-compact {
-  padding: 10px 16px;
+  padding: 8px 12px;
   max-height: calc(100vh - 300px);
   overflow-y: auto;
 }
@@ -1136,12 +1136,12 @@
 [layout="gameresource"] .resource-item-compact {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px;
+  gap: 8px;
+  padding: 6px;
   background: var(--stargate-bg-secondary);
   border: 1px solid var(--stargate-border);
-  border-radius: 8px;
-  margin-bottom: 6px;
+  border-radius: 6px;
+  margin-bottom: 4px;
   transition: all 0.3s ease;
 }
 
@@ -1155,8 +1155,8 @@
 }
 
 [layout="gameresource"] .resource-icon-compact {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
 }
 
@@ -1174,23 +1174,26 @@
 [layout="gameresource"] .resource-name-compact {
   font-weight: 500;
   color: var(--stargate-text-primary);
-  font-size: 0.75rem;
-  margin-bottom: 2px;
+  font-size: 0.7rem;
+  margin-bottom: 1px;
+  line-height: 1.1;
 }
 
 [layout="gameresource"] .resource-amount-compact {
   font-weight: 600;
   color: var(--stargate-secondary);
-  font-size: 0.8rem;
-  margin-bottom: 2px;
+  font-size: 0.75rem;
+  margin-bottom: 1px;
+  line-height: 1.1;
 }
 
 [layout="gameresource"] .resource-production-compact {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 500;
   display: flex;
   align-items: center;
   gap: 2px;
+  line-height: 1.1;
 }
 
 [layout="gameresource"] .resource-production-compact.positive {
@@ -1213,52 +1216,52 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 2px;
-  min-width: 50px;
+  gap: 1px;
+  min-width: 40px;
 }
 
 [layout="gameresource"] .storage-bar-compact {
-  width: 40px;
-  height: 3px;
+  width: 30px;
+  height: 2px;
   background: var(--stargate-bg-primary);
-  border-radius: 2px;
+  border-radius: 1px;
   overflow: hidden;
 }
 
 [layout="gameresource"] .storage-fill-compact {
   height: 100%;
   background: linear-gradient(90deg, var(--stargate-success), var(--stargate-accent));
-  border-radius: 2px;
+  border-radius: 1px;
   transition: width 0.3s ease;
 }
 
 [layout="gameresource"] .storage-text-compact {
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   color: var(--stargate-text-muted);
   font-weight: 500;
 }
 
 /* Compact Actions */
 [layout="gameresource"] .resource-actions-compact {
-  padding: 12px 16px;
+  padding: 8px 12px;
   border-top: 1px solid var(--stargate-border);
   display: flex;
-  gap: 8px;
+  gap: 6px;
 }
 
 [layout="gameresource"] .action-btn-compact {
   flex: 1;
-  padding: 8px 12px;
+  padding: 6px 8px;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   font-weight: 600;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 4px;
 }
 
 [layout="gameresource"] .action-btn-compact.primary {
@@ -1286,7 +1289,7 @@
 }
 
 [layout="gameresource"] .action-btn-compact i {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 
 /* Responsive for compact design */
@@ -1302,7 +1305,7 @@
   [layout="gameresource"] .resource-item-compact {
     flex-direction: column;
     align-items: flex-start;
-    gap: 6px;
+    gap: 4px;
   }
   
   [layout="gameresource"] .resource-storage-compact {
@@ -1314,25 +1317,26 @@
   
   [layout="gameresource"] .storage-bar-compact {
     flex: 1;
-    margin-right: 8px;
+    margin-right: 6px;
   }
 }
 
 @media (max-width: 480px) {
   [layout="gameresource"] .stats-compact {
     grid-template-columns: repeat(4, 1fr);
-    gap: 4px;
+    gap: 3px;
   }
   
   [layout="gameresource"] .stat-compact {
-    padding: 4px 2px;
+    padding: 3px 2px;
   }
   
   [layout="gameresource"] .stat-compact span {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
   }
   
   [layout="gameresource"] .resource-actions-compact {
     flex-direction: column;
+    gap: 4px;
   }
 }
