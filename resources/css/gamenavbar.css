@@ -377,3 +377,22 @@
 .desktop-navbar {
   /* Existing desktop styles remain the same */
 }
+
+/* Responsive visibility for navbars */
+@media (max-width: 991.98px) {
+  .mobile-topbar {
+    display: flex !important;
+  }
+  .desktop-navbar {
+    display: none !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .mobile-topbar {
+    display: none !important;
+  }
+  .desktop-navbar {
+    display: block !important;
+  }
+}

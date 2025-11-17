@@ -12,8 +12,8 @@
         </div>
     @endif
 
-    <!-- Mobile Topbar -->
-    <div class="mobile-topbar d-lg-none">
+    <!-- Mobile Topbar - ALWAYS VISIBLE ON MOBILE -->
+    <div class="mobile-topbar" x-data>
         <div class="mobile-topbar-left">
             <button x-on:click="$dispatch('toggle-drawer')" class="mobile-nav-btn">
                 <i class="fas fa-bars"></i>
@@ -80,16 +80,11 @@
         </div>
     </div>
 
-    <!-- Desktop Navbar -->
-    <div class="desktop-navbar d-none d-lg-block">
+    <!-- Desktop Navbar - HIDDEN ON MOBILE -->
+    <div class="desktop-navbar">
         <div class="navbar-container">
             <!-- Navigation Links -->
             <div class="navbar-nav">
-                <!-- Bouton menu hamburger (visible uniquement sur mobile) -->
-                <button x-on:click="$dispatch('toggle-drawer')" class="nav-link d-lg-none">
-                    <i class="fas fa-bars"></i>
-                </button>
-
                 <a href="{{ route('game.index') }}" wire:navigate.hover class="nav-link {{ request()->routeIs('game.index') ? 'active' : '' }}">
                     <i class="fas fa-home"></i>
                     <span>Accueil</span>
