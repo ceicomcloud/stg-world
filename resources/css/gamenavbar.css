@@ -8,26 +8,17 @@
   background: var(--stargate-bg-primary);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--stargate-border-accent);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1), var(--stargate-shadow-md);
-  padding-left: env(safe-area-inset-left, 0);
+  box-shadow: var(--stargate-shadow-md);
 }
 
 [layout="gamenavbar"] .navbar-container {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 0 max(8px, env(safe-area-inset-left, 8px)) 0 max(8px, env(safe-area-inset-right, 8px));
+  justify-content: center;
+  padding: 0 30px;
   height: 80px;
   max-width: 1400px;
   margin: 0 auto;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
-}
-
-[layout="gamenavbar"] .navbar-container::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
 }
 
 /* Navigation Links - Horizontal Layout */
@@ -35,13 +26,12 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 6px;
-  justify-content: flex-start;
+  gap: 8px;
+  justify-content: center;
   list-style: none;
   margin: 0;
-  padding: 0 5px;
+  padding: 0;
   flex-wrap: nowrap;
-  min-width: max-content;
 }
 
 [layout="gamenavbar"] .nav-link {
@@ -49,8 +39,8 @@
   flex-direction: row;
   align-items: center;
   gap: 8px;
-  padding: 10px 14px;
-  border-radius: 8px;
+  padding: 12px 20px;
+  border-radius: 12px;
   text-decoration: none;
   color: var(--stargate-text-secondary);
   font-weight: 500;
@@ -63,8 +53,6 @@
   backdrop-filter: blur(10px);
   white-space: nowrap;
   flex-shrink: 0;
-  cursor: pointer;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
 [layout="gamenavbar"] .nav-link::before {
@@ -112,18 +100,6 @@
   font-weight: 600;
 }
 
-/* Spécifique pour le bouton menu hamburger (premier élément) */
-[layout="gamenavbar"] .navbar-nav > .nav-link:first-child {
-  margin-left: 0;
-  padding-left: max(4px, env(safe-area-inset-left, 4px));
-  margin-right: 2px;
-}
-
-/* Assurer que le conteneur permet le défilement horizontal si nécessaire */
-[layout="gamenavbar"] {
-  overflow: hidden;
-}
-
 /* Message counter styles */
 [layout="gamenavbar"] .nav-link .message-count {
   background: var(--stargate-accent);
@@ -151,40 +127,21 @@
   }
 }
 
-/* Support des safe areas pour les écrans avec encoche */
-@supports (padding-left: env(safe-area-inset-left)) {
-  [layout="gamenavbar"] {
-    padding-left: env(safe-area-inset-left, 0);
-    padding-right: env(safe-area-inset-right, 0);
-  }
-  
-  [layout="gamenavbar"] .navbar-container {
-    padding-left: max(8px, env(safe-area-inset-left, 8px));
-    padding-right: max(8px, env(safe-area-inset-right, 8px));
-  }
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
   [layout="gamenavbar"] .navbar-container {
-    padding: 0 max(6px, env(safe-area-inset-left, 6px)) 0 max(6px, env(safe-area-inset-right, 6px));
+    padding: 0 15px;
     height: 70px;
   }
   
   [layout="gamenavbar"] .navbar-nav {
     gap: 6px;
-    padding: 0 5px;
   }
   
   [layout="gamenavbar"] .nav-link {
-    padding: 10px 14px;
+    padding: 10px 16px;
     font-size: 0.85rem;
     gap: 6px;
-  }
-  
-  [layout="gamenavbar"] .navbar-nav > .nav-link:first-child {
-    padding-left: max(4px, env(safe-area-inset-left, 4px));
-    margin-left: 0;
   }
   
   [layout="gamenavbar"] .nav-link span {
@@ -204,7 +161,7 @@
 
 @media (max-width: 480px) {
   [layout="gamenavbar"] .navbar-container {
-    padding: 0 max(4px, env(safe-area-inset-left, 4px)) 0 max(4px, env(safe-area-inset-right, 4px));
+    padding: 0 10px;
     height: 60px;
   }
   
@@ -212,18 +169,12 @@
     gap: 4px;
     flex-wrap: nowrap;
     overflow-x: auto;
-    padding: 0 3px;
   }
   
   [layout="gamenavbar"] .nav-link {
-    padding: 8px 10px;
+    padding: 8px 12px;
     border-radius: 10px;
     gap: 4px;
-  }
-  
-  [layout="gamenavbar"] .navbar-nav > .nav-link:first-child {
-    padding-left: max(3px, env(safe-area-inset-left, 3px));
-    margin-left: 0;
   }
   
   [layout="gamenavbar"] .nav-link .message-count {
@@ -231,197 +182,5 @@
     padding: 1px 3px;
     min-width: 14px;
     margin-left: 2px;
-  }
-}
-
-/* ===== DROPDOWN PROFIL ===== */
-[layout="gamenavbar"] .nav-item.dropdown {
-  position: relative;
-}
-
-[layout="gamenavbar"] .dropdown-menu {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background: var(--stargate-card-bg);
-  border: 1px solid var(--stargate-card-border);
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-  backdrop-filter: blur(10px);
-  min-width: 200px;
-  z-index: 1000;
-  padding: 8px 0;
-  margin-top: 8px;
-  overflow: hidden;
-}
-
-[layout="gamenavbar"] .dropdown-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 16px;
-  color: var(--stargate-text-secondary);
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-  border: none;
-  background: none;
-  width: 100%;
-  text-align: left;
-  cursor: pointer;
-}
-
-[layout="gamenavbar"] .dropdown-item:hover {
-  background: var(--stargate-card-hover);
-  color: var(--stargate-text-primary);
-}
-
-[layout="gamenavbar"] .dropdown-divider {
-  height: 1px;
-  background: var(--stargate-border);
-  margin: 8px 0;
-}
-
-[layout="gamenavbar"] .dropdown-icon.rotated {
-  transform: rotate(180deg);
-}
-
-[layout="gamenavbar"] .nav-link {
-  cursor: pointer;
-}
-
-[x-cloak] {
-  display: none !important;
-}
-
-/* ===== MOBILE TOPBAR ===== */
-.mobile-topbar {
-  display: none;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px max(8px, env(safe-area-inset-left, 8px)) 8px max(8px, env(safe-area-inset-right, 8px));
-  height: 60px;
-  background: var(--stargate-bg-primary);
-  border-bottom: 1px solid var(--stargate-border-accent);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  backdrop-filter: blur(10px);
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-
-.mobile-topbar-left,
-.mobile-topbar-right {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-shrink: 0;
-}
-
-.mobile-topbar-right {
-  overflow-x: auto;
-  padding-right: 8px;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
-}
-
-.mobile-topbar-right::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
-}
-
-.mobile-topbar-center {
-  flex: 1;
-  text-align: center;
-}
-
-.mobile-player-name {
-  font-weight: 600;
-  color: var(--stargate-text-primary);
-  font-size: 1rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.mobile-nav-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 6px;
-  background: var(--stargate-card-bg);
-  border: 1px solid var(--stargate-card-border);
-  color: var(--stargate-text-secondary);
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  position: relative;
-  cursor: pointer;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-  flex-shrink: 0;
-}
-
-.mobile-nav-btn:hover,
-.mobile-nav-btn.active {
-  background: var(--stargate-card-hover);
-  color: var(--stargate-text-primary);
-  border-color: var(--stargate-border-accent);
-}
-
-.mobile-nav-item {
-  position: relative;
-}
-
-.mobile-dropdown-menu {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  left: auto;
-  min-width: 220px;
-  margin-top: 8px;
-  background: var(--stargate-card-bg);
-  border: 1px solid var(--stargate-card-border);
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-  backdrop-filter: blur(10px);
-  z-index: 1000;
-  overflow: hidden;
-}
-
-.mobile-dropdown-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 16px;
-  color: var(--stargate-text-primary);
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-.mobile-dropdown-header i {
-  font-size: 1.2rem;
-  color: var(--stargate-primary);
-}
-
-/* Desktop navbar */
-.desktop-navbar {
-  display: block;
-}
-
-/* Responsive visibility for navbars */
-@media (max-width: 991.98px) {
-  .mobile-topbar {
-    display: flex !important;
-  }
-  .desktop-navbar {
-    display: none !important;
-  }
-}
-
-@media (min-width: 992px) {
-  .mobile-topbar {
-    display: none !important;
-  }
-  .desktop-navbar {
-    display: block !important;
   }
 }

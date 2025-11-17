@@ -29,21 +29,20 @@ html, body {
 .game-layout {
   min-height: 100vh;
   background: var(--sg-bg);
-  padding-top: 60px; /* espace pour navbar mobile en haut */
+  padding-bottom: 64px; /* espace pour navbar mobile en bas */
 }
 
-/* Navbar mobile: barre inférieure - DISABLED FOR NEW MOBILE TOPBAR */
+/* Navbar mobile: barre inférieure */
 .game-navbar[layout="gamenavbar"] {
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
   background: var(--sg-surface);
-  border-bottom: 1px solid var(--sg-border);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+  border-top: 1px solid var(--sg-border);
+  box-shadow: 0 -6px 16px rgba(0,0,0,0.35);
   z-index: 50;
-  padding-bottom: 0;
-  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 .game-navbar .navbar-container {
   padding: 0.25rem 0.5rem;
@@ -80,7 +79,7 @@ html, body {
 .game-content { display: flex; flex-direction: column; gap: 0.75rem; }
 .daily-quests-fab {
   position: fixed;
-  top: 80px; /* en dessous de la navbar mobile */
+  bottom: 80px; /* au-dessus de la navbar mobile */
   right: 12px;
   width: 40px;
   height: 40px;
@@ -94,12 +93,7 @@ html, body {
   box-shadow: 0 10px 20px rgba(0,0,0,0.35);
 }
 
-/* Sidebar fixe pour desktop (cachée sur mobile par défaut) */
-.game-sidebar {
-  display: none; /* Caché sur mobile */
-}
-
-/* Tiroir latéral des ressources (mobile) - gardé pour la version mobile */
+/* Tiroir latéral des ressources (mobile) */
 .drawer-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 80; }
 .game-drawer { position: fixed; top: 0; bottom: 0; padding-top: env(safe-area-inset-top); padding-bottom: calc(64px + env(safe-area-inset-bottom)); width: 85%; max-width: 420px; background: var(--sg-surface); border-right: 1px solid var(--sg-border); box-shadow: 12px 0 30px rgba(0,0,0,0.35); z-index: 90; display: flex; flex-direction: column; }
 .game-drawer.right { right: 0; }
