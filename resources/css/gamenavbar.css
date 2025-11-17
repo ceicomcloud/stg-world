@@ -15,10 +15,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 30px;
+  padding: 0 20px;
   height: 80px;
   max-width: 1400px;
   margin: 0 auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+[layout="gamenavbar"] .navbar-container::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }
 
 /* Navigation Links - Horizontal Layout */
@@ -27,11 +35,12 @@
   flex-direction: row;
   align-items: center;
   gap: 8px;
-  justify-content: center;
+  justify-content: flex-start;
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0 10px;
   flex-wrap: nowrap;
+  min-width: max-content;
 }
 
 [layout="gamenavbar"] .nav-link {
@@ -39,7 +48,7 @@
   flex-direction: row;
   align-items: center;
   gap: 8px;
-  padding: 12px 20px;
+  padding: 12px 16px;
   border-radius: 12px;
   text-decoration: none;
   color: var(--stargate-text-secondary);
@@ -100,6 +109,17 @@
   font-weight: 600;
 }
 
+/* Spécifique pour le bouton menu hamburger (premier élément) */
+[layout="gamenavbar"] .navbar-nav > .nav-link:first-child {
+  margin-left: 0;
+  padding-left: 12px;
+}
+
+/* Assurer que le conteneur permet le défilement horizontal si nécessaire */
+[layout="gamenavbar"] {
+  overflow: hidden;
+}
+
 /* Message counter styles */
 [layout="gamenavbar"] .nav-link .message-count {
   background: var(--stargate-accent);
@@ -130,18 +150,24 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   [layout="gamenavbar"] .navbar-container {
-    padding: 0 15px;
+    padding: 0 10px;
     height: 70px;
   }
   
   [layout="gamenavbar"] .navbar-nav {
     gap: 6px;
+    padding: 0 5px;
   }
   
   [layout="gamenavbar"] .nav-link {
-    padding: 10px 16px;
+    padding: 10px 14px;
     font-size: 0.85rem;
     gap: 6px;
+  }
+  
+  [layout="gamenavbar"] .navbar-nav > .nav-link:first-child {
+    padding-left: 8px;
+    margin-left: 0;
   }
   
   [layout="gamenavbar"] .nav-link span {
@@ -161,7 +187,7 @@
 
 @media (max-width: 480px) {
   [layout="gamenavbar"] .navbar-container {
-    padding: 0 10px;
+    padding: 0 5px;
     height: 60px;
   }
   
@@ -169,12 +195,18 @@
     gap: 4px;
     flex-wrap: nowrap;
     overflow-x: auto;
+    padding: 0 3px;
   }
   
   [layout="gamenavbar"] .nav-link {
-    padding: 8px 12px;
+    padding: 8px 10px;
     border-radius: 10px;
     gap: 4px;
+  }
+  
+  [layout="gamenavbar"] .navbar-nav > .nav-link:first-child {
+    padding-left: 6px;
+    margin-left: 0;
   }
   
   [layout="gamenavbar"] .nav-link .message-count {
