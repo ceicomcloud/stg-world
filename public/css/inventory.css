@@ -1,0 +1,292 @@
+/* Inventory Page Styles */
+[page="inventory"] {
+  width: 100%;
+}
+
+[page="inventory"] .inventory-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Header */
+[page="inventory"] .inventory-header {
+  background: var(--stargate-card-bg);
+  border: 1px solid var(--stargate-card-border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: var(--stargate-shadow-md);
+}
+
+[page="inventory"] .inventory-title {
+  margin: 0;
+  font-size: 1.6rem;
+  background: var(--stargate-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[page="inventory"] .inventory-subtitle {
+  margin: 6px 0 0;
+  color: var(--stargate-text-secondary);
+}
+
+/* Planet Selector */
+[page="inventory"] .planet-selector {
+  max-width: 420px;
+}
+
+[page="inventory"] .planet-dropdown {
+  position: relative;
+}
+
+[page="inventory"] .planet-button {
+  width: 100%;
+  background: var(--stargate-card-bg);
+  border: 1px solid var(--stargate-card-border);
+  border-radius: 12px;
+  padding: 14px 18px;
+  color: var(--stargate-text-primary);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+[page="inventory"] .planet-button:hover {
+  border-color: var(--stargate-border-accent);
+  box-shadow: var(--stargate-shadow-glow);
+}
+
+[page="inventory"] .planet-button i:first-child {
+  color: var(--stargate-primary);
+  font-size: 1.1rem;
+}
+
+[page="inventory"] .dropdown-icon {
+  transition: transform 0.3s ease;
+  color: var(--stargate-text-secondary);
+}
+
+[page="inventory"] .dropdown-icon.rotated {
+  transform: rotate(180deg);
+}
+
+[page="inventory"] .planet-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(0, 20, 40, 0.95);
+  border: 1px solid rgba(64, 224, 255, 0.3);
+  border-radius: 12px;
+  margin-top: 5px;
+  z-index: 1000;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+[page="inventory"] .planet-option {
+  padding: 12px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(64, 224, 255, 0.1);
+}
+
+[page="inventory"] .planet-option:last-child {
+  border-bottom: none;
+}
+
+[page="inventory"] .planet-option:hover {
+  background: rgba(64, 224, 255, 0.1);
+}
+
+[page="inventory"] .planet-option.active {
+  background: rgba(64, 224, 255, 0.2);
+  border-left: 3px solid var(--stargate-primary);
+}
+
+/* Sections */
+[page="inventory"] .management-section {
+  background: rgba(0, 20, 40, 0.8);
+  border: 1px solid rgba(64, 224, 255, 0.3);
+  border-radius: 15px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--stargate-shadow-md);
+  margin-bottom: 1rem; /* mb-3 spacing between sections */
+}
+
+[page="inventory"] .section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  color: var(--stargate-text-primary);
+}
+
+[page="inventory"] .section-header i {
+  color: var(--stargate-primary);
+}
+
+/* Items Grid */
+[page="inventory"] .items-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.2rem;
+}
+
+[page="inventory"] .item-card {
+  background: rgba(0, 25, 50, 0.8);
+  border: 1px solid rgba(64, 224, 255, 0.2);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 220px;
+  gap: 10px;
+  box-shadow: var(--stargate-shadow-sm);
+}
+
+[page="inventory"] .item-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+[page="inventory"] .item-art {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--stargate-primary);
+  background: radial-gradient(circle at 30% 30%, rgba(64, 224, 255, 0.2), rgba(0, 20, 40, 0.6));
+  border: 1px solid rgba(64, 224, 255, 0.3);
+}
+
+[page="inventory"] .item-info { /* no longer used in vertical layout */ }
+
+[page="inventory"] .item-name {
+  font-weight: 600;
+  color: var(--stargate-text-primary);
+  font-size: 1rem;
+}
+
+[page="inventory"] .item-desc {
+  font-size: 0.95rem;
+  color: var(--stargate-text-secondary);
+}
+
+[page="inventory"] .item-action {
+  margin-top: auto;
+}
+
+[page="inventory"] .item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+[page="inventory"] .item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+[page="inventory"] .badge {
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(64, 224, 255, 0.3);
+}
+
+[page="inventory"] .badge.rarity-common { color: #cfd8dc; background: rgba(207,216,220,.12); }
+[page="inventory"] .badge.rarity-rare { color: #4dd0e1; background: rgba(77,208,225,.12); }
+[page="inventory"] .badge.rarity-epic { color: #9575cd; background: rgba(149,117,205,.12); }
+[page="inventory"] .badge.rarity-legendary { color: #ffd54f; background: rgba(255,213,79,.12); }
+
+[page="inventory"] .badge.quantity {
+  color: var(--stargate-text-primary);
+}
+
+/* Actions */
+[page="inventory"] .item-actions { /* removed in favor of .item-action + .item-footer */ }
+
+[page="inventory"] .use-button {
+  width: 100%;
+  background: var(--stargate-primary);
+  border: 1px solid rgba(64, 224, 255, 0.5);
+  color: #001a2c;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+[page="inventory"] .use-button:hover {
+  filter: brightness(1.05);
+  box-shadow: var(--stargate-shadow-glow);
+}
+
+[page="inventory"] .use-button:disabled,
+[page="inventory"] .use-button.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Empty state */
+[page="inventory"] .empty-state {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0, 25, 50, 0.5);
+  border: 1px dashed rgba(64, 224, 255, 0.3);
+  border-radius: 12px;
+  padding: 14px;
+  color: var(--stargate-text-secondary);
+}
+[page="inventory"] .planet-selector label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--stargate-text-primary);
+}
+
+[page="inventory"] .planet-selector .form-select {
+  width: 100%;
+  background: var(--stargate-card-bg);
+  border: 1px solid var(--stargate-card-border);
+  border-radius: 10px;
+  color: var(--stargate-text-primary);
+  padding: 10px 12px;
+  transition: all 0.25s ease;
+}
+
+[page="inventory"] .planet-selector .form-select:hover {
+  border-color: var(--stargate-border-accent);
+  box-shadow: var(--stargate-shadow-sm);
+}
+
+[page="inventory"] .planet-selector .form-select:focus {
+  outline: none;
+  border-color: var(--stargate-primary);
+  box-shadow: var(--stargate-shadow-glow);
+}
+
+[page="inventory"] .planet-description {
+  color: var(--stargate-text-secondary);
+}

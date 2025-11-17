@@ -1,0 +1,496 @@
+/* Styles pour la page Bunker */
+
+[page="bunker"] {
+    width: 100%;
+}
+
+[page="bunker"] .bunker-container-page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(14, 165, 233, 0.3);
+}
+
+[page="bunker"] .bunker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--stargate-border);
+}
+
+[page="bunker"] .bunker-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--stargate-text-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+[page="bunker"] .bunker-title i {
+    color: var(--stargate-primary);
+}
+
+[page="bunker"] .bunker-description {
+    font-size: 14px;
+    color: var(--stargate-text-secondary);
+    margin-bottom: 20px;
+    line-height: 1.5;
+    max-width: 800px;
+}
+
+[page="bunker"] .bunker-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+[page="bunker"] .bunker-resource {
+    background-color: var(--stargate-bg-secondary);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--stargate-shadow-sm);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.3s;
+    border: 1px solid var(--stargate-border);
+}
+
+[page="bunker"] .bunker-resource:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--stargate-shadow-md);
+    border-color: var(--stargate-border-accent);
+}
+
+[page="bunker"] .resource-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--stargate-border);
+}
+
+[page="bunker"] .resource-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+[page="bunker"] .resource-name {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--stargate-text-primary);
+}
+
+[page="bunker"] .resource-amount {
+    margin-left: auto;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--stargate-primary);
+}
+
+[page="bunker"] .storage-bar {
+    height: 8px;
+    background-color: var(--stargate-bg-tertiary);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+[page="bunker"] .storage-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--stargate-success) 0%, var(--stargate-primary) 50%, var(--stargate-danger) 100%);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+[page="bunker"] .storage-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--stargate-text-muted);
+    margin-bottom: 15px;
+}
+
+[page="bunker"] .storage-capacity {
+    color: var(--stargate-primary);
+}
+
+[page="bunker"] .resource-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+[page="bunker"] .action-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+[page="bunker"] .quantity-control {
+    display: flex;
+    flex: 1;
+    position: relative;
+}
+
+[page="bunker"] .quantity-input {
+    width: 100%;
+    padding: 8px 40px 8px 10px;
+    border: 1px solid var(--stargate-border);
+    border-radius: 4px;
+    background-color: var(--stargate-bg-primary);
+    color: var(--stargate-text-primary);
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+[page="bunker"] .quantity-input:focus {
+    outline: none;
+    border-color: var(--stargate-primary);
+}
+
+/* Supprimer les flèches des champs numériques */
+[page="bunker"] .quantity-input::-webkit-outer-spin-button,
+[page="bunker"] .quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+[page="bunker"] .max-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    background-color: var(--stargate-primary-bg);
+    border: none;
+    border-left: 1px solid var(--stargate-border);
+    border-radius: 0 4px 4px 0;
+    color: var(--stargate-primary);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+[page="bunker"] .max-button:hover {
+    background-color: var(--stargate-secondary-bg);
+}
+
+[page="bunker"] .action-button {
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+[page="bunker"] .store-button {
+    background-color: var(--stargate-success);
+    color: var(--stargate-text-primary);
+}
+
+[page="bunker"] .store-button:hover {
+    background-color: var(--stargate-success);
+    filter: brightness(1.2);
+    transform: translateY(-2px);
+}
+
+[page="bunker"] .retrieve-button {
+    background-color: var(--stargate-danger);
+    color: var(--stargate-text-primary);
+}
+
+[page="bunker"] .retrieve-button:hover {
+    background-color: var(--stargate-danger);
+    filter: brightness(1.2);
+    transform: translateY(-2px);
+}
+
+[page="bunker"] .planet-resource-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    background-color: var(--stargate-bg-primary);
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+[page="bunker"] .planet-resource-label {
+    color: var(--stargate-text-secondary);
+}
+
+[page="bunker"] .planet-resource-amount {
+    color: var(--stargate-primary);
+    font-weight: 500;
+}
+
+[page="bunker"] .bunker-info {
+    background-color: var(--stargate-bg-secondary);
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 20px;
+    border: 1px solid var(--stargate-border);
+    box-shadow: var(--stargate-shadow-sm);
+}
+
+[page="bunker"] .bunker-info-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--stargate-text-primary);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+[page="bunker"] .bunker-info-title i {
+    color: var(--stargate-primary);
+}
+
+[page="bunker"] .bunker-info-content {
+    font-size: 14px;
+    color: var(--stargate-text-secondary);
+    line-height: 1.5;
+}
+
+[page="bunker"] .bunker-upgrade-info {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: var(--stargate-primary-bg);
+    border-radius: 4px;
+    border-left: 3px solid var(--stargate-primary);
+}
+
+/* Styles pour l'historique des transactions */
+[page="bunker"] .bunker-transactions {
+    background-color: var(--stargate-bg-secondary);
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 20px;
+    border: 1px solid var(--stargate-border);
+    box-shadow: var(--stargate-shadow-sm);
+}
+
+[page="bunker"] .transactions-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--stargate-text-primary);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--stargate-border);
+    padding-bottom: 10px;
+}
+
+[page="bunker"] .transactions-title i {
+    color: var(--stargate-primary);
+}
+
+[page="bunker"] .transactions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+[page="bunker"] .transaction-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: var(--stargate-bg-primary);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+[page="bunker"] .transaction-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--stargate-shadow-sm);
+}
+
+[page="bunker"] .transaction-store {
+    border-left: 3px solid var(--stargate-success);
+}
+
+[page="bunker"] .transaction-retrieve {
+    border-left: 3px solid var(--stargate-danger);
+}
+
+[page="bunker"] .transaction-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--stargate-bg-tertiary);
+}
+
+[page="bunker"] .transaction-store .transaction-icon i {
+    color: var(--stargate-success);
+}
+
+[page="bunker"] .transaction-retrieve .transaction-icon i {
+    color: var(--stargate-danger);
+}
+
+[page="bunker"] .transaction-resource {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    min-width: 120px;
+}
+
+[page="bunker"] .transaction-resource-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+[page="bunker"] .transaction-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+[page="bunker"] .transaction-type {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--stargate-text-primary);
+}
+
+[page="bunker"] .transaction-amount {
+    font-size: 12px;
+    color: var(--stargate-text-secondary);
+}
+
+[page="bunker"] .transaction-time {
+    font-size: 12px;
+    color: var(--stargate-text-muted);
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+[page="bunker"] .no-transactions {
+    padding: 15px;
+    text-align: center;
+    color: var(--stargate-text-muted);
+    font-style: italic;
+    background-color: var(--stargate-bg-primary);
+    border-radius: 4px;
+}
+
+/* Styles pour la pagination des transactions */
+[page="bunker"] .transactions-pagination {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--stargate-border);
+}
+
+[page="bunker"] .pagination-info {
+    font-size: 14px;
+    color: var(--stargate-text-secondary);
+}
+
+[page="bunker"] .pagination-controls {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+[page="bunker"] .pagination-button {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    background-color: var(--stargate-bg-primary);
+    border: 1px solid var(--stargate-border);
+    color: var(--stargate-text-primary);
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+[page="bunker"] .pagination-button:hover:not([disabled]) {
+    background-color: var(--stargate-primary-bg);
+    transform: translateY(-2px);
+}
+
+[page="bunker"] .pagination-button.active {
+    background-color: var(--stargate-primary);
+    color: var(--stargate-text-primary);
+    border-color: var(--stargate-primary);
+}
+
+[page="bunker"] .pagination-button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    [page="bunker"] .bunker-container {
+        grid-template-columns: 1fr;
+    }
+    
+    [page="bunker"] .bunker-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    [page="bunker"] .action-group {
+        flex-direction: column;
+    }
+    
+    [page="bunker"] .quantity-control {
+        width: 100%;
+    }
+    
+    [page="bunker"] .transaction-item {
+        flex-wrap: wrap;
+    }
+    
+    [page="bunker"] .transaction-time {
+        width: 100%;
+        text-align: right;
+        margin-top: 5px;
+    }
+    
+    [page="bunker"] .pagination-controls {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    [page="bunker"] .pagination-button {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,622 @@
+/* Game Resource Panel Layout */
+[layout="gameresource"] {
+  
+}
+
+[layout="gameresource"] .game-resource-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--stargate-gradient-primary);
+}
+
+/* Resource Header */
+[layout="gameresource"] .resource-header {
+  padding: 20px 20px 15px 20px;
+  border-bottom: 1px solid var(--stargate-border);
+  background: var(--stargate-bg-secondary);
+}
+
+[layout="gameresource"] .panel-title {
+  margin: 0 0 10px 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--stargate-text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+[layout="gameresource"] .panel-title i {
+  color: var(--stargate-primary);
+  font-size: 1.2rem;
+}
+
+/* Planet Selector */
+[layout="gameresource"] .planet-selector {
+  position: relative;
+}
+
+[layout="gameresource"] .planet-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+[layout="gameresource"] .planet-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--stargate-card-bg);
+  border: 1px solid var(--stargate-card-border);
+  border-radius: 6px;
+  color: var(--stargate-text-secondary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  justify-content: space-between;
+}
+
+[layout="gameresource"] .planet-button:hover {
+  background: var(--stargate-card-hover);
+  border-color: var(--stargate-border-accent);
+  color: var(--stargate-text-primary);
+}
+
+[layout="gameresource"] .planet-button i.fas.fa-globe {
+  color: var(--stargate-primary);
+  font-size: 0.8rem;
+}
+
+[layout="gameresource"] .dropdown-icon {
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+  color: var(--stargate-text-muted);
+}
+
+[layout="gameresource"] .dropdown-icon.rotated {
+  transform: rotate(180deg);
+}
+
+[layout="gameresource"] .planet-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--stargate-card-bg);
+  border: 1px solid var(--stargate-card-border);
+  border-radius: 6px;
+  box-shadow: var(--stargate-shadow-glow);
+  z-index: 1000;
+  max-height: 300px;
+  overflow-y: auto;
+  margin-top: 4px;
+}
+
+[layout="gameresource"] .planet-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid var(--stargate-border);
+}
+
+[layout="gameresource"] .planet-option:last-child {
+  border-bottom: none;
+}
+
+[layout="gameresource"] .planet-option:hover {
+  background: var(--stargate-card-hover);
+}
+
+[layout="gameresource"] .planet-option.active {
+  background: var(--stargate-bg-secondary);
+  border-left: 3px solid var(--stargate-primary);
+}
+
+[layout="gameresource"] .planet-option-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+[layout="gameresource"] .planet-option-info i {
+  color: var(--stargate-primary);
+  font-size: 0.9rem;
+}
+
+[layout="gameresource"] .planet-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+[layout="gameresource"] .planet-name {
+  font-weight: 500;
+  color: var(--stargate-text-primary);
+  font-size: 0.9rem;
+}
+
+[layout="gameresource"] .planet-coords {
+  font-size: 0.75rem;
+  color: var(--stargate-text-muted);
+  opacity: 0.8;
+}
+
+[layout="gameresource"] .planet-type-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+[layout="gameresource"] .planet-type-badge.type-desert {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+[layout="gameresource"] .planet-type-badge.type-ice {
+  background: rgba(0, 123, 255, 0.2);
+  color: #007bff;
+  border: 1px solid rgba(0, 123, 255, 0.3);
+}
+
+[layout="gameresource"] .planet-type-badge.type-volcanic {
+  background: rgba(220, 53, 69, 0.2);
+  color: #dc3545;
+  border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+[layout="gameresource"] .planet-type-badge.type-temperate {
+  background: rgba(40, 167, 69, 0.2);
+  color: #28a745;
+  border: 1px solid rgba(40, 167, 69, 0.3);
+}
+
+[layout="gameresource"] .planet-type-badge.type-ocean {
+  background: rgba(23, 162, 184, 0.2);
+  color: #17a2b8;
+  border: 1px solid rgba(23, 162, 184, 0.3);
+}
+
+[layout="gameresource"] .planet-type-badge.type-gas {
+  background: rgba(108, 117, 125, 0.2);
+  color: #6c757d;
+  border: 1px solid rgba(108, 117, 125, 0.3);
+}
+
+/* Resource List */
+[layout="gameresource"] .resource-list {
+  padding: 20px;
+  max-height: calc(100vh - 300px);
+  overflow-y: auto;
+}
+
+[layout="gameresource"] .resource-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+[layout="gameresource"] .resource-list::-webkit-scrollbar-track {
+  background: var(--stargate-bg-secondary);
+  border-radius: 3px;
+}
+
+[layout="gameresource"] .resource-list::-webkit-scrollbar-thumb {
+  background: rgba(14, 165, 233, 0.3);
+  border-radius: 3px;
+}
+
+[layout="gameresource"] .resource-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(14, 165, 233, 0.5);
+}
+
+/* Resource Categories */
+[layout="gameresource"] .resource-category {
+  margin-bottom: 25px;
+}
+
+[layout="gameresource"] .resource-category:last-child {
+  margin-bottom: 0;
+}
+
+[layout="gameresource"] .category-title {
+  margin: 0 0 15px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--stargate-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--stargate-border-accent);
+  padding-bottom: 8px;
+}
+
+/* Resource Items */
+[layout="gameresource"] .resource-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  background: var(--stargate-bg-secondary);
+  border: 1px solid var(--stargate-border);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+[layout="gameresource"] .resource-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.05), transparent);
+  transition: left 0.5s ease;
+}
+
+[layout="gameresource"] .resource-item:hover {
+  background: var(--stargate-card-hover);
+  border-color: var(--stargate-border-accent);
+  transform: translateX(5px);
+}
+
+[layout="gameresource"] .resource-item:hover::before {
+  left: 100%;
+}
+
+[layout="gameresource"] .resource-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Resource Icon */
+[layout="gameresource"] .resource-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--stargate-card-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--stargate-shadow-md);
+  padding: 6px;
+}
+
+[layout="gameresource"] .resource-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* Resource Info */
+[layout="gameresource"] .resource-info {
+  flex: 1;
+  min-width: 0;
+}
+
+[layout="gameresource"] .resource-name {
+  display: block;
+  font-weight: 600;
+  color: var(--stargate-text-primary);
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+[layout="gameresource"] .resource-values {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+[layout="gameresource"] .current-amount {
+  font-weight: 600;
+  color: var(--stargate-secondary);
+  font-size: 1rem;
+}
+
+[layout="gameresource"] .production-rate {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+[layout="gameresource"] .production-rate.positive {
+  color: var(--stargate-success);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+[layout="gameresource"] .production-rate.negative {
+  color: var(--stargate-danger);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+[layout="gameresource"] .production-rate.neutral {
+  color: var(--stargate-text-muted);
+  background: rgba(148, 163, 184, 0.1);
+}
+
+[layout="gameresource"] .production-rate i {
+  font-size: 0.7rem;
+}
+
+/* Resource Storage */
+[layout="gameresource"] .resource-storage {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  min-width: 60px;
+}
+
+[layout="gameresource"] .storage-bar {
+  width: 60px;
+  height: 6px;
+  background: var(--stargate-bg-secondary);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+[layout="gameresource"] .storage-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--stargate-success), var(--stargate-accent));
+  border-radius: 3px;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+[layout="gameresource"] .storage-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: storageShimmer 2s ease-in-out infinite;
+}
+
+/* Storage Fill Color Classes */
+[layout="gameresource"] .storage-fill.storage-normal {
+  background-color: #27ae60 !important;
+}
+
+[layout="gameresource"] .storage-fill.storage-warning {
+  background-color: #f39c12 !important;
+}
+
+[layout="gameresource"] .storage-fill.storage-critical {
+  background-color: #e74c3c !important;
+}
+
+@keyframes storageShimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+[layout="gameresource"] .storage-text {
+  font-size: 0.75rem;
+  color: var(--stargate-text-secondary);
+  font-weight: 500;
+}
+
+/* Resource Summary */
+[layout="gameresource"] .resource-summary {
+  padding: 20px;
+  border-top: 1px solid var(--stargate-border);
+  background: var(--stargate-bg-secondary);
+}
+
+[layout="gameresource"] .summary-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--stargate-border);
+}
+
+[layout="gameresource"] .summary-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+[layout="gameresource"] .summary-item i {
+  color: var(--stargate-primary);
+  font-size: 1.1rem;
+  width: 20px;
+  text-align: center;
+}
+
+[layout="gameresource"] .summary-label {
+  flex: 1;
+  font-size: 0.9rem;
+  color: var(--stargate-text-secondary);
+}
+
+[layout="gameresource"] .summary-value {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--stargate-text-primary);
+}
+
+[layout="gameresource"] .summary-value.positive {
+  color: var(--stargate-success);
+}
+
+[layout="gameresource"] .summary-value.negative {
+  color: var(--stargate-danger);
+}
+
+/* Resource Actions */
+[layout="gameresource"] .resource-actions {
+  padding: 20px;
+  border-top: 1px solid var(--stargate-border);
+  display: flex;
+  gap: 10px;
+}
+
+[layout="gameresource"] .action-btn {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+[layout="gameresource"] .action-btn.primary {
+  background: var(--stargate-gradient-primary);
+  color: var(--stargate-text-primary);
+}
+
+[layout="gameresource"] .action-btn.primary:hover {
+  background: var(--stargate-gradient-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--stargate-shadow-glow);
+}
+
+[layout="gameresource"] .action-btn.secondary {
+  background: var(--stargate-card-bg);
+  color: var(--stargate-text-secondary);
+  border: 1px solid var(--stargate-card-border);
+}
+
+[layout="gameresource"] .action-btn.secondary:hover {
+  background: var(--stargate-card-hover);
+  color: var(--stargate-text-primary);
+  border-color: var(--stargate-border-accent);
+  transform: translateY(-2px);
+}
+
+[layout="gameresource"] .action-btn.update {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+[layout="gameresource"] .action-btn.update:hover:not(:disabled) {
+  background: linear-gradient(135deg, #45a049, #3d8b40);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+[layout="gameresource"] .action-btn.update:disabled {
+  background: #cccccc;
+  color: #666666;
+  border-color: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+[layout="gameresource"] .action-btn i {
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  [layout="gameresource"] {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  [layout="gameresource"] .resource-list {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  [layout="gameresource"] {
+    border-radius: 15px;
+  }
+  
+  [layout="gameresource"] .resource-header {
+    padding: 15px;
+  }
+  
+  [layout="gameresource"] .resource-list {
+    padding: 15px;
+    max-height: 300px;
+  }
+  
+  [layout="gameresource"] .resource-item {
+    padding: 12px;
+    gap: 10px;
+  }
+  
+  [layout="gameresource"] .resource-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 1.1rem;
+  }
+  
+  [layout="gameresource"] .resource-name {
+    font-size: 0.9rem;
+  }
+  
+  [layout="gameresource"] .current-amount {
+    font-size: 0.95rem;
+  }
+  
+  [layout="gameresource"] .resource-summary {
+    padding: 15px;
+  }
+  
+  [layout="gameresource"] .resource-actions {
+    padding: 15px;
+    flex-direction: column;
+  }
+  
+  [layout="gameresource"] .action-btn {
+    padding: 10px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  [layout="gameresource"] .resource-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  [layout="gameresource"] .resource-values {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  [layout="gameresource"] .resource-storage {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  [layout="gameresource"] .storage-bar {
+    flex: 1;
+    margin-right: 10px;
+  }
+}

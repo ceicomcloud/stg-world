@@ -9,25 +9,22 @@
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--stargate-border-accent);
   box-shadow: var(--stargate-shadow-md);
-  padding-left: env(safe-area-inset-left, 0);
 }
 
 [layout="gamenavbar"] .navbar-container {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 0 max(8px, env(safe-area-inset-left, 8px)) 0 max(8px, env(safe-area-inset-right, 8px));
+  padding: 0 30px;
   height: 80px;
-  max-width: 1400px;
+  max-width: none; /* let it span full viewport width */
   margin: 0 auto;
+  width: 100%;
+  /* Allow horizontal scroll when items overflow */
   overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
-}
-
-[layout="gamenavbar"] .navbar-container::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+  overscroll-behavior-x: contain;
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Navigation Links - Horizontal Layout */
@@ -35,13 +32,33 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   justify-content: flex-start;
   list-style: none;
   margin: 0;
-  padding: 0 5px;
+  padding: 0;
   flex-wrap: nowrap;
-  min-width: max-content;
+  /* Ensure the nav can scroll horizontally on any viewport */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Visible, slim horizontal scrollbar for better affordance */
+[layout="gamenavbar"] .navbar-container::-webkit-scrollbar,
+[layout="gamenavbar"] .navbar-nav::-webkit-scrollbar {
+  height: 8px;
+}
+[layout="gamenavbar"] .navbar-container::-webkit-scrollbar-track,
+[layout="gamenavbar"] .navbar-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+[layout="gamenavbar"] .navbar-container::-webkit-scrollbar-thumb,
+[layout="gamenavbar"] .navbar-nav::-webkit-scrollbar-thumb {
+  background: var(--stargate-card-border);
+  border-radius: 8px;
+}
+[layout="gamenavbar"] .navbar-container {
+  scrollbar-width: thin; /* Firefox */
 }
 
 [layout="gamenavbar"] .nav-link {
@@ -49,7 +66,7 @@
   flex-direction: row;
   align-items: center;
   gap: 8px;
-  padding: 12px 16px;
+  padding: 12px 20px;
   border-radius: 12px;
   text-decoration: none;
   color: var(--stargate-text-secondary);
@@ -110,18 +127,6 @@
   font-weight: 600;
 }
 
-/* Spécifique pour le bouton menu hamburger (premier élément) */
-[layout="gamenavbar"] .navbar-nav > .nav-link:first-child {
-  margin-left: 0;
-  padding-left: max(4px, env(safe-area-inset-left, 4px));
-  margin-right: 2px;
-}
-
-/* Assurer que le conteneur permet le défilement horizontal si nécessaire */
-[layout="gamenavbar"] {
-  overflow: hidden;
-}
-
 /* Message counter styles */
 [layout="gamenavbar"] .nav-link .message-count {
   background: var(--stargate-accent);
@@ -149,40 +154,21 @@
   }
 }
 
-/* Support des safe areas pour les écrans avec encoche */
-@supports (padding-left: env(safe-area-inset-left)) {
-  [layout="gamenavbar"] {
-    padding-left: env(safe-area-inset-left, 0);
-    padding-right: env(safe-area-inset-right, 0);
-  }
-  
-  [layout="gamenavbar"] .navbar-container {
-    padding-left: max(8px, env(safe-area-inset-left, 8px));
-    padding-right: max(8px, env(safe-area-inset-right, 8px));
-  }
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
   [layout="gamenavbar"] .navbar-container {
-    padding: 0 max(6px, env(safe-area-inset-left, 6px)) 0 max(6px, env(safe-area-inset-right, 6px));
+    padding: 0 15px;
     height: 70px;
   }
   
   [layout="gamenavbar"] .navbar-nav {
     gap: 6px;
-    padding: 0 5px;
   }
   
   [layout="gamenavbar"] .nav-link {
-    padding: 10px 14px;
+    padding: 10px 16px;
     font-size: 0.85rem;
     gap: 6px;
-  }
-  
-  [layout="gamenavbar"] .navbar-nav > .nav-link:first-child {
-    padding-left: max(4px, env(safe-area-inset-left, 4px));
-    margin-left: 0;
   }
   
   [layout="gamenavbar"] .nav-link span {
@@ -202,7 +188,7 @@
 
 @media (max-width: 480px) {
   [layout="gamenavbar"] .navbar-container {
-    padding: 0 max(4px, env(safe-area-inset-left, 4px)) 0 max(4px, env(safe-area-inset-right, 4px));
+    padding: 0 10px;
     height: 60px;
   }
   
@@ -210,18 +196,12 @@
     gap: 4px;
     flex-wrap: nowrap;
     overflow-x: auto;
-    padding: 0 3px;
   }
   
   [layout="gamenavbar"] .nav-link {
-    padding: 8px 10px;
+    padding: 8px 12px;
     border-radius: 10px;
     gap: 4px;
-  }
-  
-  [layout="gamenavbar"] .navbar-nav > .nav-link:first-child {
-    padding-left: max(3px, env(safe-area-inset-left, 3px));
-    margin-left: 0;
   }
   
   [layout="gamenavbar"] .nav-link .message-count {

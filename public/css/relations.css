@@ -1,0 +1,92 @@
+/* Relations (Pactes) - aligné sur Empire */
+
+[page="relations"] { width: 100%; }
+
+[page="relations"] .empire-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+[page="relations"] .empire-header {
+  background: var(--stargate-card-bg);
+  border: 1px solid var(--stargate-card-border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: var(--stargate-shadow-md);
+}
+
+[page="relations"] .empire-title {
+  margin: 0;
+  font-size: 1.6rem;
+  background: var(--stargate-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[page="relations"] .empire-subtitle { margin: 6px 0 0 0; color: var(--stargate-text-secondary); }
+
+[page="relations"] .empire-planets { display: grid; grid-template-columns: 1fr; gap: 16px; }
+[page="relations"] .planet-card { background: rgba(0, 25, 50, 0.7); border: 1px solid rgba(64, 224, 255, 0.2); border-radius: 12px; padding: 16px; }
+[page="relations"] .planet-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+[page="relations"] .planet-name { font-size: 1.2rem; font-weight: 700; color: var(--stargate-text-primary); }
+[page="relations"] .planet-section { background: rgba(0, 30, 60, 0.6); border: 1px solid rgba(64, 224, 255, 0.2); border-radius: 8px; padding: 12px; }
+
+[page="relations"] .grid-item { display: flex; justify-content: space-between; background: rgba(0, 35, 70, 0.6); border: 1px solid rgba(64, 224, 255, 0.2); border-radius: 6px; padding: 8px; }
+[page="relations"] .item-name { color: var(--stargate-text-primary); }
+[page="relations"] .item-meta { color: var(--stargate-text-secondary); display: inline-flex; align-items: center; gap: 8px; }
+
+[page="relations"] .vip-btn { background: var(--stargate-gradient-primary); color: white; border: none; border-radius: 8px; padding: 6px 10px; cursor: pointer; box-shadow: var(--stargate-shadow-sm); }
+[page="relations"] .vip-btn:hover { box-shadow: var(--stargate-shadow-glow); transform: translateY(-1px); }
+
+[page="relations"] .empty-note { color: var(--stargate-text-secondary); font-style: italic; padding: 6px 8px; }
+
+@media (max-width: 1024px) {
+  [page="relations"] .empire-planets { grid-template-columns: 1fr; }
+}
+
+/* --- Améliorations visuelles: cartes, badges statut, hover --- */
+
+/* Listes relationnelles (optionnel si ul/li) */
+[page="relations"] .relation-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+[page="relations"] .relation-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(64, 224, 255, 0.25); background: linear-gradient(180deg, rgba(0,40,80,0.65), rgba(0,30,60,0.6)); box-shadow: 0 4px 10px rgba(0,0,0,0.25); transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
+[page="relations"] .relation-item:hover { transform: translateY(-1px); box-shadow: 0 6px 14px rgba(0,0,0,0.35); border-color: rgba(64, 224, 255, 0.35); }
+
+/* Cartes existantes */
+[page="relations"] .grid-item { align-items: center; gap: 12px; border-radius: 10px; border-left: 4px solid rgba(64, 224, 255, 0.45); background: linear-gradient(180deg, rgba(0,40,80,0.65), rgba(0,30,60,0.6)); box-shadow: 0 4px 10px rgba(0,0,0,0.25); transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease; }
+[page="relations"] .grid-item:hover { transform: translateY(-1px); box-shadow: 0 6px 14px rgba(0,0,0,0.35); border-color: rgba(64, 224, 255, 0.55); }
+
+/* Nom cliquable et hover */
+[page="relations"] .item-name { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
+[page="relations"] .item-name[style*="cursor: pointer"] { text-decoration: none; }
+[page="relations"] .item-name[style*="cursor: pointer"]:hover { color: #a5f3fc; }
+
+/* Badges relationnels (en ligne, moi, allié, ennemi) */
+[page="relations"] .relation-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85rem; padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(64, 224, 255, 0.25); background: rgba(64, 224, 255, 0.08); color: var(--stargate-text-secondary); }
+[page="relations"] .relation-badge .icon { font-size: 0.9em; }
+[page="relations"] .relation-badge.ally { border-color: #10b98166; background: linear-gradient(90deg, #10b9812a, #10b9811a); color: #d1fae5; }
+[page="relations"] .relation-badge.enemy { border-color: #ef444466; background: linear-gradient(90deg, #ef44442a, #ef44441a); color: #fee2e2; }
+[page="relations"] .relation-badge.me { border-color: #60a5fa66; background: linear-gradient(90deg, #60a5fa2a, #60a5fa1a); color: #dbeafe; }
+
+/* Point de statut animé pour "En ligne" */
+[page="relations"] .relation-badge.ally::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 999px; background: #10b981; box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25); animation: pulse-green 1.6s ease-in-out infinite; }
+
+@keyframes pulse-green {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.35); }
+  70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* Boutons */
+[page="relations"] .vip-btn { background: linear-gradient(135deg, #00e7ff 0%, #00b3ff 100%); color: #001a2a; font-weight: 700; }
+[page="relations"] .vip-btn:hover { filter: brightness(1.08); }
+
+/* Sections */
+[page="relations"] .planet-section { display: grid; gap: 10px; }
+
+/* Petites améliorations d’accessibilité */
+[page="relations"] .planet-name { letter-spacing: 0.2px; }
+[page="relations"] .item-meta { font-size: 0.95rem; }
