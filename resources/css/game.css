@@ -1,0 +1,1572 @@
+/* Game Main Layout */
+[page="game"] {
+  width: 100%;
+}
+
+/* Central Game Area */
+[page="game"] .game-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Compact Planet Header */
+[page="game"] .planet-header-compact {
+  background: var(--stargate-card-bg);
+  border: 1px solid var(--stargate-card-border);
+  border-radius: 15px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--stargate-shadow-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+[page="game"] .planet-main-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+[page="game"] .planet-visual-small {
+  flex-shrink: 0;
+}
+
+[page="game"] .planet-sphere-small {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #4a90e2, #2c5aa0, #1a365d);
+  box-shadow: 
+    0 0 20px rgba(74, 144, 226, 0.4),
+    inset -10px -10px 20px rgba(0, 0, 0, 0.5),
+    inset 10px 10px 20px rgba(255, 255, 255, 0.1);
+  animation: planetRotate 20s linear infinite;
+}
+
+[page="game"] .planet-sphere-small.planet-desert {
+  background: radial-gradient(circle at 30% 30%, #d4a574, #b8956a, #8b7355);
+  box-shadow: 
+    0 0 20px rgba(212, 165, 116, 0.4),
+    inset -10px -10px 20px rgba(0, 0, 0, 0.5),
+    inset 10px 10px 20px rgba(255, 255, 255, 0.1);
+}
+
+[page="game"] .planet-sphere-small.planet-jungle {
+  background: radial-gradient(circle at 30% 30%, #228b22, #006400, #2e8b57);
+  box-shadow: 
+    0 0 20px rgba(34, 139, 34, 0.4),
+    inset -10px -10px 20px rgba(0, 0, 0, 0.5),
+    inset 10px 10px 20px rgba(255, 255, 255, 0.1);
+}
+
+[page="game"] .planet-details {
+  flex: 1;
+}
+
+[page="game"] .planet-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  background: var(--stargate-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[page="game"] .planet-meta {
+  display: flex;
+  gap: 15px;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  flex-wrap: wrap;
+}
+
+[page="game"] .coordinates {
+  color: var(--stargate-primary);
+  font-weight: 500;
+  font-family: 'Courier New', monospace;
+}
+
+[page="game"] .planet-type {
+  color: var(--stargate-secondary);
+  font-weight: 500;
+}
+
+[page="game"] .fields {
+  color: var(--stargate-accent);
+  font-weight: 500;
+}
+
+/* Compact Resource Bonuses */
+[page="game"] .resource-bonuses-compact {
+  display: flex;
+  gap: 15px;
+  flex-shrink: 0;
+}
+
+[page="game"] .bonus-item-compact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  background: rgba(0, 20, 40, 0.6);
+  border: 1px solid rgba(64, 224, 255, 0.2);
+  border-radius: 8px;
+  min-width: 60px;
+  transition: all 0.3s ease;
+}
+
+[page="game"] .bonus-item-compact:hover {
+  background: rgba(0, 30, 60, 0.8);
+  border-color: rgba(64, 224, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+[page="game"] .bonus-item-compact img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+[page="game"] .bonus-item-compact i {
+  font-size: 1.2rem;
+  color: #FFD700;
+}
+
+[page="game"] .bonus-item-compact span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #40e0ff;
+}
+
+/* Game Grid Layout */
+[page="game"] .game-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+[page="game"] .grid-left,
+[page="game"] .grid-right {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Compact Queues Styles */
+[page="game"] .current-queues-compact {
+  background: rgba(0, 20, 40, 0.8);
+  border: 1px solid rgba(64, 224, 255, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--stargate-shadow-md);
+}
+
+[page="game"] .current-queues-compact h3 {
+  color: #40e0ff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-shadow: 0 0 10px rgba(64, 224, 255, 0.5);
+}
+
+[page="game"] .queue-section-compact {
+  margin-bottom: 15px;
+}
+
+[page="game"] .queue-section-compact:last-child {
+  margin-bottom: 0;
+}
+
+[page="game"] .queue-section-compact h4 {
+  color: #ffffff;
+  font-size: 1rem;
+  margin: 0 0 10px 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(64, 224, 255, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+[page="game"] .queue-section-compact h4 i {
+  color: #40e0ff;
+  font-size: 0.9rem;
+}
+
+[page="game"] .queue-item-compact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: rgba(0, 30, 60, 0.6);
+  border-radius: 8px;
+  border: 1px solid rgba(64, 224, 255, 0.2);
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+[page="game"] .queue-item-compact:last-child {
+  margin-bottom: 0;
+}
+
+[page="game"] .queue-item-compact:hover {
+  background: rgba(0, 40, 80, 0.8);
+  border-color: rgba(64, 224, 255, 0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(64, 224, 255, 0.2);
+}
+
+[page="game"] .queue-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+[page="game"] .queue-info .name {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+[page="game"] .queue-info .level,
+[page="game"] .queue-info .quantity {
+  color: #b0c4de;
+  font-size: 0.8rem;
+}
+
+[page="game"] .queue-item-compact .timer {
+  color: #40e0ff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: 'Courier New', monospace;
+}
+
+/* Compact Mission Radar Styles */
+[page="game"] .mission-radar-compact {
+  background: rgba(0, 20, 40, 0.8);
+  border: 1px solid rgba(64, 224, 255, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--stargate-shadow-md);
+}
+
+[page="game"] .mission-radar-compact h3 {
+  color: #40e0ff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-shadow: 0 0 10px rgba(64, 224, 255, 0.5);
+}
+
+[page="game"] .mission-list-compact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+[page="game"] .mission-item-compact {
+  background: rgba(0, 30, 60, 0.6);
+  border: 1px solid rgba(64, 224, 255, 0.2);
+  border-radius: 10px;
+  padding: 16px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+[page="game"] .mission-item-compact:hover {
+  background: rgba(0, 40, 80, 0.8);
+  border-color: rgba(64, 224, 255, 0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(64, 224, 255, 0.2);
+}
+
+[page="game"] .mission-item-compact.mission-traveling {
+  border-left: 3px solid #3b82f6;
+}
+
+[page="game"] .mission-item-compact.mission-returning {
+  border-left: 3px solid #10b981;
+}
+
+[page="game"] .mission-header-compact {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  gap: 15px;
+}
+
+[page="game"] .mission-info-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+[page="game"] .mission-info-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+[page="game"] .mission-type {
+  font-weight: 600;
+  color: var(--stargate-text-primary);
+  font-size: 1rem;
+}
+
+[page="game"] .mission-status {
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+[page="game"] .mission-status.status-traveling {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+[page="game"] .mission-status.status-returning {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+[page="game"] .mission-status.status-exploring {
+  background: rgba(167, 139, 250, 0.20);
+  color: #c4b5fd;
+  border: 1px solid rgba(167, 139, 250, 0.30);
+}
+
+[page="game"] .mission-timer {
+  color: #40e0ff;
+  font-weight: 600;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+[page="game"] .mission-timer::before {
+  content: '\f017';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: 0.8rem;
+  animation: pulse 2s infinite;
+}
+
+[page="game"] .mission-route-compact {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--stargate-text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  line-height: 1.4;
+}
+
+[page="game"] .mission-route-compact i {
+  color: #40e0ff;
+  font-size: 0.8rem;
+}
+
+[page="game"] .mission-route-compact .from,
+[page="game"] .mission-route-compact .to {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+}
+
+[page="game"] .mission-actions-compact {
+  display: flex;
+  align-items: center;
+}
+
+[page="game"] .btn-recall {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[page="game"] .btn-recall:hover {
+  background: rgba(245, 158, 11, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.2);
+}
+
+[page="game"] .btn-recall i {
+  font-size: 0.8rem;
+}
+
+/* Planet Overview */
+[page="game"] .planet-overview {
+  background: var(--stargate-card-bg);
+  border: 1px solid var(--stargate-card-border);
+  border-radius: 20px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--stargate-shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+[page="game"] .planet-overview::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(14, 165, 233, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+[page="game"] .planet-header {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+[page="game"] .planet-name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  background: var(--stargate-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: var(--stargate-shadow-glow);
+}
+
+[page="game"] .planet-info {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+[page="game"] .coordinates {
+  color: var(--stargate-primary);
+  font-weight: 500;
+}
+
+[page="game"] .planet-type {
+  color: var(--stargate-secondary);
+  font-weight: 500;
+}
+
+/* Planet Visual */
+[page="game"] .planet-visual {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+  position: relative;
+  z-index: 1;
+}
+
+[page="game"] .planet-sphere {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: relative;
+  background: radial-gradient(circle at 30% 30%, #4a90e2, #2c5aa0, #1a365d);
+  box-shadow: 
+    0 0 50px rgba(74, 144, 226, 0.4),
+    inset -20px -20px 50px rgba(0, 0, 0, 0.5),
+    inset 20px 20px 50px rgba(255, 255, 255, 0.1);
+  animation: planetRotate 20s linear infinite;
+}
+
+[page="game"] .planet-sphere.planet-desert {
+  background: radial-gradient(circle at 30% 30%, #d4a574, #b8956a, #8b7355);
+  box-shadow: 
+    0 0 50px rgba(212, 165, 116, 0.4),
+    inset -20px -20px 50px rgba(0, 0, 0, 0.5),
+    inset 20px 20px 50px rgba(255, 255, 255, 0.1);
+}
+
+[page="game"] .planet-sphere.planet-ice {
+  background: radial-gradient(circle at 30% 30%, #a8dadc, #457b9d, #1d3557);
+  box-shadow: 
+    0 0 50px rgba(168, 218, 220, 0.4),
+    inset -20px -20px 50px rgba(0, 0, 0, 0.5),
+    inset 20px 20px 50px rgba(255, 255, 255, 0.2);
+}
+
+[page="game"] .planet-sphere.planet-volcanic {
+  background: radial-gradient(circle at 30% 30%, #e63946, #a4161a, #660708);
+  box-shadow: 
+    0 0 50px rgba(230, 57, 70, 0.4),
+    inset -20px -20px 50px rgba(0, 0, 0, 0.5),
+    inset 20px 20px 50px rgba(255, 100, 100, 0.2);
+}
+
+[page="game"] .planet-surface {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.05) 10px,
+    rgba(255, 255, 255, 0.05) 20px
+  );
+  animation: surfaceMove 30s linear infinite;
+}
+
+[page="game"] .planet-atmosphere {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, transparent 70%, rgba(14, 165, 233, 0.2) 100%);
+  animation: atmospherePulse 4s ease-in-out infinite;
+}
+
+@keyframes planetRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes surfaceMove {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes atmospherePulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+/* Quick Stats */
+[page="game"] .quick-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+[page="game"] .stat-item {
+  background: var(--stargate-card-bg);
+  border: 1px solid var(--stargate-card-border);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+[page="game"] .stat-item:hover {
+  background: var(--stargate-card-hover);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+[page="game"] .stat-item i {
+  font-size: 1.5rem;
+  color: var(--stargate-primary);
+  margin-bottom: 10px;
+  display: block;
+}
+
+[page="game"] .stat-label {
+  display: block;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 5px;
+}
+
+[page="game"] .stat-value {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--stargate-secondary);
+}
+
+/* Action Panels */
+[page="game"] .action-panels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+[page="game"] .panel {
+  background: var(--stargate-card-bg);
+  border: 1px solid var(--stargate-card-border);
+  border-radius: 20px;
+  padding: 25px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+[page="game"] .panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--stargate-gradient-primary);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+[page="game"] .panel:hover {
+  background: var(--stargate-card-hover);
+  transform: translateY(-5px);
+  box-shadow: var(--stargate-shadow-lg);
+}
+
+[page="game"] .panel:hover::before {
+  transform: scaleX(1);
+}
+
+[page="game"] .panel h3 {
+  margin: 0 0 15px 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+[page="game"] .panel h3 i {
+  color: var(--stargate-primary);
+  font-size: 1.2rem;
+}
+
+[page="game"] .panel-content {
+  margin-bottom: 20px;
+}
+
+[page="game"] .panel-content p {
+  margin: 0 0 15px 0;
+  opacity: 0.8;
+  line-height: 1.5;
+}
+
+[page="game"] .action-btn {
+  background: var(--stargate-gradient-primary);
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  color: var(--stargate-text-primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+[page="game"] .action-btn:hover {
+  background: var(--stargate-gradient-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--stargate-shadow-glow);
+}
+
+[page="game"] .action-btn:active {
+  transform: translateY(0);
+}
+
+[page="game"] .action-btn i {
+  font-size: 1.1rem;
+}
+
+/* Resource Bonuses */
+[page="game"] .resource-bonuses {
+  margin-top: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+[page="game"] .resource-bonuses h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+  background: var(--stargate-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[page="game"] .bonus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+[page="game"] .bonus-item {
+  background: var(--stargate-card-bg);
+  border: 1px solid var(--stargate-card-border);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+[page="game"] .bonus-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+[page="game"] .bonus-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+[page="game"] .bonus-item:hover {
+  background: var(--stargate-card-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-color: var(--stargate-primary);
+}
+
+[page="game"] .bonus-item i {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+[page="game"] .bonus-item:nth-child(1) i {
+  color: #8B4513; /* Métal - Brun */
+}
+
+[page="game"] .bonus-item:nth-child(2) i {
+  color: #4169E1; /* Cristal - Bleu royal */
+}
+
+[page="game"] .bonus-item:nth-child(3) i {
+  color: #32CD32; /* Deutérium - Vert lime */
+}
+
+[page="game"] .bonus-item:nth-child(4) i {
+  color: #FFD700; /* Énergie - Or */
+}
+
+[page="game"] .bonus-item:hover i {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+[page="game"] .bonus-label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0.9;
+  margin-bottom: 8px;
+  color: var(--stargate-text);
+}
+
+[page="game"] .bonus-value {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 700;
+  background: var(--stargate-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Specific Panel Colors */
+[page="game"] .buildings-panel h3 i { color: var(--stargate-accent); }
+[page="game"] .fleet-panel h3 i { color: var(--stargate-primary); }
+[page="game"] .research-panel h3 i { color: var(--stargate-secondary); }
+[page="game"] .galaxy-panel h3 i { color: var(--stargate-success); }
+
+/* Mission Radar Styles */
+[page="game"] .mission-radar {
+  background: rgba(0, 20, 40, 0.8);
+  border: 1px solid rgba(64, 224, 255, 0.3);
+  border-radius: 15px;
+  padding: 25px;
+  margin-top: 30px;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--stargate-shadow-md);
+}
+
+[page="game"] .mission-radar h3 {
+  color: #40e0ff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-shadow: 0 0 10px rgba(64, 224, 255, 0.5);
+}
+
+[page="game"] .mission-radar h3 i {
+  color: #40e0ff;
+  font-size: 1.2rem;
+}
+
+[page="game"] .mission-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+[page="game"] .mission-item {
+  background: rgba(0, 30, 60, 0.6);
+  border: 1px solid rgba(64, 224, 255, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+[page="game"] .mission-item:hover {
+  background: rgba(0, 40, 80, 0.8);
+  border-color: rgba(64, 224, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(64, 224, 255, 0.2);
+}
+
+[page="game"] .mission-item.mission-traveling {
+  border-left: 4px solid #3b82f6;
+}
+
+[page="game"] .mission-item.mission-returning {
+  border-left: 4px solid #10b981;
+}
+
+[page="game"] .mission-item.mission-exploring {
+  border-left: 4px solid #a78bfa;
+}
+
+[page="game"] .mission-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+[page="game"] .mission-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+[page="game"] .mission-type {
+  font-weight: 600;
+  color: var(--stargate-text-primary);
+  font-size: 1.1rem;
+}
+
+[page="game"] .mission-status {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+[page="game"] .mission-status.status-traveling {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+[page="game"] .mission-status.status-returning {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+[page="game"] .mission-status.status-collecting {
+  background: rgba(245, 158, 11, 0.15); 
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.30);
+}
+
+[page="game"] .mission-status.status-exploring {
+  background: rgba(167, 139, 250, 0.20); 
+  color: #c4b5fd;
+  border: 1px solid rgba(167, 139, 250, 0.30);
+}
+
+[page="game"] .mission-route {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--stargate-text-secondary);
+  font-size: 0.9rem;
+}
+
+[page="game"] .mission-route i {
+  color: #40e0ff;
+}
+
+[page="game"] .from-planet,
+[page="game"] .to-coordinates {
+  font-family: 'Courier New', monospace;
+}
+
+[page="game"] .mission-timer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #40e0ff;
+  font-weight: 600;
+  font-family: 'Courier New', monospace;
+}
+
+[page="game"] .mission-timer i {
+  font-size: 0.9rem;
+  color: #40e0ff;
+  animation: pulse 2s infinite;
+}
+
+[page="game"] .mission-actions {
+  display: flex;
+  gap: 10px;
+}
+
+[page="game"] .mission-actions .btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+[page="game"] .mission-actions .btn-warning {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+[page="game"] .mission-actions .btn-warning:hover {
+  background: rgba(245, 158, 11, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+}
+
+[page="game"] .mission-actions .btn i {
+  font-size: 0.8rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  [page="game"] .game-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  [page="game"] .planet-header-compact {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+  
+  [page="game"] .planet-main-info {
+    justify-content: center;
+  }
+  
+  [page="game"] .resource-bonuses-compact {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  [page="game"] .central-area {
+    padding: 0 15px;
+    gap: 15px;
+  }
+  
+  [page="game"] .planet-header-compact {
+    padding: 15px;
+  }
+  
+  [page="game"] .planet-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  [page="game"] .resource-bonuses-compact {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  [page="game"] .current-queues-compact,
+  [page="game"] .mission-radar-compact {
+    padding: 15px;
+  }
+  
+  [page="game"] .mission-header-compact {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  
+  [page="game"] .mission-info-left {
+    gap: 6px;
+  }
+  
+  [page="game"] .mission-info-right {
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  [page="game"] .mission-route-compact {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  [page="game"] .mission-route-compact i {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  [page="game"] .planet-name {
+    font-size: 1.5rem;
+  }
+  
+  [page="game"] .planet-meta {
+    font-size: 0.8rem;
+  }
+  
+  [page="game"] .bonus-item-compact {
+    min-width: 50px;
+    padding: 8px;
+  }
+  
+  [page="game"] .bonus-item-compact img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  [page="game"] .bonus-item-compact span {
+    font-size: 0.7rem;
+  }
+}
+  
+  [page="game"] .planet-name {
+    font-size: 2rem;
+  }
+  
+  [page="game"] .planet-sphere {
+    width: 150px;
+    height: 150px;
+  }
+  
+  [page="game"] .planet-info {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  [page="game"] .action-panels {
+    grid-template-columns: 1fr;
+  }
+  
+  [page="game"] .quick-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  [page="game"] .bonus-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  [page="game"] .bonus-item {
+    padding: 15px;
+  }
+  
+  [page="game"] .bonus-item i {
+    font-size: 1.5rem;
+  }
+
+  [page="game"] .bonus-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+  
+  [page="game"] .bonus-value {
+    font-size: 1.1rem;
+  }
+
+
+@media (max-width: 480px) {
+  [page="game"] .game-content {
+    margin-top: 70px;
+    padding: 10px;
+  }
+  
+  [page="game"] .planet-name {
+    font-size: 1.5rem;
+  }
+  
+  [page="game"] .planet-sphere {
+    width: 120px;
+    height: 120px;
+  }
+  
+  [page="game"] .bonus-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  [page="game"] .bonus-item {
+    padding: 12px;
+  }
+  
+  [page="game"] .bonus-item i {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+  }
+
+  [page="game"] .bonus-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+  
+  [page="game"] .bonus-label {
+    font-size: 0.85rem;
+  }
+  
+  [page="game"] .bonus-value {
+    font-size: 1rem;
+  }
+}
+
+/* Building: Equip Team UI enhancements */
+[page="building"] .equip-select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--stargate-card-border);
+  background: var(--stargate-card-bg);
+  color: #e6f3ff;
+  outline: none;
+  box-shadow: var(--stargate-shadow-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+[page="building"] .equip-select:hover,
+[page="building"] .equip-select:focus {
+  border-color: rgba(64, 224, 255, 0.5);
+  box-shadow: 0 0 0 3px rgba(64, 224, 255, 0.15);
+}
+
+[page="building"] .payload-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  border: 1px solid rgba(64, 224, 255, 0.15);
+  border-radius: 8px;
+  background: rgba(0, 20, 40, 0.5);
+  margin-bottom: 8px;
+}
+
+[page="building"] .payload-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #e6f3ff;
+}
+
+[page="building"] .payload-label img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+[page="building"] .payload-label .payload-available {
+  opacity: 0.8;
+  font-size: 0.85rem;
+}
+
+[page="building"] .payload-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+[page="building"] .payload-input input[type="number"] {
+  width: 120px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--stargate-card-border);
+  background: rgba(0, 30, 60, 0.6);
+  color: #fff;
+  outline: none;
+}
+
+[page="building"] .payload-btn.max {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(64, 224, 255, 0.35);
+  background: linear-gradient(135deg, rgba(0, 60, 120, 0.7), rgba(0, 40, 80, 0.7));
+  color: #40e0ff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+[page="building"] .payload-btn.max:hover {
+  border-color: rgba(64, 224, 255, 0.6);
+  box-shadow: 0 0 12px rgba(64, 224, 255, 0.25);
+}
+
+[page="building"] .payload-btn.max:active {
+  transform: translateY(1px);
+}
+
+/* Daily Reward Banner */
+[page="game"] .daily-reward-banner {
+  background: var(--stargate-card-bg);
+  border: 1px solid var(--stargate-card-border);
+  border-radius: 14px;
+  padding: 18px;
+  backdrop-filter: blur(8px);
+  box-shadow: var(--stargate-shadow-md);
+}
+
+[page="game"] .daily-reward-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+[page="game"] .daily-reward-header h3 {
+  color: #40e0ff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-shadow: 0 0 10px rgba(64, 224, 255, 0.4);
+}
+
+[page="game"] .daily-reward-header h3 i {
+  color: #FFD700;
+}
+
+[page="game"] .daily-reward-preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+[page="game"] .daily-reward-preview span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: rgba(0, 30, 60, 0.5);
+  border: 1px solid rgba(64, 224, 255, 0.2);
+  color: #e6f3ff;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+[page="game"] .daily-reward-preview img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  border-radius: 3px;
+}
+
+[page="game"] .btn-claim {
+  background: var(--stargate-gradient-primary);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  color: var(--stargate-text-primary);
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--stargate-shadow-glow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+[page="game"] .btn-claim:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(64, 224, 255, 0.25);
+}
+
+[page="game"] .btn-claim i {
+  color: #FFD700;
+}
+
+[page="game"] .daily-reward-steps {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+[page="game"] .reward-step {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(0, 30, 60, 0.6);
+  border: 1px solid rgba(64, 224, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b0c4de;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+[page="game"] .reward-step.current {
+  background: linear-gradient(135deg, rgba(64, 224, 255, 0.3), rgba(14, 165, 233, 0.25));
+  color: #ffffff;
+  border-color: rgba(64, 224, 255, 0.55);
+  box-shadow: 0 0 14px rgba(64, 224, 255, 0.25), inset 0 0 8px rgba(64, 224, 255, 0.15);
+  transform: scale(1.05);
+}
+
+[page="game"] .step-index {
+  font-family: 'Courier New', monospace;
+}
+
+/* Daily Reward Schedule (desktop) */
+[page="game"] .daily-reward-schedule {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+[page="game"] .reward-day-card {
+  background: rgba(0, 20, 40, 0.6);
+  border: 1px solid rgba(64, 224, 255, 0.25);
+  border-radius: 10px;
+  padding: 10px;
+  transition: all 0.2s ease;
+}
+
+[page="game"] .reward-day-card.current {
+  border-color: rgba(64, 224, 255, 0.55);
+  box-shadow: 0 0 12px rgba(64, 224, 255, 0.25);
+}
+
+[page="game"] .reward-day-header {
+  font-weight: 600;
+  color: #40e0ff;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+[page="game"] .reward-day-items {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+[page="game"] .reward-day-items span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: rgba(0, 30, 60, 0.45);
+  border: 1px solid rgba(64, 224, 255, 0.2);
+  color: #e6f3ff;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+[page="game"] .reward-day-items img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  border-radius: 3px;
+}
+
+/* Queue timer consistency */
+[page="game"] .queue-timer {
+  color: #40e0ff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: 'Courier New', monospace;
+}
+
+/* Mobile game quick styles */
+[page="game-mobile"] .summary-card {
+  background: var(--stargate-card-bg);
+  border: 1px solid var(--stargate-card-border);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: var(--stargate-shadow-sm);
+}
+
+[page="game-mobile"] .action-btn {
+  background: var(--stargate-gradient-primary);
+  border: none;
+  border-radius: 10px;
+  padding: 8px 12px;
+  color: var(--stargate-text-primary);
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+[page="game-mobile"] .action-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--stargate-shadow-glow);
+}
+
+[page="game-mobile"] .badge {
+  background: rgba(0, 30, 60, 0.5);
+  border: 1px solid rgba(64, 224, 255, 0.25);
+  color: #e6f3ff;
+  border-radius: 10px;
+  padding: 4px 8px;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+[page="game-mobile"] .badge-disabled {
+  opacity: 0.6;
+}
+
+[page="game-mobile"] .planet-visual-small {
+  flex-shrink: 0;
+}
+
+[page="game-mobile"] .planet-sphere-small {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #4a90e2, #2c5aa0, #1a365d);
+  box-shadow:
+    0 0 14px rgba(74, 144, 226, 0.35),
+    inset -8px -8px 16px rgba(0, 0, 0, 0.5),
+    inset 8px 8px 16px rgba(255, 255, 255, 0.08);
+  animation: planetRotate 20s linear infinite;
+}
+
+[page="game-mobile"] .planet-sphere-small.planet-desert {
+  background: radial-gradient(circle at 30% 30%, #d4a574, #b8956a, #8b7355);
+  box-shadow:
+    0 0 14px rgba(212, 165, 116, 0.35),
+    inset -8px -8px 16px rgba(0, 0, 0, 0.5),
+    inset 8px 8px 16px rgba(255, 255, 255, 0.08);
+}
+
+[page="game-mobile"] .planet-sphere-small.planet-jungle {
+  background: radial-gradient(circle at 30% 30%, #228b22, #006400, #2e8b57);
+  box-shadow:
+    0 0 14px rgba(34, 139, 34, 0.35),
+    inset -8px -8px 16px rgba(0, 0, 0, 0.5),
+    inset 8px 8px 16px rgba(255, 255, 255, 0.08);
+}
+
+[page="game-mobile"] .planet-sphere-small.planet-ice {
+  background: radial-gradient(circle at 30% 30%, #a8dadc, #457b9d, #1d3557);
+  box-shadow:
+    0 0 14px rgba(168, 218, 220, 0.35),
+    inset -8px -8px 16px rgba(0, 0, 0, 0.5),
+    inset 8px 8px 16px rgba(255, 255, 255, 0.08);
+}
+
+[page="game-mobile"] .planet-sphere-small.planet-volcanic {
+  background: radial-gradient(circle at 30% 30%, #e63946, #a4161a, #660708);
+  box-shadow:
+    0 0 14px rgba(230, 57, 70, 0.35),
+    inset -8px -8px 16px rgba(0, 0, 0, 0.5),
+    inset 8px 8px 16px rgba(255, 100, 100, 0.15);
+}
+
+/* Daily Reward Schedule (mobile) */
+@media (max-width: 600px) {
+  [page="game-mobile"] .summary-card {
+    padding: 10px;
+  }
+}

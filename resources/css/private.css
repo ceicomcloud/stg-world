@@ -1,0 +1,1555 @@
+/* Messagerie Privée - Styles */
+[page="private-messaging"] {
+    width: 100%;
+}
+
+[page="private-messaging"] .messaging-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+/* Sidebar des conversations */
+[page="private-messaging"] .conversations-sidebar {
+    width: 350px;
+    background: rgba(30, 41, 59, 0.8);
+    border-right: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 12px 0 0 12px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+}
+
+[page="private-messaging"] .sidebar-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(51, 65, 85, 0.6);
+    border-radius: 12px 0 0 0;
+}
+
+/* Styles pour les statistiques des messages */
+[page="private-messaging"] .message-stats {
+    padding: 15px;
+    border-bottom: 1px solid #2a3f5f;
+    background-color: #1e2a3a;
+}
+
+[page="private-messaging"] .stats-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+[page="private-messaging"] .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    background-color: #2a3f5f;
+    border-radius: 6px;
+    flex: 1;
+    border: 1px solid #3d5a7a;
+}
+
+[page="private-messaging"] .stat-item i {
+    color: #4a90e2;
+    font-size: 1.1em;
+}
+
+[page="private-messaging"] .stat-label {
+    color: #b8c5d1;
+    font-size: 0.85em;
+    font-weight: 500;
+}
+
+[page="private-messaging"] .stat-value {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+[page="private-messaging"] .stat-value.unread {
+    color: #ff6b6b;
+    background-color: rgba(255, 107, 107, 0.1);
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+/* Styles pour les détails des messages non lus */
+[page="private-messaging"] .unread-details {
+    margin-top: 15px;
+    padding: 12px;
+    background-color: #1a2332;
+    border-radius: 6px;
+    border: 1px solid #2a3f5f;
+}
+
+[page="private-messaging"] .details-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    color: #b8c5d1;
+    font-size: 0.85em;
+    font-weight: 500;
+}
+
+[page="private-messaging"] .details-header i {
+    color: #4a90e2;
+    font-size: 1em;
+}
+
+[page="private-messaging"] .details-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+[page="private-messaging"] .detail-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    background-color: #2a3f5f;
+    border-radius: 4px;
+    border: 1px solid #3d5a7a;
+}
+
+[page="private-messaging"] .type-badge {
+    font-size: 0.75em;
+    font-weight: 500;
+    padding: 2px 6px;
+    border-radius: 3px;
+    text-transform: capitalize;
+}
+
+[page="private-messaging"] .type-badge.type-player {
+    background-color: rgba(74, 144, 226, 0.2);
+    color: #4a90e2;
+}
+
+[page="private-messaging"] .type-badge.type-alliance {
+    background-color: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+}
+
+[page="private-messaging"] .type-badge.type-system {
+    background-color: rgba(156, 163, 175, 0.2);
+    color: #9ca3af;
+}
+
+[page="private-messaging"] .type-badge.type-attack {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+}
+
+[page="private-messaging"] .type-badge.type-spy {
+    background-color: rgba(168, 85, 247, 0.2);
+    color: #a855f7;
+}
+
+[page="private-messaging"] .type-badge.type-colonize {
+    background-color: rgba(59, 130, 246, 0.2);
+    color: #3b82f6;
+}
+
+[page="private-messaging"] .type-badge.type-return {
+    background-color: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+}
+
+[page="private-messaging"] .type-badge.type-send {
+    background-color: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+}
+
+[page="private-messaging"] .count-badge {
+    background-color: #ff6b6b;
+    color: #ffffff;
+    font-size: 0.75em;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+    min-width: 18px;
+    text-align: center;
+    line-height: 1;
+}
+
+/* Styles pour le filtre de type de message */
+[page="private-messaging"] .message-type-filter {
+    padding: 15px;
+    border-bottom: 1px solid #2a3f5f;
+    background-color: #1a2332;
+}
+
+[page="private-messaging"] .message-type-filter label {
+    display: block;
+    margin-bottom: 8px;
+    color: #b8c5d1;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+[page="private-messaging"] .message-type-filter .form-control {
+    width: 100%;
+    padding: 8px 12px;
+    background-color: #2a3f5f;
+    border: 1px solid #3d5a7a;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 0.9em;
+}
+
+[page="private-messaging"] .message-type-filter .form-control:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+    margin: 0;
+    color: #ffffff;
+}
+
+[page="private-messaging"] .header-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+[page="private-messaging"] .header-buttons .btn {
+    flex: 1;
+    min-width: 80px;
+}
+
+[page="private-messaging"] .btn-success {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    border: none;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+[page="private-messaging"] .btn-success:hover:not(:disabled) {
+    background: linear-gradient(135deg, #218838, #1ea085);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+    color: #38bdf8;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+[page="private-messaging"] .conversations-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 0;
+}
+
+[page="private-messaging"] .conversation-item {
+    padding: 15px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    border-radius: 8px;
+    margin: 4px 8px;
+}
+
+[page="private-messaging"] .conversation-item:hover {
+    background: rgba(56, 189, 248, 0.1);
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
+}
+
+[page="private-messaging"] .conversation-item.active {
+    background: rgba(56, 189, 248, 0.2);
+    border-left: 4px solid #38bdf8;
+    box-shadow: 0 4px 16px rgba(56, 189, 248, 0.3);
+}
+
+[page="private-messaging"] .conversation-title {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+[page="private-messaging"] .conversation-type {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+[page="private-messaging"] .type-player { background: #4caf50; color: white; }
+[page="private-messaging"] .type-alliance { background: #2196f3; color: white; }
+[page="private-messaging"] .type-system { background: #ff9800; color: white; }
+[page="private-messaging"] .type-attack { background: #f44336; color: white; }
+[page="private-messaging"] .type-spy { background: #9c27b0; color: white; }
+[page="private-messaging"] .type-colonize { background: #795548; color: white; }
+[page="private-messaging"] .type-return { background: #607d8b; color: white; }
+[page="private-messaging"] .type-send { background: #009688; color: white; }
+
+[page="private-messaging"] .conversation-preview {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+[page="private-messaging"] .last-message {
+    font-size: 0.85rem;
+    color: #b0bec5;
+    flex: 1;
+    margin-right: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+[page="private-messaging"] .last-time {
+    font-size: 0.75rem;
+    color: #78909c;
+}
+
+[page="private-messaging"] .participants-count {
+    font-size: 0.8rem;
+    color: #90a4ae;
+}
+
+[page="private-messaging"] .no-conversations {
+    text-align: center;
+    padding: 40px 20px;
+    color: #78909c;
+}
+
+/* Zone de conversation */
+[page="private-messaging"] .conversation-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: rgba(51, 65, 85, 0.4);
+    border-radius: 0 12px 12px 0;
+}
+
+/* Formulaire nouvelle conversation */
+[page="private-messaging"] .new-conversation-form {
+    padding: 30px;
+    background: rgba(30, 41, 59, 0.8);
+    border-radius: 15px;
+    margin: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+[page="private-messaging"] .form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[page="private-messaging"] .form-header h4 {
+    margin: 0;
+    color: #38bdf8;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+[page="private-messaging"] .form-group {
+    margin-bottom: 20px;
+}
+
+[page="private-messaging"] .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #e3f2fd;
+}
+
+[page="private-messaging"] .form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    border-radius: 8px;
+    background: rgba(51, 65, 85, 0.6);
+    color: #ffffff;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+[page="private-messaging"] .form-control:focus {
+    outline: none;
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+    background: rgba(51, 65, 85, 0.8);
+}
+
+[page="private-messaging"] .form-control::placeholder {
+    color: #90a4ae;
+}
+
+[page="private-messaging"] .users-list {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+[page="private-messaging"] .user-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+[page="private-messaging"] .user-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+[page="private-messaging"] .user-item.selected {
+    background: rgba(100, 181, 246, 0.3);
+    border-left: 3px solid #64b5f6;
+}
+
+[page="private-messaging"] .user-name {
+    font-weight: 500;
+    color: #ffffff;
+}
+
+[page="private-messaging"] .user-role {
+    font-size: 0.8rem;
+    color: #90a4ae;
+    text-transform: capitalize;
+}
+
+[page="private-messaging"] .form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* En-tête de conversation */
+[page="private-messaging"] .conversation-header {
+    padding: 20px 30px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    background: rgba(30, 41, 59, 0.8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 12px 0 0;
+}
+
+[page="private-messaging"] .conversation-info h4 {
+    margin: 0 0 5px 0;
+    color: #38bdf8;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+[page="private-messaging"] .conversation-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+[page="private-messaging"] .participants-info {
+    font-size: 0.9rem;
+    color: #b0bec5;
+}
+
+[page="private-messaging"] .participant {
+    color: #e3f2fd;
+    margin-left: 5px;
+}
+
+/* Messages */
+[page="private-messaging"] .messages-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 30px;
+    background: rgba(15, 23, 42, 0.6);
+}
+
+[page="private-messaging"] .message {
+    margin-bottom: 20px;
+    animation: fadeInUp 0.3s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+[page="private-messaging"] .system-message {
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto 30px auto;
+}
+
+[page="private-messaging"] .system-content {
+    display: inline-block;
+    width: 100%;
+    padding: 15px 25px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #e2e8f0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    text-align: left;
+}
+
+[page="private-messaging"] .own-message {
+    text-align: right;
+}
+
+[page="private-messaging"] .own-message .message-header {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.4), rgba(14, 165, 233, 0.3));
+    color: #ffffff;
+    margin-left: 25%;
+    border-radius: 18px 18px 0px 0px;
+    box-shadow: 0 2px 8px rgba(56, 189, 248, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-bottom: none;
+    backdrop-filter: blur(5px);
+}
+
+[page="private-messaging"] .own-message .message-content {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.4), rgba(14, 165, 233, 0.3));
+    color: #ffffff;
+    margin-left: 25%;
+    border-radius: 0px 0px 5px 18px;
+    box-shadow: 0 2px 8px rgba(56, 189, 248, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-top: none;
+    backdrop-filter: blur(5px);
+}
+
+[page="private-messaging"] .other-message .message-header {
+    background: rgba(51, 65, 85, 0.8);
+    color: #ffffff;
+    margin-right: 20%;
+    border-radius: 18px 18px 0px 0px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-bottom: none;
+}
+
+[page="private-messaging"] .other-message .message-content {
+    background: rgba(51, 65, 85, 0.8);
+    color: #ffffff;
+    margin-right: 20%;
+    border-radius: 0px 0px 18px 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-top: none;
+}
+
+[page="private-messaging"] .message-header {
+    padding: 8px 15px 5px 15px;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[page="private-messaging"] .message-author {
+    font-weight: 600;
+}
+
+[page="private-messaging"] .message-time {
+    opacity: 0.7;
+    font-size: 0.75rem;
+}
+
+[page="private-messaging"] .read-indicator {
+    color: #4caf50;
+    margin-left: 5px;
+}
+
+[page="private-messaging"] .message-content {
+    padding: 10px 15px;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+/* Zone de saisie */
+[page="private-messaging"] .message-input-area {
+    padding: 20px 30px;
+    border-top: 1px solid rgba(56, 189, 248, 0.3);
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: 0 0 12px 0;
+    backdrop-filter: blur(10px);
+}
+
+[page="private-messaging"] .message-form {
+    display: flex;
+    align-items: center;
+}
+
+[page="private-messaging"] .input-group {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+[page="private-messaging"] .input-group .form-control {
+    flex: 1;
+    border-radius: 25px;
+    padding: 14px 20px;
+    background: rgba(51, 65, 85, 0.8);
+    border: 2px solid rgba(148, 163, 184, 0.3);
+    color: #ffffff;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+[page="private-messaging"] .input-group .form-control:focus {
+    outline: none;
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+    background: rgba(51, 65, 85, 0.9);
+}
+
+[page="private-messaging"] .input-group .form-control::placeholder {
+    color: #94a3b8;
+}
+
+[page="private-messaging"] .input-group .btn {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+}
+
+[page="private-messaging"] .input-group .btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #0ea5e9, #0284c7);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+}
+
+[page="private-messaging"] .input-group .btn:disabled {
+    background: rgba(71, 85, 105, 0.6);
+    color: rgba(148, 163, 184, 0.5);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+[page="private-messaging"] .no-reply-notice {
+    padding: 20px;
+    text-align: center;
+    background: rgba(244, 67, 54, 0.1);
+    border: 1px solid rgba(244, 67, 54, 0.3);
+    border-radius: 10px;
+    margin: 20px 30px;
+    color: #ffcdd2;
+}
+
+/* État vide */
+[page="private-messaging"] .no-conversation-selected {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+[page="private-messaging"] .empty-state {
+    text-align: center;
+    color: #78909c;
+}
+
+[page="private-messaging"] .empty-state i {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: #546e7a;
+}
+
+[page="private-messaging"] .empty-state h4 {
+    margin-bottom: 10px;
+    color: #90a4ae;
+}
+
+[page="private-messaging"] .empty-state p {
+    margin-bottom: 25px;
+    color: #78909c;
+}
+
+/* Boutons */
+[page="private-messaging"] .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+[page="private-messaging"] .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+[page="private-messaging"] .btn-primary {
+    background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+    color: white;
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+}
+
+[page="private-messaging"] .btn-primary:hover:not(:disabled) {
+    background: linear-gradient(135deg, #0ea5e9, #0284c7);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+}
+
+[page="private-messaging"] .btn-secondary {
+    background: rgba(51, 65, 85, 0.8);
+    color: #e2e8f0;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+[page="private-messaging"] .btn-secondary:hover {
+    background: rgba(71, 85, 105, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+[page="private-messaging"] .btn-danger {
+    background: linear-gradient(135deg, #f44336, #d32f2f);
+    color: white;
+}
+
+[page="private-messaging"] .btn-danger:hover {
+    background: linear-gradient(135deg, #d32f2f, #c62828);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(244, 67, 54, 0.4);
+}
+
+[page="private-messaging"] .btn-sm {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+}
+
+/* Messages d'erreur */
+[page="private-messaging"] .error {
+    color: #ff5252;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Scrollbar personnalisée */
+[page="private-messaging"] .conversations-list::-webkit-scrollbar,
+[page="private-messaging"] .messages-container::-webkit-scrollbar,
+[page="private-messaging"] .users-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+[page="private-messaging"] .conversations-list::-webkit-scrollbar-track,
+[page="private-messaging"] .messages-container::-webkit-scrollbar-track,
+[page="private-messaging"] .users-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+[page="private-messaging"] .conversations-list::-webkit-scrollbar-thumb,
+[page="private-messaging"] .messages-container::-webkit-scrollbar-thumb,
+[page="private-messaging"] .users-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+[page="private-messaging"] .conversations-list::-webkit-scrollbar-thumb:hover,
+[page="private-messaging"] .messages-container::-webkit-scrollbar-thumb:hover,
+[page="private-messaging"] .users-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    [page="private-messaging"] .messaging-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    [page="private-messaging"] .conversations-sidebar {
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    [page="private-messaging"] .conversation-area {
+        width: 100%;
+        height: 400px;
+    }
+
+    [page="private-messaging"] .own-message .message-header,
+    [page="private-messaging"] .own-message .message-content,
+    [page="private-messaging"] .other-message .message-header,
+    [page="private-messaging"] .other-message .message-content {
+        font-size: 0.9rem;
+    }
+
+    /* Statistiques responsive */
+    [page="private-messaging"] .stats-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    [page="private-messaging"] .stat-item {
+        justify-content: center;
+        text-align: center;
+    }
+
+    [page="private-messaging"] .stat-label,
+    [page="private-messaging"] .stat-value {
+        font-size: 0.8em;
+    }
+
+    /* Détails des messages non lus responsive */
+    [page="private-messaging"] .details-container {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    [page="private-messaging"] .detail-item {
+        justify-content: space-between;
+    }
+
+    [page="private-messaging"] .type-badge,
+    [page="private-messaging"] .count-badge {
+        font-size: 0.7em;
+    }
+}
+
+/* Styles pour les rapports de combat */
+[page="private-messaging"] .combat-report {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    background: rgba(15, 23, 42, 0.95);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 10px 0;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+[page="private-messaging"] .combat-report .report-header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+[page="private-messaging"] .combat-report .report-header h3 {
+    color: #38bdf8;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+    font-size: 1.5em;
+}
+
+[page="private-messaging"] .combat-report .combat-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+[page="private-messaging"] .combat-report .attacker-info,
+[page="private-messaging"] .combat-report .defender-info {
+    flex: 1;
+    padding: 15px;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+}
+
+[page="private-messaging"] .combat-report .attacker-info {
+    background: rgba(239, 68, 68, 0.2);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+[page="private-messaging"] .combat-report .defender-info {
+    background: rgba(34, 197, 94, 0.2);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+[page="private-messaging"] .combat-report .attacker-info h4 {
+    color: #ef4444;
+    margin: 0 0 10px 0;
+}
+
+[page="private-messaging"] .combat-report .defender-info h4 {
+    color: #22c55e;
+    margin: 0 0 10px 0;
+}
+
+[page="private-messaging"] .combat-report .combat-result {
+    text-align: center;
+    padding: 15px;
+    background: rgba(51, 65, 85, 0.8);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+[page="private-messaging"] .combat-report .rounds-details {
+    margin-bottom: 20px;
+}
+
+[page="private-messaging"] .combat-report .rounds-details h4 {
+    color: #38bdf8;
+    margin-bottom: 15px;
+}
+
+[page="private-messaging"] .combat-report .round {
+    padding: 10px;
+    background: rgba(30, 41, 59, 0.8);
+    border-radius: 6px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(71, 85, 105, 0.5);
+}
+
+[page="private-messaging"] .combat-report .round h5 {
+    color: #e2e8f0;
+    margin: 0 0 10px 0;
+}
+
+[page="private-messaging"] .combat-report .pillaged-resources {
+    padding: 15px;
+    background: rgba(245, 158, 11, 0.2);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+[page="private-messaging"] .combat-report .pillaged-resources h4 {
+    color: #f59e0b;
+    margin: 0 0 10px 0;
+}
+
+[page="private-messaging"] .combat-report .forces-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+[page="private-messaging"] .combat-report .attacker-forces,
+[page="private-messaging"] .combat-report .defender-forces {
+    flex: 1;
+    padding: 15px;
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 8px;
+    border: 1px solid rgba(71, 85, 105, 0.5);
+}
+
+[page="private-messaging"] .combat-report .forces-summary h4 {
+    color: #e2e8f0;
+    margin: 0 0 10px 0;
+}
+
+[page="private-messaging"] .combat-report .forces-summary ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+[page="private-messaging"] .combat-report .forces-summary li {
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+}
+
+[page="private-messaging"] .combat-report .round-powers {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+[page="private-messaging"] .combat-report .attacker-power {
+    color: #ef4444;
+}
+
+[page="private-messaging"] .combat-report .defender-power {
+    color: #22c55e;
+}
+
+[page="private-messaging"] .combat-report .round-losses {
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(51, 65, 85, 0.6);
+    border-radius: 6px;
+}
+
+[page="private-messaging"] .combat-report .round-losses h6 {
+    color: #f59e0b;
+    margin: 0 0 10px 0;
+    font-size: 0.9em;
+}
+
+[page="private-messaging"] .combat-report .attacker-losses,
+[page="private-messaging"] .combat-report .defender-losses {
+    margin-bottom: 10px;
+}
+
+[page="private-messaging"] .combat-report .round-losses ul {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0;
+}
+
+[page="private-messaging"] .combat-report .round-losses li {
+    padding: 2px 0;
+    color: #ef4444;
+    font-size: 0.9em;
+}
+
+[page="private-messaging"] .combat-report .surviving-units {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 8px;
+    border: 1px solid rgba(71, 85, 105, 0.5);
+}
+
+[page="private-messaging"] .combat-report .surviving-units h4 {
+    color: #38bdf8;
+    margin: 0 0 15px 0;
+}
+
+[page="private-messaging"] .combat-report .attacker-survivors,
+[page="private-messaging"] .combat-report .defender-survivors {
+    margin-bottom: 15px;
+}
+
+[page="private-messaging"] .combat-report .surviving-units h5 {
+    color: #e2e8f0;
+    margin: 0 0 10px 0;
+    font-size: 1.1em;
+}
+
+[page="private-messaging"] .combat-report .surviving-units ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+[page="private-messaging"] .combat-report .surviving-units li {
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+    color: #22c55e;
+}
+
+[page="private-messaging"] .combat-report .pillaged-resources ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+[page="private-messaging"] .combat-report .pillaged-resources li {
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(245, 158, 11, 0.3);
+    color: #ffffff;
+}
+
+/* Styles pour le résumé des unités détruites */
+[page="private-messaging"] .combat-report .destroyed-units-summary {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(239, 68, 68, 0.15);
+    border-radius: 8px;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+[page="private-messaging"] .combat-report .destroyed-units-summary h4 {
+    color: #ef4444;
+    margin: 0 0 15px 0;
+    text-align: center;
+    font-size: 1.2em;
+    text-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
+}
+
+[page="private-messaging"] .combat-report .total-losses {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+[page="private-messaging"] .combat-report .attacker-total-losses,
+[page="private-messaging"] .combat-report .defender-total-losses {
+    flex: 1;
+    padding: 12px;
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 6px;
+    border: 1px solid rgba(71, 85, 105, 0.5);
+}
+
+[page="private-messaging"] .combat-report .attacker-total-losses h5 {
+    color: #ef4444;
+    margin: 0 0 10px 0;
+    font-size: 1em;
+    text-align: center;
+}
+
+[page="private-messaging"] .combat-report .defender-total-losses h5 {
+    color: #22c55e;
+    margin: 0 0 10px 0;
+    font-size: 1em;
+    text-align: center;
+}
+
+[page="private-messaging"] .combat-report .total-losses ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+[page="private-messaging"] .combat-report .total-losses li {
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+    color: #ef4444;
+    font-size: 0.95em;
+    display: flex;
+    justify-content: space-between;
+}
+
+[page="private-messaging"] .combat-report .total-losses p {
+    text-align: center;
+    color: #94a3b8;
+    font-style: italic;
+    margin: 0;
+    padding: 10px;
+}
+
+/* Styles pour les points de combat */
+[page="private-messaging"] .combat-report .combat-points {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(168, 85, 247, 0.15);
+    border-radius: 8px;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+[page="private-messaging"] .combat-report .combat-points h4 {
+    color: #a855f7;
+    margin: 0 0 15px 0;
+    text-align: center;
+    font-size: 1.2em;
+    text-shadow: 0 0 8px rgba(168, 85, 247, 0.3);
+}
+
+/* Styles pour les icônes d'unités dans les rapports de combat */
+[page="private-messaging"] .combat-report .unit-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    margin-right: 8px;
+    vertical-align: middle;
+    border-radius: 4px;
+    background: rgba(14, 165, 233, 0.1);
+    padding: 2px;
+    filter: drop-shadow(0 0 4px rgba(14, 165, 233, 0.3));
+    transition: all 0.3s ease;
+}
+
+[page="private-messaging"] .combat-report .unit-icon:hover {
+    filter: drop-shadow(0 0 8px rgba(14, 165, 233, 0.6));
+    transform: scale(1.1);
+}
+
+/* Styles spécifiques pour les différents types d'unités */
+[page="private-messaging"] .combat-report .forces-summary .unit-icon {
+    background: rgba(34, 197, 94, 0.1);
+    filter: drop-shadow(0 0 4px rgba(34, 197, 94, 0.3));
+}
+
+[page="private-messaging"] .combat-report .round-losses .unit-icon {
+    background: rgba(239, 68, 68, 0.1);
+    filter: drop-shadow(0 0 4px rgba(239, 68, 68, 0.3));
+}
+
+[page="private-messaging"] .combat-report .surviving-units .unit-icon {
+    background: rgba(34, 197, 94, 0.1);
+    filter: drop-shadow(0 0 4px rgba(34, 197, 94, 0.3));
+}
+
+[page="private-messaging"] .combat-report .total-losses .unit-icon {
+    background: rgba(239, 68, 68, 0.1);
+    filter: drop-shadow(0 0 4px rgba(239, 68, 68, 0.3));
+}
+
+/* Amélioration de l'alignement des éléments de liste avec icônes */
+[page="private-messaging"] .combat-report li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+[page="private-messaging"] .combat-report li:last-child {
+    margin-bottom: 0;
+}
+
+[page="private-messaging"] .combat-report .points-awarded {
+    text-align: center;
+    padding: 10px;
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 6px;
+    border: 1px solid rgba(71, 85, 105, 0.5);
+}
+
+[page="private-messaging"] .combat-report .points-awarded p {
+    margin: 5px 0;
+    font-size: 1.05em;
+}
+
+[page="private-messaging"] .combat-report .points-awarded strong {
+    font-weight: 600;
+}
+
+[page="private-messaging"] .combat-report .points-awarded span {
+    text-shadow: 0 0 6px currentColor;
+    font-weight: bold;
+}
+
+/* Responsive pour les nouvelles sections */
+@media (max-width: 768px) {
+    [page="private-messaging"] .combat-report .total-losses {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    [page="private-messaging"] .combat-report .destroyed-units-summary,
+    [page="private-messaging"] .combat-report .combat-points {
+        padding: 12px;
+    }
+    
+    [page="private-messaging"] .combat-report .destroyed-units-summary h4,
+    [page="private-messaging"] .combat-report .combat-points h4 {
+        font-size: 1.1em;
+    }
+}
+
+/* Styles pour les rapports d'espionnage */
+[page="private-messaging"] .spy-report {
+    background: rgba(15, 23, 42, 0.8);
+    border-radius: 12px;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    overflow: hidden;
+    width: 100%;
+    font-size: 1.05rem;
+}
+
+[page="private-messaging"] .spy-report-header {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+[page="private-messaging"] .spy-report-title {
+    color: #38bdf8;
+    font-size: 1.4rem;
+    margin: 0 0 10px 0;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+    font-weight: 600;
+}
+
+[page="private-messaging"] .spy-report-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #e2e8f0;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Styles pour le formulaire de message collectif alliance */
+[page="private-messaging"] .alliance-broadcast-form {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #2d3748;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+[page="private-messaging"] .alliance-broadcast-form .form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #28a745;
+}
+
+[page="private-messaging"] .alliance-broadcast-form .form-header h4 {
+    color: #28a745;
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+[page="private-messaging"] .alliance-broadcast-form .form-header h4 i {
+    color: #20c997;
+}
+
+[page="private-messaging"] .alliance-info {
+    background: rgba(40, 167, 69, 0.1);
+    border: 1px solid rgba(40, 167, 69, 0.3);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+}
+
+[page="private-messaging"] .alliance-info .info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    color: #e2e8f0;
+}
+
+[page="private-messaging"] .alliance-info .info-item:last-child {
+    margin-bottom: 0;
+}
+
+[page="private-messaging"] .alliance-info .info-item i {
+    color: #28a745;
+    width: 16px;
+    text-align: center;
+}
+
+[page="private-messaging"] .alliance-broadcast-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+[page="private-messaging"] .alliance-broadcast-form .form-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 24px;
+}
+
+[page="private-messaging"] .alliance-broadcast-form .btn {
+    padding: 10px 20px;
+    font-weight: 500;
+}
+
+[page="private-messaging"] .alliance-broadcast-form .btn-success {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    border: none;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+[page="private-messaging"] .alliance-broadcast-form .btn-success:hover:not(:disabled) {
+    background: linear-gradient(135deg, #218838, #1ea085);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+}
+
+[page="private-messaging"] .spy-result {
+    background: rgba(30, 41, 59, 0.6);
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    color: #e2e8f0;
+}
+
+[page="private-messaging"] .spy-section {
+    padding: 20px 25px;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    background: rgba(15, 23, 42, 0.6);
+    margin-bottom: 5px;
+}
+
+[page="private-messaging"] .spy-section:last-child {
+    border-bottom: none;
+}
+
+[page="private-messaging"] .spy-section h4 {
+    color: #38bdf8;
+    margin: 0 0 15px 0;
+    font-size: 1.25rem;
+    text-shadow: 0 0 5px rgba(56, 189, 248, 0.2);
+    font-weight: 600;
+}
+
+/* Grille pour les informations de la planète */
+[page="private-messaging"] .planet-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+[page="private-messaging"] .planet-info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 15px;
+    background: rgba(30, 41, 59, 0.4);
+    border-radius: 8px;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+[page="private-messaging"] .planet-info-item:hover {
+    background: rgba(30, 41, 59, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+[page="private-messaging"] .planet-info-label {
+    font-weight: 600;
+    color: #94a3b8;
+}
+
+[page="private-messaging"] .planet-info-value {
+    color: #e2e8f0;
+}
+
+/* Grille pour les ressources */
+[page="private-messaging"] .spy-resources-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+[page="private-messaging"] .spy-resource-item {
+    background: rgba(30, 41, 59, 0.4);
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+[page="private-messaging"] .spy-resource-item:hover {
+    background: rgba(30, 41, 59, 0.6);
+    transform: translateY(-2px);
+}
+
+[page="private-messaging"] .spy-resource-name {
+    color: #94a3b8;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 1.05rem;
+}
+
+[page="private-messaging"] .spy-resource-amount {
+    color: #38bdf8;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Grille pour les autres sections */
+[page="private-messaging"] .spy-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+[page="private-messaging"] .spy-grid-item {
+    background: rgba(30, 41, 59, 0.4);
+    border-radius: 8px;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+[page="private-messaging"] .spy-grid-item:hover {
+    background: rgba(30, 41, 59, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+[page="private-messaging"] .spy-item-name {
+    color: #94a3b8;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+[page="private-messaging"] .spy-item-value {
+    color: #e2e8f0;
+    font-size: 1.05rem;
+}
+
+/* Section de risque de détection */
+[page="private-messaging"] .detection-risk-section {
+    background: rgba(30, 41, 59, 0.8);
+}
+
+[page="private-messaging"] .detection-risk-value {
+    text-align: center;
+    color: #f87171;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 10px;
+}
+
+/* Message vide */
+[page="private-messaging"] .spy-empty-notice {
+    text-align: center;
+    color: #94a3b8;
+    font-style: italic;
+    padding: 15px;
+    background: rgba(30, 41, 59, 0.4);
+    border-radius: 6px;
+    font-size: 1.05rem;
+    margin: 10px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    [page="private-messaging"] .spy-resources-grid,
+    [page="private-messaging"] .spy-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    [page="private-messaging"] .planet-info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    [page="private-messaging"] .spy-report-meta {
+        flex-direction: column;
+        gap: 5px;
+    }
+}

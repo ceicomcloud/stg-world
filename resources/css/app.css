@@ -1,0 +1,402 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'sweetalert2/dist/sweetalert2.min.css';
+@import './auth.css';
+@import './dashboard.css';
+@import './dashboardNavbar.css';
+@import './profile.css';
+@import './settings.css';
+@import './game.css';
+@import './game-features.css';
+@import './gamenavbar.css';
+@import './gameresource.css';
+@import './building.css';
+@import './resourcemanager.css';
+@import './modal.css';
+@import './queue.css';
+@import './technology.css';
+@import './galaxy.css';
+@import './server-news-banner.css';
+@import './managePlanet.css';
+@import './managePlayers.css';
+@import './trade.css';
+@import './ranking.css';
+@import './alliance.css';
+@import './chatbox.css';
+@import './private.css';
+@import './forum.css';
+@import './empire.css';
+@import './relations.css';
+@import './mission.css';
+@import './bunker.css';
+@import './report-problem.css';
+@import './daily-quests.css';
+@import './inventory.css';
+@import './auth-extra.css';
+@import './customization-page.css';
+@import './report.css';
+/* Variables CSS globales inspirées de l'interface Stargate */
+:root {
+    /* Couleurs principales Stargate */
+    --stargate-primary: #0ea5e9;        /* Bleu cyan principal */
+    --stargate-primary-rgb: 14, 165, 233; /* Valeurs RGB pour primary */
+    --stargate-primary-bg: rgba(14, 165, 233, 0.2); /* Fond primary avec transparence */
+    --stargate-secondary: #06b6d4;      /* Cyan secondaire */
+    --stargate-secondary-rgb: 6, 182, 212; /* Valeurs RGB pour secondary */
+    --stargate-secondary-bg: rgba(6, 182, 212, 0.2); /* Fond secondary avec transparence */
+    --stargate-accent: #f59e0b;         /* Orange/ambre accent */
+    --stargate-accent-rgb: 245, 158, 11; /* Valeurs RGB pour accent */
+    --stargate-success: #10b981;        /* Vert succès */
+    --stargate-success-rgb: 16, 185, 129; /* Valeurs RGB pour success */
+    --stargate-success-bg: rgba(16, 185, 129, 0.2); /* Fond success avec transparence */
+    --stargate-warning: #f59e0b;        /* Orange warning */
+    --stargate-warning-rgb: 245, 158, 11; /* Valeurs RGB pour warning */
+    --stargate-warning-bg: rgba(245, 158, 11, 0.2); /* Fond warning avec transparence */
+    --stargate-danger: #ef4444;         /* Rouge danger */
+    --stargate-danger-rgb: 239, 68, 68; /* Valeurs RGB pour danger */
+    --stargate-danger-bg: rgba(239, 68, 68, 0.1); /* Fond danger avec transparence */
+    --stargate-info: #3b82f6;          /* Bleu info */
+    --stargate-info-rgb: 59, 130, 246; /* Valeurs RGB pour info */
+    --stargate-info-bg: rgba(59, 130, 246, 0.2); /* Fond info avec transparence */
+    --stargate-purple: #8b5cf6;         /* Violet pour certains éléments */
+    --stargate-purple-rgb: 139, 92, 246; /* Valeurs RGB pour purple */
+    --stargate-text-inverse: #ffffff;   /* Blanc pur pour texte sur fond foncé */
+    
+    /* Arrière-plans */
+    --stargate-bg-primary: #0f172a;     /* Bleu très foncé */
+    --stargate-bg-secondary: #1e293b;   /* Bleu foncé */
+    --stargate-bg-tertiary: #334155;    /* Bleu moyen */
+    
+    /* Cartes et surfaces */
+    --stargate-card-bg: rgba(15, 23, 42, 0.8);     /* Fond carte avec transparence */
+    --stargate-card-border: rgba(6, 182, 212, 0.2); /* Bordure cyan subtile */
+    --stargate-card-hover: rgba(15, 23, 42, 0.9);   /* Fond carte au survol */
+    
+    /* Textes */
+    --stargate-text-primary: #f1f5f9;   /* Blanc cassé */
+    --stargate-text-secondary: #cbd5e1; /* Gris clair */
+    --stargate-text-muted: #94a3b8;     /* Gris moyen */
+    --stargate-text-accent: #0ea5e9;    /* Bleu cyan pour accents */
+    --stargate-text-highlight: #f59e0b; /* Orange pour mise en évidence */
+    
+    /* Bordures et séparateurs */
+    --stargate-border: rgba(148, 163, 184, 0.2);
+    --stargate-border-accent: rgba(14, 165, 233, 0.3);
+    
+    /* Ombres */
+    --stargate-shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --stargate-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    --stargate-shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    --stargate-shadow-glow: 0 0 20px rgba(14, 165, 233, 0.3);
+    
+    /* Gradients */
+    --stargate-gradient-primary: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+    --stargate-gradient-secondary: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    --stargate-gradient-accent: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+
+    --stargate-text: white;
+}
+
+body {
+    background: var(--stargate-gradient-secondary);
+    background-image: url('../images/bg.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Désactiver le scroll global quand le tiroir est ouvert (desktop) */
+.no-scroll {
+    overflow: hidden !important;
+    height: 100vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+.table>:not(caption)>*>* {
+    background: var(--stargate-card-bg);
+}
+
+/* Nouveau layout desktop */
+.game-body { min-height: 100vh; }
+.game-layout { min-height: 100vh; }
+.game-header { position: sticky; top: 0; z-index: 30; backdrop-filter: blur(6px); }
+.game-main { display: grid; grid-template-columns: 1fr; gap: 1rem; padding: 1rem; padding: 20px; margin-top: 80px; }
+.game-toolbar { position: sticky; top: 64px; z-index: 25; }
+.game-content { display: flex; flex-direction: column; gap: 1rem; }
+.game-page-slot { flex: 1 1 auto; min-width: 0; }
+
+/* Tiroir latéral desktop */
+.drawer-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 80; }
+.game-drawer { position: fixed; top: 0; bottom: 0; padding-top: 64px; width: 360px; background: var(--stargate-card-bg); border-right: 1px solid var(--stargate-border); box-shadow: var(--stargate-shadow-lg); z-index: 90; display: flex; flex-direction: column; backdrop-filter: blur(6px); }
+.game-drawer.right { right: 0; }
+.game-drawer.left { left: 0; }
+.drawer-header { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1rem; border-bottom: 1px solid var(--stargate-border); }
+.drawer-body { padding: 0.75rem; overflow-y: auto; height: 100%; }
+.drawer-close { background: rgba(14, 165, 233, 0.12); border: 1px solid var(--stargate-border-accent); border-radius: 8px; padding: 0.4rem 0.6rem; color: var(--stargate-text-primary); }
+
+/* Bouton menu navbar (desktop) */
+.game-navbar .nav-menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    border: 1px solid var(--stargate-border);
+    background: var(--stargate-card-bg);
+    color: var(--stargate-text-primary);
+    box-shadow: var(--stargate-shadow-sm);
+    transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+.game-navbar .nav-menu-btn:hover {
+    box-shadow: var(--stargate-shadow-md);
+}
+.game-navbar .nav-menu-btn:active {
+    transform: translateY(1px);
+}
+.game-navbar .nav-menu-btn i { font-size: 1rem; }
+
+/* Styles personnalisés pour SweetAlert2 avec thème Stargate */
+.stargate-swal-popup {
+    background: var(--stargate-card-bg) !important;
+    border: 1px solid var(--stargate-card-border) !important;
+    border-radius: 12px !important;
+    box-shadow: var(--stargate-shadow-lg), var(--stargate-shadow-glow) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+.stargate-swal-title {
+    color: var(--stargate-text-primary) !important;
+    text-shadow: 0 0 10px rgba(14, 165, 233, 0.3) !important;
+}
+
+.stargate-swal-content {
+    color: var(--stargate-text-secondary) !important;
+}
+
+.stargate-swal-confirm {
+    background: var(--stargate-gradient-primary) !important;
+    border: 1px solid var(--stargate-primary) !important;
+    border-radius: 8px !important;
+    box-shadow: var(--stargate-shadow-sm) !important;
+    transition: all 0.3s ease !important;
+}
+
+.stargate-swal-confirm:hover {
+    background: var(--stargate-gradient-accent) !important;
+    box-shadow: var(--stargate-shadow-glow) !important;
+    transform: translateY(-2px) !important;
+}
+
+.stargate-swal-cancel {
+    background: transparent !important;
+    border: 1px solid var(--stargate-danger) !important;
+    color: var(--stargate-danger) !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+}
+
+.stargate-swal-cancel:hover {
+    background: var(--stargate-danger) !important;
+    color: var(--stargate-text-primary) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Override des styles SweetAlert2 par défaut */
+.swal2-popup {
+    background: var(--stargate-card-bg) !important;
+    border: 1px solid var(--stargate-card-border) !important;
+}
+
+.swal2-title {
+    color: var(--stargate-text-primary) !important;
+}
+
+.swal2-html-container {
+    color: var(--stargate-text-secondary) !important;
+}
+
+.swal2-icon.swal2-success [class^='swal2-success-line'] {
+    background-color: var(--stargate-success) !important;
+}
+
+.swal2-icon.swal2-success .swal2-success-ring {
+    border-color: var(--stargate-success) !important;
+}
+
+.swal2-icon.swal2-error {
+    border-color: var(--stargate-danger) !important;
+    color: var(--stargate-danger) !important;
+}
+
+.swal2-icon.swal2-warning {
+    border-color: var(--stargate-warning) !important;
+    color: var(--stargate-warning) !important;
+}
+
+.loading-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #64b5f6;
+    font-size: 14px;
+  }
+  
+  .loading-indicator i {
+    margin-right: 8px;
+    font-size: 16px;
+  }
+  
+  .error-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #f44336;
+    background-color: rgba(244, 67, 54, 0.1);
+    border: 1px solid rgba(244, 67, 54, 0.3);
+    border-radius: 4px;
+    margin: 10px;
+    font-size: 14px;
+    position: relative;
+  }
+  
+  .error-message.warning {
+    color: #ff9800;
+    background-color: rgba(255, 152, 0, 0.1);
+    border: 1px solid rgba(255, 152, 0, 0.3);
+    justify-content: space-between;
+  }
+  
+  .error-message i {
+    margin-right: 8px;
+    font-size: 16px;
+  }
+  
+  .close-error {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+  }
+  
+  .close-error:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  
+.game-layout {
+    min-height: 100vh;
+    color: var(--stargate-text-primary);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Truce banner styles */
+.truce-banner {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(90deg, #0f172a 0%, #1f2937 50%, #0f172a 100%);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  color: #cbd5e1;
+  padding: 6px 16px;
+  z-index: 10;
+}
+
+.truce-banner__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.truce-banner .fa-handshake {
+  color: #f59e0b;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .truce-banner__inner {
+    font-size: 0.8rem;
+  }
+}
+
+.game-main-content {
+    display: flex;
+    flex: 1;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 80px;
+}
+
+.system-message-content {
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.system-message-content p {
+    margin: 8px 0;
+    padding: 0;
+}
+
+.system-message-content p:first-child {
+    margin-top: 0;
+    font-size: 16px;
+    color: #4CAF50;
+}
+
+.system-message-content p:last-child {
+    margin-bottom: 0;
+}
+
+.system-message-content strong {
+    color: #2196F3;
+    font-weight: 600;
+}
+
+.system-message-content ul {
+    margin: 8px 0;
+    padding-left: 20px;
+}
+
+.system-message-content li {
+    margin: 4px 0;
+    list-style-type: disc;
+}
+
+/* Specific styling for system messages in private messaging */
+.system-message .system-content {
+    background: rgba(76, 175, 80, 0.1);
+    border-left: 4px solid #4CAF50;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 8px 0;
+}
+
+.system-message .system-content .fas.fa-info-circle {
+    color: #4CAF50;
+    margin-right: 8px;
+}
+
+.system-message .message-time {
+    font-size: 12px;
+    color: #888;
+    margin-left: 8px;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.text-muted {
+    color:white !important;
+}
