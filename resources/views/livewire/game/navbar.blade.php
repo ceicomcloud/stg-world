@@ -39,13 +39,13 @@
             </a>
             
             <!-- Profile dropdown -->
-            <div class="mobile-nav-item dropdown" x-data="{ open: false }" x-on:click.outside="open = false">
+            <div class="mobile-nav-item dropdown" x-data="{ open: false }" x-on:click.outside="open = false" x-cloak>
                 <button class="mobile-nav-btn" x-on:click="open = !open">
                     <i class="fas fa-user"></i>
                     <i class="fas fa-chevron-down dropdown-icon" :class="{ 'rotated': open }"></i>
                 </button>
                 
-                <div class="dropdown-menu mobile-dropdown-menu" x-show="open" x-transition x-cloak>
+                <div class="dropdown-menu mobile-dropdown-menu" x-show="open" x-transition>
                     <div class="mobile-dropdown-header">
                         <i class="fas fa-user-circle"></i>
                         <span>{{ Auth::user()->username }}</span>

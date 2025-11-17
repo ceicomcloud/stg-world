@@ -293,7 +293,7 @@
 
 /* ===== MOBILE TOPBAR ===== */
 .mobile-topbar {
-  display: flex !important;
+  display: none;
   align-items: center;
   justify-content: space-between;
   padding: 8px max(8px, env(safe-area-inset-left, 8px)) 8px max(8px, env(safe-area-inset-right, 8px));
@@ -375,16 +375,16 @@
 
 /* Desktop navbar */
 .desktop-navbar {
-  /* Existing desktop styles remain the same */
+  display: block;
 }
 
 /* Responsive visibility for navbars */
 @media (max-width: 991.98px) {
   .mobile-topbar {
-    display: flex !important;
+    display: flex;
   }
   .desktop-navbar {
-    display: none !important;
+    display: none;
   }
 }
 
