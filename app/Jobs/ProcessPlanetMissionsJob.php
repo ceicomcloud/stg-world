@@ -1230,7 +1230,7 @@ class ProcessPlanetMissionsJob implements ShouldQueue
                 'exploration_completed' => true
             ];
 
-            /*// Award a random inventory pack
+            // Award a random inventory pack
             $reward = \App\Models\Template\TemplateInventory::where('type', 'pack')
                 ->inRandomOrder()
                 ->first();
@@ -1243,7 +1243,7 @@ class ProcessPlanetMissionsJob implements ShouldQueue
                     'name' => $reward->name,
                     'quantity' => 1,
                 ];
-            }*/
+            }
 
             // Récompenses en ressources basées sur un taux/minute
             $normalizedShips = $this->normalizeUnitsPayload($mission->ships ?? []);
