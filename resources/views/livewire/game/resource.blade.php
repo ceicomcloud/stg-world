@@ -1,29 +1,66 @@
 <div class="game-resource-panel" layout="gameresource">
-    <div class="resource-header">
-        <div class="planet-selector">
-            <div class="planet-dropdown" x-data="{ open: false }" x-on:click.outside="open = false">
-                <button class="planet-button" x-on:click="open = !open" :class="{ 'open': open }">
-                    <i class="fas fa-globe"></i>
-                    <span>{{ $planet['name'] ?? 'Sélectionner une planète' }}</span>
-                    <i class="fas fa-chevron-down dropdown-icon" :class="{ 'rotated': open }"></i>
-                </button>
+    <!-- En-tête compact avec infos joueur -->
+    <div class="player-info-header">
+        <div class="player-avatar">
+            <i class="fas fa-user-astronaut"></i>
+        </div>
+        <div class="player-details">
+            <div class="player-name">{{ Auth::user()->username }}</div>
+            <div class="player-level">Niveau {{ Auth::user()->level ?? 1 }}</div>
+            <div class="player-xp">
+                <div class="xp-bar">
+                    <div class="xp-fill" style="width: {{ Auth::user()->xp_percentage ?? 0 }}%;"></div>
+                </div>
+                <span class="xp-text">{{ Auth::user()->xp ?? 0 }} XP</span>
+            </div>
+        </div>
+    </div>
 
-                <div class="planet-options" x-show="open" x-transition>
-                    @foreach($availablePlanets as $planetOption)
-                    <div class="planet-option {{ isset($planet['id']) && $planetOption['id'] === $planet['id'] ? 'active' : '' }}" wire:click="selectPlanet({{ json_encode($planetOption) }})" x-on:click="open = false">
-                        <div class="planet-option-info">
-                            <i class="fas fa-globe"></i>
-                            <div class="planet-details">
-                                <span class="planet-name">{{ $planetOption['name'] }}</span>
-                                <span class="planet-coords">{{ $planetOption['description'] }}</span>
-                            </div>
-                        </div>
-                        <div class="planet-type-badge {{ $planetOption['is_main_planet'] ? 'main-planet' : 'secondary-planet' }}">
-                            {{ $planetOption['is_main_planet'] ? 'Principale' : 'Secondaire' }}
+    <!-- Player Stats Grid - Compact -->
+    <div class="player-stats-grid">
+        <div class="stat-item">
+            <i class="fas fa-brain"></i>
+            <span class="stat-label">Recherche</span>
+            <span class="stat-value">{{ number_format($researchPointsProduction ?? 0) }}/h</span>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-bolt"></i>
+            <span class="stat-label">Énergie</span>
+            <span class="stat-value">{{ number_format($totalEnergyRemaining ?? 0) }}</span>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-star"></i>
+            <span class="stat-label">Réputation</span>
+            <span class="stat-value">{{ number_format(Auth::user()->reputation ?? 0) }}</span>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-medal"></i>
+            <span class="stat-label">Classement</span>
+            <span class="stat-value">#{{ Auth::user()->ranking ?? '-' }}</span>
+        </div>
+    </div>
+
+    <!-- Sélecteur de planète compact -->
+    <div class="planet-selector-compact">
+        <div class="planet-dropdown" x-data="{ open: false }" x-on:click.outside="open = false">
+            <button class="planet-button-compact" x-on:click="open = !open" :class="{ 'open': open }">
+                <i class="fas fa-globe"></i>
+                <span>{{ $planet['name'] ?? 'Sélectionner' }}</span>
+                <i class="fas fa-chevron-down dropdown-icon" :class="{ 'rotated': open }"></i>
+            </button>
+
+            <div class="planet-options" x-show="open" x-transition>
+                @foreach($availablePlanets as $planetOption)
+                <div class="planet-option {{ isset($planet['id']) && $planetOption['id'] === $planet['id'] ? 'active' : '' }}" wire:click="selectPlanet({{ json_encode($planetOption) }})" x-on:click="open = false">
+                    <div class="planet-option-info">
+                        <i class="fas fa-globe"></i>
+                        <div class="planet-details">
+                            <span class="planet-name">{{ $planetOption['name'] }}</span>
+                            <span class="planet-coords">{{ $planetOption['description'] }}</span>
                         </div>
                     </div>
-                    @endforeach
                 </div>
+                @endforeach
             </div>
         </div>
     </div>

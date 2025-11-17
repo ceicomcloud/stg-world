@@ -421,16 +421,16 @@ input[type=number] {
 
 /* Sidebar fixe des ressources */
 .game-sidebar {
-    width: 300px;
-    min-width: 300px;
+    width: 280px; /* Légèrement réduit */
+    min-width: 280px;
     background: var(--stargate-card-bg);
     border-right: 1px solid var(--stargate-border);
     backdrop-filter: blur(6px);
     display: flex;
     flex-direction: column;
-    height: 100vh; /* Pleine hauteur */
+    height: calc(100vh - 80px); /* Hauteur moins la navbar */
     position: fixed; /* Fixe pour toujours rester visible */
-    top: 0; /* Commence en haut de la page */
+    top: 80px; /* Commence sous la navbar */
     left: 0;
     z-index: 10; /* Sous la navbar mais au-dessus du contenu */
     overflow-y: auto; /* Scrollbar intégrée */
@@ -477,11 +477,19 @@ input[type=number] {
 
 /* Contenu principal qui s'adapte */
 .game-container-with-sidebar .game-main {
-    margin-left: 300px; /* Décaler pour ne pas être sous la sidebar */
-    width: calc(100% - 300px); /* Prendre le reste de la largeur */
+    margin-left: 280px; /* Décaler pour ne pas être sous la sidebar */
+    width: calc(100% - 280px); /* Prendre le reste de la largeur */
     margin-top: 0; /* Retirer la marge car on est dans le container */
     padding: 20px;
     min-width: 0; /* Permet au contenu de réduire si nécessaire */
+}
+
+/* Sur mobile, retirer le décalage */
+@media (max-width: 1024px) {
+    .game-container-with-sidebar .game-main {
+        margin-left: 0;
+        width: 100%;
+    }
 }
 
 /* Masquer le bouton menu hamburger sur desktop */

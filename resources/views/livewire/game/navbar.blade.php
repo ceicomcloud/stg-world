@@ -90,6 +90,42 @@
                 <i class="fab fa-discord"></i>
                 <span>Discord</span>
             </a>
+
+            <!-- Bouton Profil avec dropdown -->
+            <div class="nav-item dropdown" x-data="{ open: false }" x-on:click.outside="open = false">
+                <button class="nav-link" x-on:click="open = !open">
+                    <i class="fas fa-user"></i>
+                    <span>{{ Auth::user()->username ?? 'Profil' }}</span>
+                    <i class="fas fa-chevron-down dropdown-icon" :class="{ 'rotated': open }"></i>
+                </button>
+                
+                <div class="dropdown-menu" x-show="open" x-transition x-cloak>
+                    <a href="{{ route('game.manage-players') }}" wire:navigate.hover class="dropdown-item">
+                        <i class="fas fa-user-cog"></i>
+                        Gestion Joueurs
+                    </a>
+                    <a href="{{ route('game.inventory') }}" wire:navigate.hover class="dropdown-item">
+                        <i class="fas fa-boxes"></i>
+                        Inventaire
+                    </a>
+                    <a href="{{ route('dashboard.index') }}" wire:navigate.hover class="dropdown-item">
+                        <i class="fas fa-home"></i>
+                        Comptes
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="{{ route('dashboard.profile') }}" wire:navigate.hover class="dropdown-item">
+                        <i class="fas fa-user-edit"></i>
+                        Mon Profil
+                    </a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="dropdown-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Déconnexion
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </nav>

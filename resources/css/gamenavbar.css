@@ -231,3 +231,62 @@
     margin-left: 2px;
   }
 }
+
+/* ===== DROPDOWN PROFIL ===== */
+[layout="gamenavbar"] .nav-item.dropdown {
+  position: relative;
+}
+
+[layout="gamenavbar"] .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--stargate-card-bg);
+  border: 1px solid var(--stargate-card-border);
+  border-radius: 12px;
+  box-shadow: var(--stargate-shadow-lg);
+  backdrop-filter: blur(10px);
+  min-width: 200px;
+  z-index: 1000;
+  padding: 8px 0;
+  margin-top: 8px;
+}
+
+[layout="gamenavbar"] .dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  color: var(--stargate-text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+[layout="gamenavbar"] .dropdown-item:hover {
+  background: var(--stargate-card-hover);
+  color: var(--stargate-text-primary);
+}
+
+[layout="gamenavbar"] .dropdown-divider {
+  height: 1px;
+  background: var(--stargate-border);
+  margin: 8px 0;
+}
+
+[layout="gamenavbar"] .dropdown-icon.rotated {
+  transform: rotate(180deg);
+}
+
+[layout="gamenavbar"] .nav-link {
+  cursor: pointer;
+}
+
+[x-cloak] {
+  display: none !important;
+}

@@ -760,3 +760,234 @@
     margin-right: 10px;
   }
 }
+
+/* Player Info Header - Compact Modern Design */
+[layout="gameresource"] .player-info-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--stargate-bg-secondary);
+  border-bottom: 1px solid var(--stargate-border);
+}
+
+[layout="gameresource"] .player-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--stargate-gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--stargate-shadow-md);
+}
+
+[layout="gameresource"] .player-avatar i {
+  font-size: 1.2rem;
+  color: var(--stargate-text-primary);
+}
+
+[layout="gameresource"] .player-details {
+  flex: 1;
+  min-width: 0;
+}
+
+[layout="gameresource"] .player-name {
+  font-weight: 600;
+  color: var(--stargate-text-primary);
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+[layout="gameresource"] .player-level {
+  font-size: 0.75rem;
+  color: var(--stargate-primary);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+[layout="gameresource"] .player-xp {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+[layout="gameresource"] .xp-bar {
+  flex: 1;
+  height: 4px;
+  background: var(--stargate-bg-primary);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+[layout="gameresource"] .xp-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--stargate-primary), var(--stargate-accent));
+  border-radius: 2px;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+[layout="gameresource"] .xp-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: xpShimmer 1.5s ease-in-out infinite;
+}
+
+[layout="gameresource"] .xp-text {
+  font-size: 0.7rem;
+  color: var(--stargate-text-muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@keyframes xpShimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Player Stats Grid - Compact */
+[layout="gameresource"] .player-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  padding: 12px 20px;
+  background: var(--stargate-bg-secondary);
+  border-bottom: 1px solid var(--stargate-border);
+}
+
+[layout="gameresource"] .stat-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  background: var(--stargate-card-bg);
+  border-radius: 6px;
+  border: 1px solid var(--stargate-card-border);
+}
+
+[layout="gameresource"] .stat-item i {
+  font-size: 0.8rem;
+  color: var(--stargate-primary);
+  width: 16px;
+  text-align: center;
+}
+
+[layout="gameresource"] .stat-label {
+  font-size: 0.7rem;
+  color: var(--stargate-text-muted);
+  font-weight: 500;
+}
+
+[layout="gameresource"] .stat-value {
+  font-size: 0.8rem;
+  color: var(--stargate-text-primary);
+  font-weight: 600;
+  margin-left: auto;
+}
+
+/* Responsive Player Info */
+@media (max-width: 768px) {
+  [layout="gameresource"] .player-info-header {
+    padding: 12px 15px;
+  }
+  
+  [layout="gameresource"] .player-avatar {
+    width: 36px;
+    height: 36px;
+  }
+  
+  [layout="gameresource"] .player-avatar i {
+    font-size: 1rem;
+  }
+  
+  [layout="gameresource"] .player-name {
+    font-size: 0.85rem;
+  }
+  
+  [layout="gameresource"] .player-level {
+    font-size: 0.7rem;
+  }
+  
+  [layout="gameresource"] .player-stats-grid {
+    padding: 10px 15px;
+    gap: 6px;
+  }
+  
+  [layout="gameresource"] .stat-item {
+    padding: 4px 6px;
+  }
+  
+  [layout="gameresource"] .stat-label {
+    font-size: 0.65rem;
+  }
+  
+  [layout="gameresource"] .stat-value {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  [layout="gameresource"] .player-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Compact Planet Selector */
+[layout="gameresource"] .planet-selector-compact {
+  padding: 12px 20px;
+  background: var(--stargate-bg-secondary);
+  border-bottom: 1px solid var(--stargate-border);
+}
+
+[layout="gameresource"] .planet-button-compact {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--stargate-card-bg);
+  border: 1px solid var(--stargate-card-border);
+  border-radius: 8px;
+  color: var(--stargate-text-secondary);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  justify-content: space-between;
+}
+
+[layout="gameresource"] .planet-button-compact:hover {
+  background: var(--stargate-card-hover);
+  border-color: var(--stargate-border-accent);
+  color: var(--stargate-text-primary);
+}
+
+[layout="gameresource"] .planet-button-compact i.fas.fa-globe {
+  color: var(--stargate-primary);
+  font-size: 0.8rem;
+}
+
+[layout="gameresource"] .planet-button-compact .dropdown-icon {
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+  color: var(--stargate-text-muted);
+}
+
+[layout="gameresource"] .planet-button-compact .dropdown-icon.rotated {
+  transform: rotate(180deg);
+}
+
+[layout="gameresource"] .planet-button-compact.open {
+  background: var(--stargate-card-hover);
+  border-color: var(--stargate-border-accent);
+}
