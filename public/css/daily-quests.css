@@ -1,0 +1,114 @@
+/* Icône des quêtes journalières */
+.daily-quests-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: rgba(139, 92, 246, 0.12);
+    border: 2px solid rgba(139, 92, 246, 0.35);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.daily-quests-icon:hover {
+    background: rgba(139, 92, 246, 0.2);
+    border-color: rgba(139, 92, 246, 0.5);
+    transform: scale(1.1);
+}
+
+.daily-quests-icon i {
+    color: var(--stargate-purple);
+    font-size: 1.5rem;
+}
+
+/* Styles basiques pour la modal Daily Quests */
+.daily-quests-modal .modal-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.daily-quests-modal .modal-title {
+    color: var(--stargate-text-primary);
+    font-weight: 700;
+}
+
+.daily-quests-modal .quests-list {
+    display: grid;
+    gap: 12px;
+}
+
+.daily-quests-modal .quest-card {
+    background: var(--stargate-card-bg);
+    border: 1px solid var(--stargate-card-border);
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.daily-quests-modal .quest-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.daily-quests-modal .quest-title {
+    color: var(--stargate-text-primary);
+    font-weight: 600;
+}
+
+.daily-quests-modal .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+}
+.daily-quests-modal .badge-claimed { background: rgba(16,185,129,0.15); color: var(--stargate-success); }
+.daily-quests-modal .badge-ready { background: rgba(245,158,11,0.15); color: var(--stargate-warning); }
+.daily-quests-modal .badge-progress { background: rgba(59,130,246,0.15); color: var(--stargate-info); }
+
+.daily-quests-modal .quest-description {
+    color: var(--stargate-text-secondary);
+    margin-top: 6px;
+    margin-bottom: 8px;
+}
+
+.daily-quests-modal .quest-progress .progress-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(148,163,184,0.2);
+    border-radius: 999px;
+    overflow: hidden;
+}
+.daily-quests-modal .quest-progress .progress-fill {
+    height: 100%;
+    background: var(--stargate-gradient-primary);
+}
+.daily-quests-modal .quest-progress .progress-text {
+    color: var(--stargate-text-muted);
+    font-size: 0.85rem;
+    margin-top: 6px;
+}
+
+.daily-quests-modal .quest-reward {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--stargate-text-secondary);
+    margin-top: 8px;
+}
+
+.daily-quests-modal .quest-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}

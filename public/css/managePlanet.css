@@ -1,0 +1,1521 @@
+/* Manage Planet Page Styles */
+[page="managePlanet"] {
+  width:100%;
+}
+
+[page="managePlanet"] .managePlanet-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Header */
+[page="managePlanet"] .manage-planet-header {
+  margin-bottom: 30px;
+}
+
+[page="managePlanet"] .planet-selector {
+  max-width: 400px;
+}
+
+[page="managePlanet"] .planet-dropdown {
+  position: relative;
+}
+
+[page="managePlanet"] .planet-button {
+  width: 100%;
+  background: var(--stargate-card-bg);
+  border: 1px solid var(--stargate-card-border);
+  border-radius: 12px;
+  padding: 15px 20px;
+  color: var(--stargate-text-primary);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+[page="managePlanet"] .planet-button:hover {
+  border-color: var(--stargate-border-accent);
+  box-shadow: var(--stargate-shadow-glow);
+}
+
+[page="managePlanet"] .planet-button.open {
+  border-color: var(--stargate-primary);
+  box-shadow: var(--stargate-shadow-glow);
+}
+
+[page="managePlanet"] .planet-button i:first-child {
+  color: var(--stargate-primary);
+  font-size: 1.2rem;
+}
+
+[page="managePlanet"] .planet-button span {
+  flex: 1;
+  text-align: left;
+}
+
+[page="managePlanet"] .dropdown-icon {
+  transition: transform 0.3s ease;
+  color: var(--stargate-text-secondary);
+}
+
+[page="managePlanet"] .dropdown-icon.rotated {
+  transform: rotate(180deg);
+}
+
+[page="managePlanet"] .planet-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(0, 20, 40, 0.95);
+  border: 1px solid rgba(64, 224, 255, 0.3);
+  border-radius: 12px;
+  margin-top: 5px;
+  z-index: 1000;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+[page="managePlanet"] .planet-option {
+  padding: 12px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(64, 224, 255, 0.1);
+}
+
+[page="managePlanet"] .planet-option:last-child {
+  border-bottom: none;
+}
+
+[page="managePlanet"] .planet-option:hover {
+  background: rgba(64, 224, 255, 0.1);
+}
+
+[page="managePlanet"] .planet-option.active {
+  background: rgba(64, 224, 255, 0.2);
+  border-left: 3px solid var(--stargate-primary);
+}
+
+[page="managePlanet"] .planet-option-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+[page="managePlanet"] .planet-option-info i {
+  color: var(--stargate-primary);
+  font-size: 1.1rem;
+}
+
+[page="managePlanet"] .planet-details {
+  display: flex;
+  flex-direction: column;
+}
+
+[page="managePlanet"] .planet-name {
+  font-weight: 600;
+  color: var(--stargate-text-primary);
+}
+
+[page="managePlanet"] .planet-coords {
+  font-size: 0.85rem;
+  color: var(--stargate-text-secondary);
+}
+
+[page="managePlanet"] .planet-type-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+[page="managePlanet"] .planet-type-badge.main-planet {
+  background: rgba(255, 215, 0, 0.2);
+  color: #ffd700;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+[page="managePlanet"] .planet-type-badge.secondary-planet {
+  background: rgba(64, 224, 255, 0.2);
+  color: var(--stargate-primary);
+  border: 1px solid rgba(64, 224, 255, 0.3);
+}
+
+/* Planet Overview */
+[page="managePlanet"] .planet-overview {
+  margin-bottom: 30px;
+}
+
+[page="managePlanet"] .planet-info-card {
+  background: rgba(0, 20, 40, 0.8);
+  border: 1px solid rgba(64, 224, 255, 0.3);
+  border-radius: 15px;
+  padding: 25px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 25px;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--stargate-shadow-md);
+}
+
+[page="managePlanet"] .planet-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[page="managePlanet"] .planet-sphere {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #4a90e2, #2c5aa0);
+  box-shadow: 
+    0 0 20px rgba(74, 144, 226, 0.3),
+    inset -10px -10px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+[page="managePlanet"] .planet-sphere.planet-desert {
+  background: radial-gradient(circle at 30% 30%, #d4a574, #8b6914);
+  box-shadow: 
+    0 0 20px rgba(212, 165, 116, 0.3),
+    inset -10px -10px 20px rgba(0, 0, 0, 0.3);
+}
+
+[page="managePlanet"] .planet-sphere.planet-ice {
+  background: radial-gradient(circle at 30% 30%, #87ceeb, #4682b4);
+  box-shadow: 
+    0 0 20px rgba(135, 206, 235, 0.3),
+    inset -10px -10px 20px rgba(0, 0, 0, 0.3);
+}
+
+[page="managePlanet"] .planet-sphere.planet-gas {
+  background: radial-gradient(circle at 30% 30%, #ff6b6b, #cc5252);
+  box-shadow: 
+    0 0 20px rgba(255, 107, 107, 0.3),
+    inset -10px -10px 20px rgba(0, 0, 0, 0.3);
+}
+
+[page="managePlanet"] .planet-details h2 {
+  color: var(--stargate-primary);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  text-shadow: 0 0 10px rgba(64, 224, 255, 0.3);
+}
+
+[page="managePlanet"] .planet-coordinates,
+[page="managePlanet"] .planet-fields {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: var(--stargate-text-secondary);
+}
+
+[page="managePlanet"] .planet-coordinates i,
+[page="managePlanet"] .planet-fields i {
+  color: var(--stargate-primary);
+  width: 16px;
+}
+
+[page="managePlanet"] .planet-bonuses h4 {
+  color: var(--stargate-text-primary);
+  margin: 0 0 15px 0;
+  font-size: 1.1rem;
+}
+
+[page="managePlanet"] .bonus-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+[page="managePlanet"] .bonus-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(64, 224, 255, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(64, 224, 255, 0.2);
+}
+
+[page="managePlanet"] .bonus-item img {
+  width: 20px;
+  height: 20px;
+}
+
+[page="managePlanet"] .bonus-item i {
+  color: var(--stargate-warning);
+  font-size: 1.1rem;
+  width: 20px;
+  text-align: center;
+}
+
+[page="managePlanet"] .bonus-item span {
+  font-weight: 600;
+  color: var(--stargate-success);
+}
+
+/* Shield Protection Styles */
+[page="managePlanet"] .shield-protection-section {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+[page="managePlanet"] .shield-protection-card {
+  background: rgba(0, 20, 40, 0.8);
+  border: 1px solid rgba(64, 224, 255, 0.3);
+  border-radius: 15px;
+  padding: 25px;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--stargate-shadow-md);
+}
+
+[page="managePlanet"] .shield-protection-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+[page="managePlanet"] .shield-protection-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--stargate-text-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+[page="managePlanet"] .shield-protection-title i {
+  color: var(--stargate-primary);
+  font-size: 1.4rem;
+}
+
+[page="managePlanet"] .shield-protection-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+[page="managePlanet"] .shield-protection-status.active {
+  background: rgba(39, 174, 96, 0.2);
+  color: #2ecc71;
+  border: 1px solid rgba(39, 174, 96, 0.3);
+}
+
+[page="managePlanet"] .shield-protection-status.inactive {
+  background: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+  border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+[page="managePlanet"] .shield-protection-status.cooldown {
+  background: rgba(243, 156, 18, 0.2);
+  color: #f39c12;
+  border: 1px solid rgba(243, 156, 18, 0.3);
+}
+
+[page="managePlanet"] .shield-protection-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+[page="managePlanet"] .shield-protection-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+[page="managePlanet"] .shield-info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+[page="managePlanet"] .shield-info-item i {
+  color: var(--stargate-primary);
+  font-size: 1rem;
+  width: 20px;
+  text-align: center;
+}
+
+[page="managePlanet"] .shield-info-text {
+  color: var(--stargate-text-secondary);
+  font-size: 0.95rem;
+}
+
+[page="managePlanet"] .shield-protection-progress {
+  margin-top: 10px;
+}
+
+[page="managePlanet"] .progress-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  color: var(--stargate-text-secondary);
+}
+
+[page="managePlanet"] .progress-bar-container {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+[page="managePlanet"] .progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--stargate-primary), #4facfe);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+[page="managePlanet"] .shield-protection-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+[page="managePlanet"] .activate-shield-btn {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+[page="managePlanet"] .activate-shield-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+}
+
+[page="managePlanet"] .activate-shield-btn:disabled {
+  background: linear-gradient(135deg, #a0a0a0 0%, #c0c0c0 100%);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+[page="managePlanet"] .activate-shield-btn i {
+  font-size: 1.1rem;
+}
+
+[page="managePlanet"] .shield-cooldown-info {
+  color: #f39c12;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+[page="managePlanet"] .shield-cooldown-info i {
+  font-size: 1rem;
+}
+
+/* Shield requirements block */
+[page="managePlanet"] .shield-requirements {
+  margin-top: 16px;
+  background: rgba(0, 20, 40, 0.7);
+  border: 1px solid rgba(64, 224, 255, 0.25);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+[page="managePlanet"] .requirements-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--stargate-text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+[page="managePlanet"] .requirements-title i {
+  color: var(--stargate-primary);
+  font-size: 1.1rem;
+}
+
+[page="managePlanet"] .requirements-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+[page="managePlanet"] .requirements-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--stargate-text-secondary);
+  font-size: 0.95rem;
+}
+
+[page="managePlanet"] .requirements-list li i {
+  color: var(--stargate-primary);
+  width: 20px;
+  text-align: center;
+}
+
+[page="managePlanet"] .requirements-list .status {
+  margin-left: auto;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+[page="managePlanet"] .requirements-list .status.ok {
+  background: rgba(39, 174, 96, 0.15);
+  color: #2ecc71;
+  border: 1px solid rgba(39, 174, 96, 0.3);
+}
+
+[page="managePlanet"] .requirements-list .status.ko {
+  background: rgba(231, 76, 60, 0.15);
+  color: #e74c3c;
+  border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+/* Shield animation */
+[page="managePlanet"] .planet-shield {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  border: 2px solid rgba(64, 224, 255, 0.6);
+  box-shadow: 0 0 15px rgba(64, 224, 255, 0.4);
+  animation: shield-pulse 3s infinite ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes shield-pulse {
+  0% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+}
+
+/* Stargate (Porte des étoiles) Styles */
+[page="managePlanet"] .stargate-section {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+[page="managePlanet"] .stargate-card {
+  background: rgba(0, 20, 40, 0.8);
+  border: 1px solid rgba(64, 224, 255, 0.3);
+  border-radius: 15px;
+  padding: 25px;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--stargate-shadow-md);
+}
+
+[page="managePlanet"] .stargate-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+[page="managePlanet"] .stargate-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--stargate-text-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+[page="managePlanet"] .stargate-title i {
+  color: var(--stargate-primary);
+  font-size: 1.4rem;
+}
+
+[page="managePlanet"] .stargate-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+[page="managePlanet"] .stargate-status.active {
+  background: rgba(39, 174, 96, 0.2);
+  color: #2ecc71;
+  border: 1px solid rgba(39, 174, 96, 0.3);
+}
+
+[page="managePlanet"] .stargate-status.inactive {
+  background: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+  border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+[page="managePlanet"] .stargate-status.cooldown {
+  background: rgba(243, 156, 18, 0.2);
+  color: #f39c12;
+  border: 1px solid rgba(243, 156, 18, 0.3);
+}
+
+[page="managePlanet"] .stargate-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+[page="managePlanet"] .stargate-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+[page="managePlanet"] .stargate-info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+[page="managePlanet"] .stargate-info-item i {
+  color: var(--stargate-primary);
+  font-size: 1rem;
+  width: 20px;
+  text-align: center;
+}
+
+[page="managePlanet"] .stargate-info-text {
+  color: var(--stargate-text-secondary);
+  font-size: 0.95rem;
+}
+
+[page="managePlanet"] .stargate-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+[page="managePlanet"] .activate-stargate-btn {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+[page="managePlanet"] .activate-stargate-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+}
+
+[page="managePlanet"] .deactivate-stargate-btn {
+  background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+[page="managePlanet"] .deactivate-stargate-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+}
+
+[page="managePlanet"] .stargate-cooldown-info {
+  color: #f39c12;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+[page="managePlanet"] .stargate-cooldown-info i {
+  font-size: 1rem;
+}
+
+/* Management Grid */
+[page="managePlanet"] .management-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+[page="managePlanet"] .management-section {
+  background: rgba(0, 20, 40, 0.8);
+  border: 1px solid rgba(64, 224, 255, 0.3);
+  border-radius: 15px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--stargate-shadow-md);
+}
+
+[page="managePlanet"] .section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(64, 224, 255, 0.2);
+}
+
+[page="managePlanet"] .section-header h3 {
+  color: var(--stargate-primary);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-shadow: 0 0 10px rgba(64, 224, 255, 0.3);
+}
+
+[page="managePlanet"] .section-header h3 i {
+  font-size: 1.2rem;
+}
+
+[page="managePlanet"] .count {
+  background: rgba(64, 224, 255, 0.2);
+  color: var(--stargate-primary);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid rgba(64, 224, 255, 0.3);
+}
+
+[page="managePlanet"] .items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+[page="managePlanet"] .item-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 15px;
+  background: rgba(64, 224, 255, 0.05);
+  border: 1px solid rgba(64, 224, 255, 0.2);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+[page="managePlanet"] .item-card.inactive {
+  background: rgba(255, 0, 0, 0.1);
+  border-color: rgba(255, 0, 0, 0.3);
+  opacity: 0.7;
+}
+
+[page="managePlanet"] .item-card:hover {
+  background: rgba(64, 224, 255, 0.1);
+  border-color: rgba(64, 224, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(64, 224, 255, 0.1);
+}
+
+[page="managePlanet"] .item-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(64, 224, 255, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(64, 224, 255, 0.3);
+  position: relative;
+}
+
+[page="managePlanet"] .inactive-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff4444;
+  font-size: 0.8rem;
+}
+
+[page="managePlanet"] .item-icon img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+[page="managePlanet"] .item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+[page="managePlanet"] .item-status {
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+}
+
+[page="managePlanet"] .item-status.active {
+  color: #4CAF50;
+}
+
+[page="managePlanet"] .item-status.inactive {
+  color: #ff4444;
+}
+
+[page="managePlanet"] .item-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+[page="managePlanet"] .toggle-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+[page="managePlanet"] .toggle-btn.activate {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+}
+
+[page="managePlanet"] .toggle-btn.activate:hover {
+  background: linear-gradient(135deg, #45a049, #3d8b40);
+  transform: scale(1.05);
+}
+
+[page="managePlanet"] .toggle-btn.deactivate {
+  background: linear-gradient(135deg, #ff4444, #e53e3e);
+  color: white;
+}
+
+[page="managePlanet"] .toggle-btn.deactivate:hover {
+  background: linear-gradient(135deg, #e53e3e, #c53030);
+  transform: scale(1.05);
+}
+
+[page="managePlanet"] .item-name {
+  font-weight: 600;
+  color: var(--stargate-text-primary);
+  font-size: 0.95rem;
+}
+
+[page="managePlanet"] .item-level,
+[page="managePlanet"] .item-quantity {
+  font-size: 0.85rem;
+  color: var(--stargate-text-secondary);
+  margin-top: 2px;
+}
+
+[page="managePlanet"] .item-quantity {
+  color: var(--stargate-primary);
+  font-weight: 600;
+}
+
+[page="managePlanet"] .empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--stargate-text-secondary);
+}
+
+[page="managePlanet"] .empty-state i {
+  font-size: 3rem;
+  color: rgba(64, 224, 255, 0.3);
+  margin-bottom: 15px;
+}
+
+[page="managePlanet"] .empty-state p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+[page="managePlanet"] .no-planet-selected {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--stargate-text-secondary);
+}
+
+[page="managePlanet"] .no-planet-selected i {
+  font-size: 4rem;
+  color: rgba(64, 224, 255, 0.3);
+  margin-bottom: 20px;
+}
+
+[page="managePlanet"] .no-planet-selected h3 {
+  color: var(--stargate-text-primary);
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+}
+
+[page="managePlanet"] .no-planet-selected p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Styles pour l'édition */
+[page="managePlanet"] .planet-name-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+[page="managePlanet"] .edit-btn {
+  background: rgba(52, 152, 219, 0.2);
+  border: 1px solid #3498db;
+  color: #3498db;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.8rem;
+}
+
+[page="managePlanet"] .edit-btn:hover {
+  background: rgba(52, 152, 219, 0.3);
+  transform: translateY(-1px);
+}
+
+[page="managePlanet"] .planet-description {
+  color: #bdc3c7;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+[page="managePlanet"] .edit-form {
+  width: 100%;
+}
+
+[page="managePlanet"] .form-group {
+  margin-bottom: 1rem;
+}
+
+[page="managePlanet"] .form-group label {
+  display: block;
+  color: #ecf0f1;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+[page="managePlanet"] .form-input,
+[page="managePlanet"] .form-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(44, 62, 80, 0.8);
+  border: 1px solid #34495e;
+  border-radius: 6px;
+  color: #ecf0f1;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+[page="managePlanet"] .form-input:focus,
+[page="managePlanet"] .form-textarea:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+[page="managePlanet"] .form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+[page="managePlanet"] .error-message {
+  color: #e74c3c;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+[page="managePlanet"] .edit-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+[page="managePlanet"] .btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+[page="managePlanet"] .btn-primary {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+}
+
+[page="managePlanet"] .btn-primary:hover {
+  background: linear-gradient(135deg, #2980b9, #21618c);
+  transform: translateY(-1px);
+}
+
+[page="managePlanet"] .btn-secondary {
+  background: rgba(149, 165, 166, 0.2);
+  border: 1px solid #95a5a6;
+  color: #95a5a6;
+}
+
+[page="managePlanet"] .btn-secondary:hover {
+  background: rgba(149, 165, 166, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  [page="managePlanet"] {
+    padding: 15px;
+  }
+
+  [page="managePlanet"] .planet-info-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 20px;
+  }
+
+  [page="managePlanet"] .management-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  [page="managePlanet"] .bonus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  [page="managePlanet"] .edit-actions {
+    flex-direction: column;
+  }
+
+  [page="managePlanet"] .planet-name-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+/* Styles pour la galerie d'images */
+[page="managePlanet"] .planet-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+[page="managePlanet"] .planet-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(64, 224, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+[page="managePlanet"] .edit-image-btn {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background: var(--stargate-primary);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[page="managePlanet"] .edit-image-btn:hover {
+  background: var(--stargate-primary-hover);
+  transform: scale(1.1);
+}
+
+[page="managePlanet"] .image-gallery {
+  background: rgba(0, 20, 40, 0.9);
+  border: 1px solid rgba(64, 224, 255, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+}
+
+[page="managePlanet"] .image-gallery h3 {
+  color: var(--stargate-text-primary);
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+[page="managePlanet"] .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+[page="managePlanet"] .gallery-item {
+  position: relative;
+  cursor: pointer;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  width: 85px;
+}
+
+[page="managePlanet"] .gallery-item:hover {
+  transform: scale(1.05);
+  border-color: rgba(64, 224, 255, 0.5);
+  width: 85px;
+}
+
+[page="managePlanet"] .gallery-item.selected {
+  border-color: var(--stargate-primary);
+  box-shadow: 0 0 20px rgba(64, 224, 255, 0.4);
+  width: 85px;
+}
+
+[page="managePlanet"] .gallery-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  display: block;
+}
+
+[page="managePlanet"] .selected-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(64, 224, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+}
+
+[page="managePlanet"] .gallery-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+[page="managePlanet"] .gallery-actions .btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+[page="managePlanet"] .gallery-actions .btn-primary {
+  background: var(--stargate-primary);
+  color: white;
+}
+
+[page="managePlanet"] .gallery-actions .btn-primary:hover {
+  background: var(--stargate-primary-hover);
+}
+
+[page="managePlanet"] .gallery-actions .btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--stargate-text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[page="managePlanet"] .gallery-actions .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive pour la galerie */
+@media (max-width: 768px) {
+  [page="managePlanet"] .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  [page="managePlanet"] .gallery-item img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  [page="managePlanet"] .planet-image {
+    width: 100px;
+    height: 100px;
+  }
+  
+  [page="managePlanet"] .gallery-actions {
+    flex-direction: column;
+  }
+}
+
+/* Production Management Styles */
+[page="managePlanet"] .production-management {
+    background: linear-gradient(135deg, rgba(0, 30, 60, 0.6), rgba(0, 20, 40, 0.7));
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(64, 224, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+[page="managePlanet"] .production-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[page="managePlanet"] .production-header h3 {
+    color: #fff;
+    font-size: 1.4rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+[page="managePlanet"] .production-header h3 i {
+    color: var(--stargate-primary);
+}
+
+[page="managePlanet"] .production-info {
+    display: flex;
+    align-items: center;
+}
+
+[page="managePlanet"] .info-text {
+    color: #bbb;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+[page="managePlanet"] .production-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+[page="managePlanet"] .production-card {
+    background: linear-gradient(135deg, rgba(0, 30, 60, 0.7), rgba(0, 20, 40, 0.8));
+    border-radius: 15px;
+    padding: 25px;
+    border: 1px solid rgba(64, 224, 255, 0.3);
+    transition: all 0.4s ease;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+[page="managePlanet"] .production-card:hover {
+    background: linear-gradient(135deg, rgba(0, 40, 80, 0.8), rgba(0, 30, 60, 0.9));
+    border-color: rgba(64, 224, 255, 0.6);
+    box-shadow: 0 12px 40px rgba(64, 224, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+[page="managePlanet"] .resource-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+[page="managePlanet"] .resource-icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(64, 224, 255, 0.15), rgba(0, 150, 255, 0.1));
+    border-radius: 12px;
+    border: 1px solid rgba(64, 224, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(64, 224, 255, 0.1);
+}
+
+[page="managePlanet"] .resource-icon img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+[page="managePlanet"] .resource-header h4 {
+    color: #fff;
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+[page="managePlanet"] .resource-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+[page="managePlanet"] .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+[page="managePlanet"] .stat-label {
+    color: #bbb;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+[page="managePlanet"] .stat-value {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+[page="managePlanet"] .stat-value.production-24h {
+    color: var(--stargate-primary);
+}
+
+[page="managePlanet"] .production-control {
+    margin-top: 15px;
+}
+
+[page="managePlanet"] .control-label {
+    display: block;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+[page="managePlanet"] .production-slider {
+    margin-bottom: 10px;
+}
+
+[page="managePlanet"] .slider {
+    width: 100%;
+    height: 8px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, rgba(64, 224, 255, 0.1), rgba(0, 150, 255, 0.15));
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+[page="managePlanet"] .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--stargate-primary);
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(64, 224, 255, 0.3);
+}
+
+[page="managePlanet"] .slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--stargate-primary);
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(64, 224, 255, 0.3);
+}
+
+[page="managePlanet"] .slider-labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+    font-size: 0.8rem;
+    color: #bbb;
+}
+
+[page="managePlanet"] .current-rate {
+    color: var(--stargate-primary) !important;
+    font-weight: 600;
+    font-size: 0.9rem !important;
+}
+
+[page="managePlanet"] .production-display {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+[page="managePlanet"] .rate-bar {
+    flex: 1;
+    height: 10px;
+    background: linear-gradient(90deg, rgba(64, 224, 255, 0.1), rgba(0, 150, 255, 0.15));
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+[page="managePlanet"] .rate-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--stargate-primary), rgba(64, 224, 255, 0.8));
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+[page="managePlanet"] .rate-text {
+    color: var(--stargate-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    min-width: 40px;
+    text-align: right;
+}
+
+[page="managePlanet"] .no-resources {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 20px;
+    color: #bbb;
+}
+
+[page="managePlanet"] .no-resources i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #666;
+}
+
+[page="managePlanet"] .no-resources p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+  [page="managePlanet"] .planet-button {
+    padding: 12px 15px;
+    font-size: 0.9rem;
+  }
+
+  [page="managePlanet"] .planet-info-card {
+    padding: 20px;
+  }
+
+  [page="managePlanet"] .management-section {
+    padding: 15px;
+  }
+
+  [page="managePlanet"] .section-header h3 {
+    font-size: 1.1rem;
+  }
+  
+  [page="managePlanet"] .production-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  [page="managePlanet"] .production-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+  
+  [page="managePlanet"] .production-actions {
+    justify-content: center;
+  }
+  
+  [page="managePlanet"] .resource-stats {
+    grid-template-columns: 1fr;
+  }
+}

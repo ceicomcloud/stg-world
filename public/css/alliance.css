@@ -1,0 +1,1554 @@
+/* Alliance Page Styles */
+[page="alliance"] {
+    color: var(--stargate-text-primary);
+    width: 100%;
+}
+
+[page="alliance"] .alliance-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+[page="alliance"] .alliance-header {
+    margin-bottom: 30px;
+    text-align: center;
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 0 20px rgba(14, 165, 233, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+[page="alliance"] .alliance-header h1 {
+    color: var(--stargate-primary);
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: var(--stargate-shadow-glow);
+    text-align: center;
+}
+
+[page="alliance"] .alliance-header p {
+    color: var(--stargate-text-secondary);
+    font-size: 16px;
+}
+
+/* Navigation Tabs */
+[page="alliance"] .alliance-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid rgba(14, 165, 233, 0.3);
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    border-radius: 12px 12px 0 0;
+    padding: 10px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 0 15px rgba(14, 165, 233, 0.1);
+    backdrop-filter: blur(8px);
+}
+
+[page="alliance"] .alliance-tab {
+    padding: 12px 24px;
+    background: transparent;
+    border: none;
+    color: var(--stargate-text-secondary);
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+[page="alliance"] .alliance-tab:hover {
+    color: var(--stargate-primary);
+    background: rgba(var(--stargate-primary-rgb), 0.1);
+}
+
+[page="alliance"] .alliance-tab.active {
+    color: var(--stargate-primary);
+    border-bottom-color: var(--stargate-primary);
+    background: rgba(var(--stargate-primary-rgb), 0.1);
+}
+
+/* Alliance Content */
+[page="alliance"] .alliance-content {
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    border-radius: 0 0 12px 12px;
+    padding: 30px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 0 20px rgba(14, 165, 233, 0.1);
+    min-height: 400px;
+    backdrop-filter: blur(10px);
+}
+
+/* Alliance Overview */
+[page="alliance"] .alliance-overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+[page="alliance"] .alliance-info-card {
+    padding: 25px;
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    border-radius: 12px;
+    margin-bottom: 25px;
+    backdrop-filter: blur(8px);
+}
+
+[page="alliance"] .alliance-info-simple {
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+[page="alliance"] .alliance-info-simple h3 {
+    color: #e2e8f0;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+[page="alliance"] .alliance-info-card h3 {
+    color: var(--stargate-primary);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+[page="alliance"] .alliance-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 2px solid var(--stargate-border);
+}
+
+[page="alliance"] .alliance-stats-simple {
+    margin: 20px 0;
+}
+
+[page="alliance"] .alliance-stats-simple h3 {
+    color: #e2e8f0;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+[page="alliance"] .stats-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+[page="alliance"] .stat-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    color: rgba(148, 163, 184, 0.9);
+    font-size: 14px;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(14, 165, 233, 0.1);
+    transition: all 0.3s ease;
+}
+
+[page="alliance"] .stat-line:last-child {
+    border-bottom: none;
+}
+
+[page="alliance"] .stat-line:hover {
+    color: #e2e8f0;
+    padding-left: 5px;
+}
+
+[page="alliance"] .stat-line .stat-icon {
+    font-size: 16px;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    width: 20px;
+    text-align: center;
+}
+
+[page="alliance"] .stat-line:hover .stat-icon {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+[page="alliance"] .stat-text {
+    color: inherit;
+}
+
+/* Alliance Creation Form */
+[page="alliance"] .alliance-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+}
+
+[page="alliance"] .form-group {
+    margin-bottom: 20px;
+}
+
+[page="alliance"] .form-group label {
+    display: block;
+    color: var(--stargate-text-primary);
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+[page="alliance"] .form-input {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    border-radius: 8px;
+    color: var(--stargate-text-primary);
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    backdrop-filter: blur(5px);
+}
+
+[page="alliance"] .form-input:focus {
+    outline: none;
+    border-color: rgba(14, 165, 233, 0.8);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2), 0 0 15px rgba(14, 165, 233, 0.1);
+    background: rgba(15, 23, 42, 0.9);
+}
+
+[page="alliance"] .form-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+[page="alliance"] .form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+[page="alliance"] .form-checkbox input {
+    width: 18px;
+    height: 18px;
+}
+
+/* Alliance Search */
+[page="alliance"] .alliance-search {
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+[page="alliance"] .search-input {
+    width: 100%;
+    padding: 15px 20px;
+    background: var(--stargate-input-bg);
+    border: 2px solid var(--stargate-border);
+    border-radius: 12px;
+    color: var(--stargate-text-primary);
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+[page="alliance"] .search-input:focus {
+    outline: none;
+    border-color: var(--stargate-primary);
+    box-shadow: 0 0 0 4px rgba(var(--stargate-primary-rgb), 0.1);
+}
+
+[page="alliance"] .search-results {
+    display: grid;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+[page="alliance"] .alliance-result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+    backdrop-filter: blur(5px);
+}
+
+[page="alliance"] .alliance-result:hover {
+    border-color: rgba(14, 165, 233, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.4), 0 0 25px rgba(14, 165, 233, 0.3);
+    background: rgba(30, 41, 59, 0.9);
+}
+
+[page="alliance"] .alliance-result-info h4 {
+    color: var(--stargate-primary);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+[page="alliance"] .alliance-result-info p {
+    color: var(--stargate-text-secondary);
+    font-size: 14px;
+}
+
+[page="alliance"] .alliance-result-stats {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+[page="alliance"] .result-stat {
+    text-align: center;
+}
+
+[page="alliance"] .result-stat-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--stargate-primary);
+    display: block;
+}
+
+[page="alliance"] .result-stat-label {
+    font-size: 11px;
+    color: var(--stargate-text-secondary);
+    text-transform: uppercase;
+}
+
+/* Members List */
+[page="alliance"] .members-list {
+    display: grid;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+[page="alliance"] .member-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.8) 100%);
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+[page="alliance"] .member-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #0ea5e9, #3b82f6);
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+[page="alliance"] .member-item:hover {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%);
+    border-color: rgba(14, 165, 233, 0.5);
+    transform: translateY(-1px);
+    box-shadow: 0 5px 20px rgba(14, 165, 233, 0.15);
+}
+
+[page="alliance"] .member-item:hover::before {
+    opacity: 1;
+}
+
+[page="alliance"] .member-info {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+[page="alliance"] .member-name {
+    font-weight: 700;
+    color: #e2e8f0;
+    font-size: 16px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+[page="alliance"] .member-rank {
+    padding: 6px 12px;
+    background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+    color: white;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(14, 165, 233, 0.3);
+}
+
+[page="alliance"] .member-stats {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    font-size: 14px;
+    color: rgba(148, 163, 184, 0.9);
+    font-weight: 500;
+}
+
+[page="alliance"] .member-stats span {
+    padding: 8px 12px;
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: 8px;
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+/* Bank Section */
+[page="alliance"] .bank-title {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(14, 165, 233, 0.15) 100%);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    color: #10b981;
+    font-size: 20px;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 15px rgba(16, 185, 129, 0.1);
+    transition: all 0.3s ease;
+}
+
+[page="alliance"] .bank-title:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.2);
+    border-color: rgba(16, 185, 129, 0.5);
+}
+
+[page="alliance"] .bank-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+
+[page="alliance"] .bank-card {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%);
+    border: 1px solid rgba(14, 165, 233, 0.4);
+    border-radius: 16px;
+    padding: 25px;
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(14, 165, 233, 0.1);
+}
+
+[page="alliance"] .bank-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #10b981, #0ea5e9, #3b82f6);
+    opacity: 0.8;
+}
+
+[page="alliance"] .bank-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(14, 165, 233, 0.2);
+    border-color: rgba(14, 165, 233, 0.6);
+}
+
+[page="alliance"] .bank-card h4 {
+    color: #e2e8f0;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+[page="alliance"] .bank-balance {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+[page="alliance"] .bank-balance-value {
+    font-size: 36px;
+    font-weight: 800;
+    color: #10b981;
+    display: block;
+    text-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+    margin-bottom: 5px;
+}
+
+[page="alliance"] .bank-balance-label {
+    color: rgba(148, 163, 184, 0.9);
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+[page="alliance"] .bank-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+}
+
+[page="alliance"] .bank-input {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    border-radius: 8px;
+    color: #e2e8f0;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+[page="alliance"] .bank-actions .btn {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+[page="alliance"] .bank-input:focus {
+    outline: none;
+    border-color: rgba(14, 165, 233, 0.8);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2), 0 0 15px rgba(14, 165, 233, 0.1);
+    background: rgba(15, 23, 42, 0.95);
+}
+
+[page="alliance"] .bank-input::placeholder {
+    color: rgba(148, 163, 184, 0.6);
+}
+
+/* Wars Section */
+[page="alliance"] .wars-list {
+    display: grid;
+    gap: 15px;
+}
+
+[page="alliance"] .war-item {
+    padding: 20px;
+    background: var(--stargate-secondary-bg);
+    border: 1px solid var(--stargate-border);
+    border-radius: 8px;
+}
+
+[page="alliance"] .war-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+[page="alliance"] .war-alliances {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--stargate-text-primary);
+}
+
+[page="alliance"] .war-status {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+[page="alliance"] .war-status.declared {
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+    border: 1px solid #ffc107;
+}
+
+[page="alliance"] .war-status.active {
+    background: rgba(220, 53, 69, 0.2);
+    color: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+[page="alliance"] .war-status.ended {
+    background: rgba(108, 117, 125, 0.2);
+    color: #6c757d;
+    border: 1px solid #6c757d;
+}
+
+/* Buttons */
+[page="alliance"] .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}
+
+[page="alliance"] .btn-primary {
+    background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
+    color: white;
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    box-shadow: 0 2px 10px rgba(14, 165, 233, 0.2);
+    transition: all 0.3s ease;
+}
+
+[page="alliance"] .btn-primary:hover {
+    background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+    border-color: rgba(14, 165, 233, 0.5);
+}
+
+[page="alliance"] .btn-secondary {
+    background: var(--stargate-secondary);
+    color: var(--stargate-text-primary);
+    border: 1px solid var(--stargate-border);
+}
+
+[page="alliance"] .btn-secondary:hover {
+    background: var(--stargate-secondary-hover);
+    border-color: var(--stargate-primary);
+}
+
+[page="alliance"] .btn-danger {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    box-shadow: 0 2px 10px rgba(239, 68, 68, 0.2);
+    transition: all 0.3s ease;
+}
+
+[page="alliance"] .btn-danger:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+    border-color: rgba(239, 68, 68, 0.5);
+}
+
+[page="alliance"] .btn-success {
+    background: #28a745;
+    color: white;
+}
+
+[page="alliance"] .btn-success:hover {
+    background: #218838;
+}
+
+[page="alliance"] .btn-sm {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+[page="alliance"] .btn-lg {
+    padding: 15px 30px;
+    font-size: 16px;
+}
+
+/* Ranks Section */
+[page="alliance"] .ranks-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 25px;
+}
+
+[page="alliance"] .ranks-list {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%);
+    border: 1px solid rgba(14, 165, 233, 0.4);
+    border-radius: 16px;
+    padding: 25px;
+    backdrop-filter: blur(15px);
+}
+
+[page="alliance"] .rank-item {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+[page="alliance"] .rank-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(14, 165, 233, 0.2);
+    border-color: rgba(14, 165, 233, 0.5);
+}
+
+[page="alliance"] .rank-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+[page="alliance"] .rank-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #e2e8f0;
+}
+
+[page="alliance"] .rank-level {
+    background: linear-gradient(135deg, #10b981, #0ea5e9);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+[page="alliance"] .rank-permissions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+[page="alliance"] .permission-badge {
+    background: rgba(59, 130, 246, 0.2);
+    color: #93c5fd;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+[page="alliance"] .rank-actions {
+    display: flex;
+    gap: 10px;
+}
+
+[page="alliance"] .rank-form {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%);
+    border: 1px solid rgba(14, 165, 233, 0.4);
+    border-radius: 16px;
+    padding: 25px;
+    backdrop-filter: blur(15px);
+}
+
+[page="alliance"] .permissions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+[page="alliance"] .permission-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+[page="alliance"] .permission-checkbox:hover {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(14, 165, 233, 0.3);
+}
+
+[page="alliance"] .permission-checkbox input[type="checkbox"] {
+    accent-color: #0ea5e9;
+}
+
+[page="alliance"] .form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Member Management Section */
+[page="alliance"] .member-management-section {
+    margin-top: 25px;
+}
+
+[page="alliance"] .member-management-item {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%);
+    border: 1px solid rgba(14, 165, 233, 0.4);
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+}
+
+[page="alliance"] .member-management-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(14, 165, 233, 0.2);
+    border-color: rgba(14, 165, 233, 0.6);
+}
+
+[page="alliance"] .member-basic-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+[page="alliance"] .member-avatar {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #10b981, #0ea5e9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+[page="alliance"] .member-details {
+    flex: 1;
+}
+
+[page="alliance"] .member-details .member-name {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin-bottom: 5px;
+}
+
+[page="alliance"] .member-current-rank {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+[page="alliance"] .leader-badge {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+[page="alliance"] .member-stats-detailed {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(14, 165, 233, 0.2);
+}
+
+[page="alliance"] .member-stats-detailed .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+[page="alliance"] .member-stats-detailed .stat-label {
+    color: #94a3b8;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+[page="alliance"] .member-stats-detailed .stat-value {
+    color: #e2e8f0;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+[page="alliance"] .member-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+[page="alliance"] .rank-assignment {
+    min-width: 200px;
+}
+
+[page="alliance"] .form-select {
+    width: 100%;
+    padding: 10px 12px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    border-radius: 8px;
+    color: #e2e8f0;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+[page="alliance"] .form-select:focus {
+    outline: none;
+    border-color: rgba(14, 165, 233, 0.8);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+}
+
+/* Applications Section */
+[page="alliance"] .applications-section {
+    margin-top: 25px;
+}
+
+[page="alliance"] .application-item {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%);
+    border: 1px solid rgba(14, 165, 233, 0.4);
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+}
+
+[page="alliance"] .application-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(14, 165, 233, 0.2);
+    border-color: rgba(14, 165, 233, 0.6);
+}
+
+[page="alliance"] .application-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+[page="alliance"] .applicant-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+[page="alliance"] .applicant-avatar {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #10b981, #0ea5e9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+[page="alliance"] .applicant-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+[page="alliance"] .applicant-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin: 0;
+}
+
+[page="alliance"] .application-date {
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+[page="alliance"] .application-status {
+    display: flex;
+    align-items: center;
+}
+
+[page="alliance"] .status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+[page="alliance"] .status-pending {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+}
+
+[page="alliance"] .application-message {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+[page="alliance"] .application-message h5 {
+    color: #e2e8f0;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+}
+
+[page="alliance"] .application-message p {
+    color: #cbd5e1;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+[page="alliance"] .applicant-stats {
+    margin-bottom: 20px;
+}
+
+[page="alliance"] .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(14, 165, 233, 0.2);
+}
+
+[page="alliance"] .stat-grid .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+}
+
+[page="alliance"] .stat-grid .stat-label {
+    color: #94a3b8;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+[page="alliance"] .stat-grid .stat-value {
+    color: #e2e8f0;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+[page="alliance"] .application-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+[page="alliance"] .application-actions .btn {
+    min-width: 120px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+[page="alliance"] .application-actions .btn-success {
+    background: linear-gradient(135deg, #10b981, #059669);
+    border: 1px solid #10b981;
+}
+
+[page="alliance"] .application-actions .btn-success:hover {
+    background: linear-gradient(135deg, #059669, #047857);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+[page="alliance"] .application-actions .btn-danger {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    border: 1px solid #ef4444;
+}
+
+[page="alliance"] .application-actions .btn-danger:hover {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+[page="alliance"] .application-actions .btn-secondary {
+    background: rgba(71, 85, 105, 0.8);
+    border: 1px solid rgba(71, 85, 105, 0.6);
+    color: #e2e8f0;
+}
+
+[page="alliance"] .application-actions .btn-secondary:hover {
+    background: rgba(71, 85, 105, 1);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(71, 85, 105, 0.3);
+}
+
+[page="alliance"] .applications-pagination {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+[page="alliance"] .no-applications {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+}
+
+[page="alliance"] .empty-state {
+    text-align: center;
+    padding: 40px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+}
+
+[page="alliance"] .empty-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    opacity: 0.7;
+}
+
+[page="alliance"] .empty-state h4 {
+    color: #e2e8f0;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+}
+
+[page="alliance"] .empty-state p {
+    color: #94a3b8;
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Leadership Actions */
+[page="alliance"] .btn-warning {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    border: 1px solid #f59e0b;
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+[page="alliance"] .btn-warning:hover {
+    background: linear-gradient(135deg, #d97706, #b45309);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+[page="alliance"] .btn-danger {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    border: 1px solid #ef4444;
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+[page="alliance"] .btn-danger:hover {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    [page="alliance"] .ranks-section {
+        grid-template-columns: 1fr;
+    }
+    
+    [page="alliance"] .member-basic-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    [page="alliance"] .member-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    [page="alliance"] .application-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    [page="alliance"] .application-actions {
+        justify-content: center;
+    }
+    
+    [page="alliance"] .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    [page="alliance"] .alliance-overview {
+        grid-template-columns: 1fr;
+    }
+    
+    [page="alliance"] .alliance-tabs {
+        flex-wrap: wrap;
+        gap: 5px;
+        justify-content: flex-start;
+    }
+    
+    [page="alliance"] .alliance-tab {
+        padding: 8px 16px;
+        font-size: 14px;
+        flex: 1;
+        min-width: 120px;
+    }
+    
+    [page="alliance"] .bank-section {
+        grid-template-columns: 1fr;
+    }
+    
+    [page="alliance"] .alliance-result {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    [page="alliance"] .alliance-result-stats {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    [page="alliance"] .member-item {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    [page="alliance"] .alliance-search {
+        margin-bottom: 20px;
+    }
+    
+    [page="alliance"] .search-input {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+}
+
+/* Loading States */
+[page="alliance"] .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    color: var(--stargate-text-secondary);
+}
+
+[page="alliance"] .spinner {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--stargate-border);
+    border-top: 2px solid var(--stargate-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error States */
+[page="alliance"] .error-message {
+    padding: 15px;
+    background: rgba(220, 53, 69, 0.1);
+    border: 1px solid #dc3545;
+    border-radius: 8px;
+    color: #dc3545;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+[page="alliance"] .success-message {
+    padding: 15px;
+    background: rgba(40, 167, 69, 0.1);
+    border: 1px solid #28a745;
+    border-radius: 8px;
+    color: #28a745;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Modal styles */
+.modal-overlay {
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+    animation: slideIn 0.3s ease-out;
+    transform: translateY(0);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-content select {
+    transition: all 0.3s ease;
+}
+
+.modal-content select:focus {
+    outline: none;
+    border-color: #ffc107;
+    box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.2);
+}
+
+.modal-content select option {
+    padding: 8px;
+}
+
+.modal-footer button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-footer button:first-child:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.modal-footer button:last-child:hover {
+    background: linear-gradient(135deg, #ffcd38 0%, #ffa000 100%);
+    box-shadow: 0 5px 20px rgba(255, 193, 7, 0.4);
+}
+
+/* Technologies Styles */
+[page="alliance"] .technologies-section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+[page="alliance"] .technologies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+[page="alliance"] .technology-card {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+[page="alliance"] .technology-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--stargate-accent) 0%, #00d4ff 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+[page="alliance"] .technology-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+[page="alliance"] .technology-card:hover::before {
+    opacity: 1;
+}
+
+[page="alliance"] .technology-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+[page="alliance"] .technology-icon {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--stargate-accent) 0%, #00d4ff 100%);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
+}
+
+[page="alliance"] .technology-info h4 {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+[page="alliance"] .technology-info p {
+    color: var(--stargate-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+[page="alliance"] .technology-stats {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+[page="alliance"] .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+[page="alliance"] .stat-row:last-child {
+    border-bottom: none;
+}
+
+[page="alliance"] .stat-row span:first-child {
+    color: var(--stargate-text-secondary);
+    font-size: 0.9rem;
+}
+
+[page="alliance"] .stat-value {
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+[page="alliance"] .stat-value.cost {
+    color: #ffc107;
+    font-weight: 700;
+}
+
+[page="alliance"] .technology-card .btn {
+    width: 100%;
+    padding: 12px 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+[page="alliance"] .technology-card .btn-primary {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+[page="alliance"] .technology-card .btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+}
+
+[page="alliance"] .technology-card .btn-primary:disabled {
+    background: rgba(108, 117, 125, 0.5);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+[page="alliance"] .technology-card .btn-secondary {
+    background: rgba(108, 117, 125, 0.3);
+    color: var(--stargate-text-secondary);
+    cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 10px;
+        padding: 20px;
+    }
+    
+    .modal-footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .modal-footer button {
+        width: 100%;
+    }
+    
+    [page="alliance"] .technologies-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    [page="alliance"] .technology-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    [page="alliance"] .technology-icon {
+        align-self: center;
+    }
+}

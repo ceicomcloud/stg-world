@@ -1,0 +1,984 @@
+/* Building CSS - Page: building */
+
+/* Paramètres généraux */
+[page="building"] {
+  width: 100%;
+}
+
+[page="building"] .building-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* En-tête */
+[page="building"] .building-header {
+    text-align: center;
+    padding: 2rem 0;
+    background: var(--stargate-card-bg);
+    border-radius: 20px;
+    border: 1px solid var(--stargate-card-border);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+[page="building"] .building-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--stargate-text-primary);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 20px rgba(14, 165, 233, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+[page="building"] .building-title i {
+    color: var(--stargate-primary);
+    animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+[page="building"] .building-subtitle {
+    color: var(--stargate-text-secondary);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* Système d'équipe (Alliance) */
+[page="building"] .team-card {
+    margin-top: 1.5rem;
+    background: var(--stargate-card-bg);
+    border: 1px solid var(--stargate-card-border);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+[page="building"] .team-card-header {
+    padding: 1rem 1.25rem;
+    background: var(--stargate-bg-secondary);
+    border-bottom: 1px solid var(--stargate-card-border);
+}
+
+[page="building"] .team-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    color: var(--stargate-text-primary);
+}
+
+[page="building"] .team-title i {
+    color: var(--stargate-primary);
+}
+
+[page="building"] .team-subtitle {
+    margin-top: 0.25rem;
+    color: var(--stargate-text-secondary);
+    font-size: 0.9rem;
+}
+
+[page="building"] .team-table-wrapper {
+    padding: 1rem 1.25rem;
+}
+
+[page="building"] .team-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+[page="building"] .team-table thead th {
+    text-align: left;
+    padding: 0.75rem;
+    color: var(--stargate-text-secondary);
+    border-bottom: 1px solid var(--stargate-border);
+}
+
+[page="building"] .team-table tbody td {
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--stargate-card-border);
+    color: var(--stargate-text-primary);
+}
+
+[page="building"] .team-member-name i {
+    color: #f59e0b;
+    margin-right: 6px;
+}
+
+[page="building"] .team-actions {
+    text-align: right;
+}
+
+[page="building"] .team-btn,
+[page="building"] .team-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 10px;
+    border: 1px solid var(--stargate-border);
+    background: var(--stargate-card-bg);
+    color: var(--stargate-text-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+[page="building"] .team-btn:hover {
+    border-color: var(--stargate-primary);
+    color: var(--stargate-primary);
+}
+
+[page="building"] .team-actions-global {
+    padding: 0 1.25rem 1rem 1.25rem;
+}
+
+[page="building"] .team-btn-primary {
+    background: var(--stargate-gradient-primary);
+    border-color: var(--stargate-primary);
+}
+
+[page="building"] .team-empty {
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: flex-start;
+    color: var(--stargate-text-secondary);
+}
+
+[page="building"] .team-empty i {
+    color: var(--stargate-primary);
+}
+
+@media (max-width: 768px) {
+    [page="building"] .team-actions {
+        text-align: left;
+    }
+}
+
+/* Grille de bâtiments */
+[page="building"] .buildings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Carte de bâtiment */
+[page="building"] .building-card {
+    background: var(--stargate-card-bg);
+    border-radius: 15px;
+    border: 1px solid var(--stargate-card-border);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+[page="building"] .building-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-color: var(--stargate-primary);
+}
+
+[page="building"] .building-card-header {
+    background: var(--stargate-bg-secondary);
+    padding: 1rem;
+    border-radius: 15px 15px 0 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Styles spécifiques pour les différents types */
+[page="building"] .type-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+[page="building"] .type-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+[page="building"] .type-nav-link.active {
+    background: var(--stargate-primary);
+    color: white;
+    border-color: var(--stargate-primary);
+}
+
+[page="building"] .type-nav-link:not(.active) {
+    background: var(--stargate-card-bg);
+    color: var(--stargate-text-secondary);
+    border-color: var(--stargate-border);
+}
+
+[page="building"] .type-nav-link:hover:not(.active) {
+    background: var(--stargate-primary-light);
+    color: var(--stargate-primary);
+    border-color: var(--stargate-primary);
+}
+
+/* Bloc "Ressources possédées" */
+[page="building"] .resource-summary {
+    background: var(--stargate-card-bg);
+    border: 1px solid var(--stargate-card-border);
+    border-radius: 15px;
+    padding: 1rem 1.25rem;
+}
+
+[page="building"] .resource-summary-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    color: var(--stargate-text-primary);
+    margin-bottom: 0.5rem;
+}
+
+[page="building"] .resource-summary-title i {
+    color: var(--stargate-primary);
+}
+
+[page="building"] .resource-summary-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+[page="building"] .resource-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--stargate-bg-secondary);
+    border: 1px solid var(--stargate-border);
+    padding: 0.4rem 0.65rem;
+    border-radius: 10px;
+    color: var(--stargate-text-primary);
+    transition: all 0.2s ease;
+}
+
+[page="building"] .resource-chip:hover {
+    border-color: var(--stargate-primary);
+    transform: translateY(-1px);
+}
+
+[page="building"] .resource-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+}
+
+[page="building"] .resource-name {
+    opacity: 0.85;
+}
+
+[page="building"] .resource-amount {
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    [page="building"] .resource-summary {
+        padding: 0.75rem 1rem;
+    }
+    [page="building"] .resource-chip {
+        padding: 0.35rem 0.55rem;
+        border-radius: 8px;
+    }
+}
+
+/* Styles pour les contrôles de quantité */
+[page="building"] .quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    background: rgba(14, 165, 233, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(14, 165, 233, 0.2);
+}
+
+[page="building"] .quantity-input {
+    width: 100px;
+    padding: 0.75rem;
+    border: 2px solid var(--stargate-border);
+    border-radius: 10px;
+    background: var(--stargate-card-bg);
+    color: var(--stargate-text-primary);
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    -moz-appearance: textfield;
+}
+
+/* Supprimer les flèches pour Chrome, Safari, Edge */
+[page="building"] .quantity-input::-webkit-outer-spin-button,
+[page="building"] .quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+[page="building"] .quantity-input:focus {
+    outline: none;
+    border-color: var(--stargate-primary);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+}
+
+[page="building"] .quantity-btn {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--stargate-border);
+    border-radius: 10px;
+    background: var(--stargate-card-bg);
+    color: var(--stargate-text-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+[page="building"] .quantity-btn:hover {
+    background: var(--stargate-primary);
+    color: white;
+    border-color: var(--stargate-primary);
+}
+
+[page="building"] .quantity-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+[page="building"] .quantity-btn:disabled:hover {
+    background: var(--stargate-card-bg);
+    color: var(--stargate-text-primary);
+    border-color: var(--stargate-border);
+}
+
+/* Styles pour l'affichage des coûts par unité */
+[page="building"] .cost-breakdown {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background: rgba(14, 165, 233, 0.1);
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    border-radius: 8px;
+    font-size: 0.875rem;
+}
+
+[page="building"] .cost-per-unit {
+    color: var(--stargate-text-secondary);
+    font-style: italic;
+}
+
+[page="building"] .total-cost {
+    color: var(--stargate-primary);
+    font-weight: 600;
+}
+
+/* Indicateurs de type sur les cartes */
+[page="building"] .card-type-indicator {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+[page="building"] .card-type-building {
+    background: rgba(59, 130, 246, 0.9);
+    color: white;
+}
+
+[page="building"] .card-type-unit {
+    background: rgba(34, 197, 94, 0.9);
+    color: white;
+}
+
+[page="building"] .card-type-defense {
+    background: rgba(239, 68, 68, 0.9);
+    color: white;
+}
+
+[page="building"] .card-type-ship {
+    background: rgba(168, 85, 247, 0.9);
+    color: white;
+}
+
+[page="building"] .building-card-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.3) 70%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+[page="building"] .building-card-header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        rgba(14, 165, 233, 0.1) 0%, 
+        transparent 25%, 
+        transparent 75%, 
+        rgba(14, 165, 233, 0.1) 100%);
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+[page="building"] .building-card:hover .building-card-header::after {
+    opacity: 1;
+}
+
+[page="building"] .building-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    transition: all 0.5s ease;
+    filter: drop-shadow(0 0 20px rgba(14, 165, 233, 0.3));
+    z-index: 1;
+    position: relative;
+    padding: 20px;
+}
+
+[page="building"] .building-card:hover .building-image {
+    transform: scale(1.1) rotateY(5deg);
+    filter: drop-shadow(0 0 30px rgba(14, 165, 233, 0.6)) brightness(1.1);
+}
+
+[page="building"] .building-level {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--stargate-primary);
+    padding: 0.5rem 0.75rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--stargate-primary);
+    z-index: 999;
+}
+
+[page="building"] .building-card-content {
+    padding: 1.5rem;
+}
+
+[page="building"] .building-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--stargate-text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+[page="building"] .building-name i {
+    color: var(--stargate-primary);
+}
+
+[page="building"] .building-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--stargate-border);
+}
+
+[page="building"] .building-cost,
+[page="building"] .building-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+[page="building"] .cost-label,
+[page="building"] .time-label {
+    font-size: 0.8rem;
+    color: var(--stargate-text-secondary);
+}
+
+[page="building"] .cost-values {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: center;
+}
+
+[page="building"] .cost-item {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--stargate-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 0.125rem 0.25rem;
+    border-radius: 4px;
+    background: rgba(var(--stargate-primary-rgb), 0.1);
+    border: 1px solid rgba(var(--stargate-primary-rgb), 0.2);
+}
+
+[page="building"] .cost-item.insufficient {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
+[page="building"] .resource-icon {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+}
+
+[page="building"] .cost-value,
+[page="building"] .time-value {
+    font-weight: 600;
+    color: var(--stargate-text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+[page="building"] .cost-value i,
+[page="building"] .time-value i {
+    color: var(--stargate-primary);
+}
+
+[page="building"] .building-action {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+[page="building"] .btn-upgrade {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 10px;
+    background: var(--stargate-gradient-primary);
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+[page="building"] .btn-upgrade:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(14, 165, 233, 0.3);
+}
+
+[page="building"] .btn-upgrade:disabled {
+    background: var(--stargate-border);
+    color: var(--stargate-text-muted);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Indicateur de construction */
+[page="building"] .building-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+[page="building"] .progress-bar {
+    height: 100%;
+    background: var(--stargate-primary);
+    width: 0%;
+    transition: width 1s linear;
+}
+
+[page="building"] .building-constructing {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 600;
+    backdrop-filter: blur(3px);
+}
+
+[page="building"] .constructing-text {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+[page="building"] .constructing-text i {
+    color: var(--stargate-primary);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.construction-alert {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    border-radius: 10px;
+    border-left: 4px solid #ffd700;
+}
+
+.construction-alert .alert {
+    margin: 0;
+    background: transparent;
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.constructions-list {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.construction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    margin-bottom: 8px;
+    border-left: 3px solid #ffd700;
+}
+
+.construction-item:last-child {
+    margin-bottom: 0;
+}
+
+.building-name {
+    font-weight: 500;
+    color: #ffffff;
+}
+
+/* Gestion d'équipe (PlanetEquip) */
+[page="building"] .equip-card {
+  background: var(--stargate-card-bg);
+  border: 1px solid var(--stargate-card-border);
+  border-radius: 15px;
+  padding: 16px;
+  margin-top: 16px;
+}
+[page="building"] .equip-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+[page="building"] .equip-card-title {
+  font-size: 1.2rem;
+  color: var(--stargate-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+[page="building"] .equip-card-subtitle {
+  font-size: 0.9rem;
+  color: var(--stargate-text-secondary);
+}
+[page="building"] .equip-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+[page="building"] .equip-form {
+  background: rgba(255,255,255,0.02);
+  border: 1px dashed var(--stargate-border);
+  padding: 12px;
+  border-radius: 8px;
+}
+[page="building"] .equip-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+[page="building"] .equip-field label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--stargate-text-secondary);
+  margin-bottom: 4px;
+}
+[page="building"] .equip-field input, [page="building"] .equip-field select {
+  width: 100%;
+  background: var(--stargate-card-bg);
+  color: var(--stargate-text-primary);
+  border: 1px solid var(--stargate-border);
+  border-radius: 6px;
+  padding: 8px;
+}
+[page="building"] .equip-field.full { grid-column: 1 / -1; }
+
+[page="building"] .equip-payload-title {
+  font-weight: 600;
+  color: var(--stargate-text-primary);
+  margin: 8px 0;
+}
+[page="building"] .equip-payload-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+[page="building"] .payload-row {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  align-items: center;
+  gap: 8px;
+  background: var(--stargate-bg-secondary);
+  border: 1px solid var(--stargate-card-border);
+  border-radius: 8px;
+  padding: 8px;
+}
+[page="building"] .payload-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+[page="building"] .payload-label img {
+  width: 28px; height: 28px; border-radius: 4px;
+}
+[page="building"] .payload-input input {
+  width: 100%;
+  background: var(--stargate-card-bg);
+  color: var(--stargate-text-primary);
+  border: 1px solid var(--stargate-card-border);
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
+[page="building"] .equip-actions { display: flex; gap: 8px; margin-top: 10px; }
+[page="building"] .equip-btn {
+  background: var(--stargate-card-bg);
+  color: var(--stargate-text-primary);
+  border: 1px solid var(--stargate-card-border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+[page="building"] .equip-btn.primary { background: var(--stargate-primary); color: #0b1220; border-color: transparent; }
+[page="building"] .equip-btn.danger { background: #7f1d1d; color: #fff; border-color: #b91c1c; }
+
+[page="building"] .equip-list { background: rgba(255,255,255,0.02); border: 1px dashed var(--stargate-border); padding: 12px; border-radius: 8px; }
+[page="building"] .equip-list-title { font-weight: 600; margin-bottom: 8px; }
+[page="building"] .equip-table { width: 100%; border-collapse: collapse; }
+[page="building"] .equip-table th, [page="building"] .equip-table td { border-bottom: 1px solid var(--stargate-card-border); padding: 8px; text-align: left; }
+[page="building"] .equip-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; border-radius: 999px; font-size: 0.8rem; border: 1px solid var(--stargate-card-border); background: var(--stargate-card-bg); }
+[page="building"] .equip-badge.earth { color: #84cc16; }
+[page="building"] .equip-badge.spatial { color: #22d3ee; }
+[page="building"] .equip-badge.active { color: #22c55e; }
+[page="building"] .equip-badge.inactive { color: #f59e0b; }
+
+/* Statistiques équipes */
+[page="building"] .equip-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+[page="building"] .equip-stat {
+  background: rgba(8, 24, 48, 0.5);
+  border: 1px solid rgba(64, 224, 255, 0.25);
+  color: var(--stargate-text-primary);
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+}
+[page="building"] .equip-stat.earth { border-color: rgba(120, 255, 170, 0.35); }
+[page="building"] .equip-stat.spatial { border-color: rgba(180, 140, 255, 0.35); }
+
+@media (max-width: 980px) {
+  [page="building"] .equip-content { grid-template-columns: 1fr; }
+  [page="building"] .equip-form-row { grid-template-columns: 1fr; }
+}
+
+.construction-timer {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: #ffd700;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    animation: pulse 2s infinite;
+}
+
+.timer-small {
+    font-size: 0.8em;
+    padding: 2px 6px;
+}
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+    [page="building"] .type-navigation {
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    [page="building"] .type-nav-link {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+    
+    [page="building"] .quantity-controls {
+        gap: 0.5rem;
+        padding: 0.75rem;
+    }
+    
+    [page="building"] .quantity-input {
+        width: 80px;
+        padding: 0.5rem;
+        font-size: 0.875rem;
+    }
+    
+    [page="building"] .quantity-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+    
+    [page="building"] .building-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    [page="building"] .buildings-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    [page="building"] {
+        padding: 1rem;
+    }
+    
+    [page="building"] .buildings-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    [page="building"] .building-title {
+        font-size: 2rem;
+    }
+}
+
+[page="building"] .quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+[page="building"] .quantity-input {
+    width: 170px;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--stargate-border);
+    border-radius: 4px;
+    background: var(--stargate-bg-secondary);
+    color: var(--stargate-text);
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+[page="building"] .quantity-input:focus {
+    outline: none;
+    border-color: var(--stargate-primary);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+[page="building"] .quantity-controls .btn-upgrade {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Responsive pour les petits écrans */
+@media (max-width: 768px) {
+    [page="building"] .quantity-controls {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    [page="building"] .quantity-input {
+        width: 100%;
+        margin-bottom: 0.25rem;
+    }
+}

@@ -1,0 +1,1227 @@
+/* ===== GALAXY STYLES ===== */
+
+/* Variables CSS spécifiques à la galaxie utilisant les variables globales */
+:root {
+    --sun-color: #fbbf24;
+    --sun-corona: var(--stargate-accent);
+    --planet-own: var(--stargate-success);
+    --planet-ally: var(--stargate-info);
+    --planet-enemy: var(--stargate-danger);
+    --planet-empty: var(--stargate-text-muted);
+    --planet-bot: #f59e0b;
+    --planet-protected: #22c55e;
+}
+
+/* Container principal de la galaxie */
+[page="galaxy"] {
+    width: 100%;
+}
+
+[page="galaxy"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.galaxy-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: 0;
+    outline: none;
+    background: var(--stargate-gradient-secondary);
+}
+
+.galaxy-container:focus {
+    outline: none;
+}
+
+/* ===== En-tête Galaxy (bascule 2D/3D + navigation + stats) ===== */
+.galaxy-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    border-top: 1px solid var(--stargate-border);
+    border-left: 1px solid var(--stargate-border);
+    border-right: 1px solid var(--stargate-border);
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(6px);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-top: 1rem;
+}
+.galaxy-header .system-stats { display: inline-flex; align-items: center; gap: 0.75rem; }
+.galaxy-header .stat-item { font-size: 0.9rem; }
+
+.view-toggle { display: inline-flex; gap: 0.5rem; }
+.toggle-btn {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--stargate-border);
+    border-radius: 6px;
+    background: rgba(30, 41, 59, 0.7);
+    color: var(--stargate-text-primary);
+    cursor: pointer;
+}
+.toggle-btn.active {
+    background: var(--stargate-gradient-primary);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: var(--stargate-shadow-glow);
+}
+
+.system-navigation {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.system-title { color: var(--stargate-text-primary); font-weight: 600; }
+.nav-btn {
+    width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center;
+    border: 1px solid var(--stargate-border); border-radius: 6px; background: rgba(30,41,59,0.7);
+    color: var(--stargate-text-primary); cursor: pointer;
+}
+.nav-btn:hover { box-shadow: var(--stargate-shadow-sm); }
+
+
+
+/* Vue principale de la galaxie */
+.galaxy-view {
+    position: relative;
+    width: 100%;
+    height: 1200px;
+    background: radial-gradient(circle at center, rgba(30, 41, 59, 0.3) 0%, rgba(10, 10, 15, 0.8) 70%);
+    border-radius: 0;
+    border: 1px solid var(--stargate-border);
+    overflow: hidden;
+}
+
+/* ===== Vue 2D ===== */
+.galaxy-view-2d {
+    width: 100%;
+    border: 1px solid var(--stargate-border);
+    background: radial-gradient(circle at center, rgba(30, 41, 59, 0.3) 0%, rgba(10, 10, 15, 0.8) 70%);
+    padding: 20px;
+}
+
+.system-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.grid-tile {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border: 1px solid var(--stargate-border);
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.6);
+    padding: 0.75rem;
+    cursor: default;
+}
+.grid-tile.tile-occupied,
+.grid-tile.tile-empty,
+.grid-tile.tile-bot { cursor: pointer; }
+.grid-tile.tile-disabled { opacity: 0.6; cursor: not-allowed; }
+
+.grid-tile .tile-header { display: flex; align-items: center; justify-content: space-between; }
+.tile-position { color: var(--stargate-text-secondary); font-weight: 600; }
+.tile-coords { color: var(--stargate-text-muted); font-size: 0.85rem; }
+
+.grid-tile .tile-body { display: flex; align-items: center; gap: 0.75rem; }
+.tile-icon { display: inline-flex; align-items: center; gap: 0.25rem; color: var(--stargate-primary); font-size: 1.2rem; }
+.tile-info { display: flex; flex-direction: column; }
+.tile-name { color: var(--stargate-text-primary); font-weight: 600; }
+.tile-owner, .tile-type { color: var(--stargate-text-secondary); font-size: 0.9rem; }
+
+/* États visuels 2D */
+.grid-tile.tile-own { border-left: 3px solid var(--planet-own); }
+.grid-tile.tile-ally { border-left: 3px solid var(--planet-ally); }
+.grid-tile.tile-enemy { border-left: 3px solid var(--planet-enemy); }
+.grid-tile.tile-empty { border-left: 3px dashed var(--planet-empty); }
+.grid-tile.tile-bot { border-left: 3px solid var(--planet-bot); }
+
+.badge-main { color: var(--stargate-accent); }
+.badge-protected { color: var(--planet-protected); }
+.badge-vacation { color: #ffb74d; }
+
+/* ===== Pied de page: Légende ===== */
+.galaxy-footer { 
+    padding: 10px;
+    text-align: center;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom: 1px solid var(--stargate-border);
+    border-left: 1px solid var(--stargate-border);
+    border-right: 1px solid var(--stargate-border);
+ }
+
+/* ===== Header/Footer compacts (overrides) ===== */
+.galaxy-header { flex-direction: column; gap: 0.5rem; padding: 0.75rem 1rem; }
+.system-title-header { text-align: center; color: var(--stargate-text-primary); font-weight: 600; font-size: 0.95rem; }
+.galaxy-header-row { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+.system-navigation.compact .system-input { width: 80px; }
+.system-navigation.compact .go-btn { padding: 0.35rem 0.55rem; }
+.galaxy-header .system-stats { flex-wrap: wrap; }
+.galaxy-legend-inline { display: inline-flex; align-items: center; gap: 1rem; flex-wrap: wrap; padding: 0.5rem 0; }
+.galaxy-legend-inline .legend-item { margin: 0; }
+
+/* ===== Bannière des événements galactiques ===== */
+.galactic-events-banner {
+    margin: 0.5rem 1rem 1rem 1rem;
+    padding: 0.5rem;
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid var(--stargate-border);
+    border-radius: 8px;
+    backdrop-filter: blur(6px);
+}
+
+.galactic-events-banner .events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.galactic-events-banner .event-item {
+    --_sev: var(--stargate-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.6rem;
+    background: rgba(30, 41, 59, 0.65);
+    border: 1px solid rgba(100, 116, 139, 0.3);
+    border-left: 4px solid var(--_sev);
+    border-radius: 6px;
+    color: var(--stargate-text-primary);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    flex-wrap: wrap;
+}
+
+.galactic-events-banner .event-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 10px rgba(64, 224, 255, 0.15);
+    background: rgba(30, 41, 59, 0.8);
+}
+
+.galactic-events-banner .event-icon {
+    color: var(--_sev);
+    font-weight: 700;
+    font-size: 1.05rem;
+    width: 1.25rem;
+    text-align: center;
+}
+
+.galactic-events-banner .event-title {
+    font-weight: 600;
+    color: var(--stargate-text-primary);
+}
+
+.galactic-events-banner .event-scope {
+    color: var(--stargate-text-muted);
+    font-size: 0.9rem;
+}
+
+.galactic-events-banner .event-desc {
+    color: var(--stargate-text-secondary);
+}
+
+.galactic-events-banner .event-time {
+    margin-left: auto;
+    color: var(--stargate-text-muted);
+    font-size: 0.85rem;
+}
+
+/* Sévérité: définit la couleur d’accent */
+.galactic-events-banner .event-item.severity-minor { --_sev: var(--stargate-info); }
+.galactic-events-banner .event-item.severity-moderate { --_sev: #f59e0b; }
+.galactic-events-banner .event-item.severity-major { --_sev: var(--stargate-danger); }
+
+/* Accentuation visuelle pour les événements critiques */
+@keyframes hazardPulse {
+    0%, 100% { box-shadow: 0 0 0 rgba(239, 68, 68, 0); }
+    50% { box-shadow: 0 0 12px rgba(239, 68, 68, 0.35); }
+}
+.galactic-events-banner .event-item.severity-major {
+    animation: hazardPulse 2.2s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .galactic-events-banner { margin: 0.5rem; padding: 0.5rem; }
+    .galactic-events-banner .event-item { padding: 0.4rem 0.5rem; }
+    .galactic-events-banner .event-desc { flex-basis: 100%; }
+}
+
+/* Soleil au centre */
+.sun-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.sun {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--sun-color) 0%, var(--sun-corona) 70%, #dc2626 100%);
+    box-shadow: 
+        0 0 60px var(--sun-color),
+        0 0 120px rgba(251, 191, 36, 0.5),
+        0 0 180px rgba(251, 191, 36, 0.3);
+    animation: sunPulse 3s ease-in-out infinite;
+}
+
+.sun-core {
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fef3c7, var(--sun-color));
+    /* animation: sunRotate 20s linear infinite; */
+}
+
+.sun-corona {
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    width: 140%;
+    height: 140%;
+    border-radius: 50%;
+    background: radial-gradient(circle, transparent 60%, rgba(251, 191, 36, 0.2) 70%, transparent 80%);
+    /* animation: sunRotate 30s linear infinite reverse; */
+}
+
+.sun-flares {
+    position: absolute;
+    top: -30%;
+    left: -30%;
+    width: 160%;
+    height: 160%;
+    border-radius: 50%;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(251, 191, 36, 0.3) 0%, transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.3) 0%, transparent 30%),
+        radial-gradient(circle at 50% 10%, rgba(251, 191, 36, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 10% 50%, rgba(245, 158, 11, 0.2) 0%, transparent 40%);
+    animation: sunFlares 15s ease-in-out infinite;
+}
+
+/* Container des planètes */
+.planets-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+}
+
+/* Orbites des planètes */
+.planet-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid rgba(100, 116, 139, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.orbit-1 { width: 300px; height: 300px; }
+
+/* Wrapper des planètes */
+.planet-wrapper {
+    position: absolute;
+    z-index: 99999;
+}
+
+/* Planètes */
+.planet {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.planet:hover {
+    transform: translate(-50%, -50%) scale(1.2);
+    z-index: 20;
+}
+
+.planet.occupied .planet-surface {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.planet.own-planet .planet-surface {
+    border: 2px solid var(--planet-own);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+}
+
+.planet.ally-planet .planet-surface {
+    border: 2px solid var(--planet-ally);
+    box-shadow: 0 0 20px rgba(var(--stargate-info-rgb), 0.4);
+}
+
+.planet.enemy-planet .planet-surface {
+    border: 2px solid var(--planet-enemy);
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+}
+
+.planet-atmosphere {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    border-radius: 50%;
+    background: radial-gradient(circle, transparent 60%, rgba(255, 255, 255, 0.1) 70%, transparent 80%);
+    /* animation: atmosphereRotate 10s linear infinite; */
+}
+
+.main-planet-indicator {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 24px;
+    height: 24px;
+    background: var(--stargate-accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+    animation: crownPulse 2s ease-in-out infinite;
+}
+
+.shield-protection-indicator {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 24px;
+    height: 24px;
+    background: var(--stargate-success);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.7rem;
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+    z-index: 10;
+}
+
+/* Planètes vides */
+.planet.empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty-slot {
+    width: 40px;
+    height: 40px;
+    border: 2px dashed var(--planet-empty);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--planet-empty);
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.planet.empty:hover .empty-slot {
+    border-color: var(--stargate-primary);
+    color: var(--stargate-primary);
+    background: rgba(79, 70, 229, 0.1);
+}
+
+.planet.empty.disabled {
+    cursor: not-allowed;
+}
+
+.planet.empty.disabled .empty-slot {
+    border-color: #374151;
+    color: #374151;
+    background: rgba(55, 65, 81, 0.1);
+}
+
+.planet.empty.disabled:hover .empty-slot {
+    border-color: #374151;
+    color: #374151;
+    background: rgba(55, 65, 81, 0.1);
+}
+
+/* Informations des planètes */
+.planet-info {
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(30, 41, 59, 0.95);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--stargate-border);
+    min-width: 120px;
+    text-align: center;
+    font-size: 0.75rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 30;
+}
+
+.planet:hover .planet-info {
+    opacity: 1;
+}
+
+.planet-name {
+    font-weight: 600;
+    color: var(--stargate-text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.planet-coordinates {
+    color: var(--stargate-text-muted);
+    font-size: 0.7rem;
+    margin-bottom: 0.25rem;
+}
+
+.planet-owner {
+    color: var(--stargate-accent);
+    font-weight: 500;
+}
+
+.planet-status {
+    color: var(--planet-empty);
+    font-style: italic;
+}
+
+/* Types de planètes */
+.planet-type-planet {
+    background: radial-gradient(circle at 30% 30%, #3b82f6, #1e40af, #1e3a8a);
+}
+
+.planet-type-moon {
+    background: radial-gradient(circle at 30% 30%, #9ca3af, #6b7280, #4b5563);
+}
+
+/* Legend colors */
+.legend-color.own-planet { background: rgba(16, 185, 129, 0.6); }
+.legend-color.enemy-planet { background: rgba(239, 68, 68, 0.6); }
+.legend-color.bot-planet { background: rgba(245, 158, 11, 0.6); }
+.legend-color.empty { background: rgba(100, 116, 139, 0.6); }
+.legend-color.ally-planet { background: rgba(var(--stargate-info-rgb), 0.6); }
+
+.planet-type-asteroid {
+    background: radial-gradient(circle at 30% 30%, #a3a3a3, #737373, #525252);
+}
+
+/* Panneau d'informations (Légende + Statistiques) */
+.galaxy-info-panel {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: rgba(30, 41, 59, 0.9);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--stargate-border);
+    backdrop-filter: blur(10px);
+    min-width: 280px;
+}
+
+.panel-title {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--stargate-primary);
+    border-bottom: 1px solid var(--stargate-border);
+    padding-bottom: 0.5rem;
+}
+
+/* Affichage du système */
+.system-display {
+    margin-bottom: 1.5rem;
+}
+
+.system-display .panel-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.system-input-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    justify-content: center;
+}
+
+.system-input {
+    width: 80px;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid rgba(100, 116, 139, 0.3);
+    border-radius: 4px;
+    background: rgba(15, 23, 42, 0.8);
+    color: #e2e8f0;
+    font-size: 0.9rem;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: textfield; /* Firefox */
+}
+
+/* Supprimer les flèches dans Chrome, Safari, Edge */
+.system-input::-webkit-outer-spin-button,
+.system-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.system-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.go-btn {
+    padding: 0.4rem 0.6rem;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.go-btn:hover {
+    background: #2563eb;
+}
+
+.go-btn:active {
+    background: #1d4ed8;
+}
+
+
+
+/* Légende */
+.galaxy-legend {
+    margin-bottom: 1.5rem;
+}
+
+.galaxy-legend:last-child {
+    margin-bottom: 0;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.legend-item:last-child {
+    margin-bottom: 0;
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid currentColor;
+}
+
+.legend-color.own-planet {
+    background: var(--planet-own);
+    color: var(--planet-own);
+}
+
+.legend-color.enemy-planet {
+    background: var(--planet-enemy);
+    color: var(--planet-enemy);
+}
+
+.legend-color.empty {
+    background: transparent;
+    border-style: dashed;
+    color: var(--planet-empty);
+}
+
+.legend-icon {
+    color: var(--stargate-accent);
+    font-size: 16px;
+}
+
+/* Statistiques du système */
+.system-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    justify-content: space-between;
+}
+
+.stat-item .stat-label {
+    flex: 1;
+}
+
+.stat-item .stat-value {
+    font-weight: 600;
+    color: var(--stargate-primary);
+}
+
+.stat-item i {
+    color: var(--stargate-primary);
+    font-size: 1.2rem;
+}
+
+.stat-label {
+    color: var(--stargate-text-muted);
+}
+
+.stat-value {
+    font-weight: 700;
+    color: var(--stargate-accent);
+}
+
+/* Animations */
+@keyframes twinkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+@keyframes sunPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes sunRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes sunFlares {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+@keyframes orbit {
+    from { transform: translateX(-50%) rotate(var(--orbit-angle)); }
+    to { transform: translateX(-50%) rotate(calc(var(--orbit-angle) + 360deg)); }
+}
+
+@keyframes atmosphereRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes crownPulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(245, 158, 11, 0.5); }
+    50% { transform: scale(1.1); box-shadow: 0 0 20px rgba(245, 158, 11, 0.8); }
+}
+
+/* Styles pour la modale de planète */
+.planet-modal-header {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+.planet-visual-large {
+    flex-shrink: 0;
+}
+
+.planet-visual-large .planet-sphere {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.planet-basic-info {
+    flex: 1;
+}
+
+.planet-basic-info .planet-name {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--stargate-primary);
+    margin: 0 0 0.5rem 0;
+}
+
+.planet-basic-info .planet-coordinates {
+    font-size: 1.2rem;
+    color: var(--stargate-text-muted);
+    margin-bottom: 1rem;
+}
+
+.planet-basic-info .planet-owner {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.owner-name.own {
+    color: var(--planet-own);
+    font-weight: 600;
+}
+
+.owner-name.enemy {
+    color: var(--planet-enemy);
+    font-weight: 600;
+}
+
+.free-planet {
+    color: var(--planet-empty);
+    font-style: italic;
+}
+
+.main-planet-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: var(--stargate-accent);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+
+.planet-details {
+    margin-bottom: 2rem;
+}
+
+.detail-section {
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--stargate-primary);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--stargate-border);
+    padding-bottom: 0.5rem;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: rgba(30, 41, 59, 0.5);
+    border-radius: 0.5rem;
+    border: 1px solid var(--stargate-border);
+}
+
+.detail-item i {
+    color: var(--stargate-primary);
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.detail-label {
+    color: var(--stargate-text-muted);
+    font-weight: 500;
+}
+
+.detail-value {
+    color: var(--stargate-text-primary);
+    font-weight: 600;
+    margin-left: auto;
+}
+
+.bonus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.bonus-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: rgba(30, 41, 59, 0.5);
+    border-radius: 0.5rem;
+    border: 1px solid var(--stargate-border);
+}
+
+.resource-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.bonus-label {
+    color: var(--stargate-text-muted);
+    font-weight: 500;
+}
+
+.bonus-value {
+    color: var(--stargate-accent);
+    font-weight: 700;
+    margin-left: auto;
+}
+
+.time-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.time-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: rgba(30, 41, 59, 0.5);
+    border-radius: 0.5rem;
+    border: 1px solid var(--stargate-border);
+}
+
+.time-item i {
+    color: var(--stargate-secondary);
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.time-label {
+    color: var(--stargate-text-muted);
+    font-weight: 500;
+}
+
+.time-value {
+    color: var(--stargate-text-primary);
+    font-weight: 600;
+    margin-left: auto;
+}
+
+.planet-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.action-btn.primary {
+    background: var(--stargate-primary);
+    color: white;
+}
+
+.action-btn.primary:hover {
+    background: var(--stargate-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.action-btn.success {
+    background: var(--stargate-success);
+    color: white;
+}
+
+.action-btn.success:hover {
+    background: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.action-btn.danger {
+    background: var(--stargate-danger);
+    color: white;
+}
+
+.action-btn.danger:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.action-btn.warning {
+    background: var(--stargate-warning);
+    color: white;
+}
+
+.action-btn.warning:hover {
+    background: #d97706;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .galaxy-view {
+        height: 900px;
+    }
+    
+    .sun {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .orbit-1 { width: 220px; height: 220px; }
+    
+    .planet {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 768px) {
+    [page="galaxy"] {
+        padding: 1rem;
+    }
+    
+    .galaxy-header {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    .system-navigation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .galaxy-view {
+        height: 700px;
+    }
+    
+    .sun {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .orbit-1 { width: 180px; height: 180px; }
+    
+    .planet {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .galaxy-legend { position: static; margin-top: 1rem; }
+    
+    .system-stats {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .planet-modal-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .bonus-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .planet-actions {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 1024px) {
+    .system-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+    .system-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 420px) {
+    .system-grid { grid-template-columns: 1fr; }
+}
+
+/* Planètes PNJ (Bot) */
+.planet.bot-planet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bot-slot {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fbbf24, var(--planet-bot), #b45309);
+    border: 2px solid var(--planet-bot);
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+}
+
+.legend-color.bot-planet {
+    background: var(--planet-bot);
+    color: var(--planet-bot);
+}
+
+/* Styles pour les planètes bot dans le modal */
+.owner-name.bot {
+    color: var(--planet-bot);
+    font-weight: 600;
+}
+
+.action-info.warning {
+    background-color: rgba(245, 158, 11, 0.1);
+    border: 1px solid var(--planet-bot);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+    color: var(--stargate-text-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.action-info.warning i {
+    color: var(--planet-bot);
+    font-size: 1.5rem;
+}
+
+.planet-protection.active {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    background-color: rgba(34, 197, 94, 0.1);
+    border: 1px solid var(--planet-protected);
+    border-radius: 0.5rem;
+    color: var(--stargate-text-primary);
+}
+
+.planet-protection.active i {
+    color: var(--planet-protected);
+    font-size: 1rem;
+}
+
+/* Styles pour les indicateurs de mode vacances */
+
+/* Indicateur sur la planète dans la vue galaxie */
+.vacation-mode-indicator {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background-color: #ffb74d;
+    color: #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    z-index: 10;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Style pour la planète en mode vacances */
+.vacation-mode-planet {
+    opacity: 0.8;
+}
+
+/* Badge de vacances à côté du nom du joueur */
+.vacation-badge {
+    display: inline-block;
+    margin-left: 5px;
+    color: #ffb74d;
+}
+
+/* Style pour le nom du joueur en mode vacances */
+.planet-owner.vacation-mode {
+    color: #ffb74d;
+}
+
+/* Style pour l'indicateur dans la modal */
+.planet-vacation {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    padding: 5px 10px;
+    background-color: rgba(255, 183, 77, 0.2);
+    border-radius: 4px;
+    color: #ffb74d;
+}
+
+.planet-vacation i {
+    margin-right: 8px;
+}
+
+/* Style pour le message d'avertissement dans les actions */
+.action-info.warning i.fa-umbrella-beach {
+    color: #ffb74d;
+}

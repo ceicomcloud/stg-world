@@ -1,0 +1,213 @@
+/* Game Navbar Styles */
+[layout="gamenavbar"] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--stargate-bg-primary);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--stargate-border-accent);
+  box-shadow: var(--stargate-shadow-md);
+}
+
+[layout="gamenavbar"] .navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 30px;
+  height: 80px;
+  max-width: none; /* let it span full viewport width */
+  margin: 0 auto;
+  width: 100%;
+  /* Allow horizontal scroll when items overflow */
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Navigation Links - Horizontal Layout */
+[layout="gamenavbar"] .navbar-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: nowrap;
+  /* Ensure the nav can scroll horizontally on any viewport */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Visible, slim horizontal scrollbar for better affordance */
+[layout="gamenavbar"] .navbar-container::-webkit-scrollbar,
+[layout="gamenavbar"] .navbar-nav::-webkit-scrollbar {
+  height: 8px;
+}
+[layout="gamenavbar"] .navbar-container::-webkit-scrollbar-track,
+[layout="gamenavbar"] .navbar-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+[layout="gamenavbar"] .navbar-container::-webkit-scrollbar-thumb,
+[layout="gamenavbar"] .navbar-nav::-webkit-scrollbar-thumb {
+  background: var(--stargate-card-border);
+  border-radius: 8px;
+}
+[layout="gamenavbar"] .navbar-container {
+  scrollbar-width: thin; /* Firefox */
+}
+
+[layout="gamenavbar"] .nav-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--stargate-text-secondary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  background: var(--stargate-card-bg);
+  border: 1px solid var(--stargate-card-border);
+  backdrop-filter: blur(10px);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+[layout="gamenavbar"] .nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+[layout="gamenavbar"] .nav-link:hover {
+  color: var(--stargate-text-primary);
+  background: var(--stargate-card-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--stargate-shadow-glow);
+  border: 1px solid var(--stargate-border-accent);
+}
+
+[layout="gamenavbar"] .nav-link:hover::before {
+  left: 100%;
+}
+
+[layout="gamenavbar"] .nav-link.active {
+  color: var(--stargate-text-primary);
+  background: var(--stargate-bg-secondary);
+  border: 1px solid var(--stargate-border-accent);
+  transform: translateY(-1px);
+}
+
+[layout="gamenavbar"] .nav-link i {
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+[layout="gamenavbar"] .nav-link:hover i,
+[layout="gamenavbar"] .nav-link.active i {
+  color: var(--stargate-accent);
+  transform: scale(1.1);
+}
+
+[layout="gamenavbar"] .nav-link span {
+  font-weight: 600;
+}
+
+/* Message counter styles */
+[layout="gamenavbar"] .nav-link .message-count {
+  background: var(--stargate-accent);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: 4px;
+  min-width: 18px;
+  text-align: center;
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(14, 165, 233, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(14, 165, 233, 0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  [layout="gamenavbar"] .navbar-container {
+    padding: 0 15px;
+    height: 70px;
+  }
+  
+  [layout="gamenavbar"] .navbar-nav {
+    gap: 6px;
+  }
+  
+  [layout="gamenavbar"] .nav-link {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    gap: 6px;
+  }
+  
+  [layout="gamenavbar"] .nav-link span {
+    display: none;
+  }
+  
+  [layout="gamenavbar"] .nav-link i {
+    font-size: 1.2rem;
+  }
+  
+  [layout="gamenavbar"] .nav-link .message-count {
+    font-size: 0.65rem;
+    padding: 1px 4px;
+    min-width: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  [layout="gamenavbar"] .navbar-container {
+    padding: 0 10px;
+    height: 60px;
+  }
+  
+  [layout="gamenavbar"] .navbar-nav {
+    gap: 4px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  
+  [layout="gamenavbar"] .nav-link {
+    padding: 8px 12px;
+    border-radius: 10px;
+    gap: 4px;
+  }
+  
+  [layout="gamenavbar"] .nav-link .message-count {
+    font-size: 0.6rem;
+    padding: 1px 3px;
+    min-width: 14px;
+    margin-left: 2px;
+  }
+}
