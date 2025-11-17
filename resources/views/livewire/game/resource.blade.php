@@ -32,17 +32,17 @@
         <!-- Primary Resources -->
         <div class="resource-category">
             <h4 class="category-title">Ressources Primaires</h4>
-
-            @foreach($primaryResources as $resource)
-            <div class="resource-item">
-                <div class="resource-icon">
-                    <img src="/images/resources/{{ $resource['icon'] }}" alt="{{ $resource['name'] }}" />
-                </div>
-                <div class="resource-info">
-                    <span class="resource-name">{{ $resource['name'] }}</span>
-                    <div class="resource-values">
-                        <span class="current-amount">{{ number_format($resource['current_amount']) }}</span>
-                        <span class="production-rate {{ $resource['production_rate'] > 0 ? 'positive' : ($resource['production_rate'] < 0 ? 'negative' : 'neutral') }}">
+            
+            <div class="resource-grid">
+                @foreach($primaryResources as $resource)
+                <div class="resource-card">
+                    <div class="card-icon">
+                        <img src="/images/resources/{{ $resource['icon'] }}" alt="{{ $resource['name'] }}" />
+                    </div>
+                    <div class="card-info">
+                        <div class="card-name">{{ $resource['name'] }}</div>
+                        <div class="card-amount">{{ number_format($resource['current_amount']) }}</div>
+                        <div class="card-production {{ $resource['production_rate'] > 0 ? 'positive' : ($resource['production_rate'] < 0 ? 'negative' : 'neutral') }}">
                             @if($resource['production_rate'] > 0)
                                 <i class="fas fa-arrow-up"></i>
                             @elseif($resource['production_rate'] < 0)
@@ -51,17 +51,17 @@
                                 <i class="fas fa-minus"></i>
                             @endif
                             {{ number_format(abs($resource['production_rate'])) }}/h
-                        </span>
+                        </div>
+                    </div>
+                    <div class="card-storage">
+                        <div class="storage-text">{{ number_format($resource['storage_capacity']) }}</div>
+                        <div class="storage-bar">
+                            <div class="storage-fill" style="width: {{ $resource['storage_capacity'] > 0 ? ($resource['current_amount'] / $resource['storage_capacity'] * 100) : 0 }}%;"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="resource-storage">
-                    <div class="storage-bar">
-                        <div class="storage-fill" style="width: {{ $resource['storage_capacity'] > 0 ? ($resource['current_amount'] / $resource['storage_capacity'] * 100) : 0 }}%; background-color: {{ ($resource['storage_capacity'] > 0 ? ($resource['current_amount'] / $resource['storage_capacity'] * 100) : 0) > 90 ? '#e74c3c' : (($resource['storage_capacity'] > 0 ? ($resource['current_amount'] / $resource['storage_capacity'] * 100) : 0) > 70 ? '#f39c12' : '#27ae60') }}"></div>
-                    </div>
-                    <span class="storage-text">{{ number_format($resource['storage_capacity']) }}</span>
-                </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
     </div>
 

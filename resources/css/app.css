@@ -403,6 +403,15 @@ input[type=number] {
 
 /* ===== NOUVEAU LAYOUT AVEC SIDEBAR FIXE ===== */
 
+/* Réduction globale de la taille des polices (90% de la taille originale) */
+.game-layout {
+    font-size: 0.9rem; /* 90% de la taille normale */
+}
+
+.game-sidebar {
+    font-size: 0.85rem; /* Un peu plus petit pour la sidebar */
+}
+
 /* Container principal en deux colonnes */
 .game-container-with-sidebar {
     display: flex;
@@ -419,10 +428,32 @@ input[type=number] {
     backdrop-filter: blur(6px);
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 80px);
-    position: sticky;
-    top: 80px;
+    height: 100vh; /* Pleine hauteur */
+    position: fixed; /* Fixe pour toujours rester visible */
+    top: 0; /* Commence en haut de la page */
     left: 0;
+    z-index: 10; /* Sous la navbar mais au-dessus du contenu */
+    overflow-y: auto; /* Scrollbar intégrée */
+    scrollbar-width: thin; /* Firefox - scrollbar fine */
+    scrollbar-color: var(--stargate-border) transparent; /* Firefox - couleur scrollbar */
+}
+
+/* Webkit - scrollbar personnalisée */
+.game-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.game-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.game-sidebar::-webkit-scrollbar-thumb {
+    background: var(--stargate-border);
+    border-radius: 3px;
+}
+
+.game-sidebar::-webkit-scrollbar-thumb:hover {
+    background: var(--stargate-border-accent);
 }
 
 .sidebar-header {
@@ -446,15 +477,23 @@ input[type=number] {
 
 /* Contenu principal qui s'adapte */
 .game-container-with-sidebar .game-main {
-    flex: 1;
+    margin-left: 300px; /* Décaler pour ne pas être sous la sidebar */
+    width: calc(100% - 300px); /* Prendre le reste de la largeur */
     margin-top: 0; /* Retirer la marge car on est dans le container */
     padding: 20px;
     min-width: 0; /* Permet au contenu de réduire si nécessaire */
 }
 
-/* Masquer le bouton menu hamburger */
-.game-navbar .nav-link:first-child {
-    display: none;
+/* Masquer le bouton menu hamburger sur desktop */
+.game-navbar .nav-link.d-lg-none {
+    display: none !important;
+}
+
+/* Afficher le bouton menu sur mobile */
+@media (max-width: 1024px) {
+    .game-navbar .nav-link.d-lg-none {
+        display: flex !important;
+    }
 }
 
 /* Responsive: sur mobile, on repasse en mode drawer */
