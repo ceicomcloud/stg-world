@@ -290,3 +290,90 @@
 [x-cloak] {
   display: none !important;
 }
+
+/* ===== MOBILE TOPBAR ===== */
+.mobile-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px max(8px, env(safe-area-inset-left, 8px)) 8px max(8px, env(safe-area-inset-right, 8px));
+  height: 60px;
+  background: var(--stargate-bg-primary);
+  border-bottom: 1px solid var(--stargate-border-accent);
+}
+
+.mobile-topbar-left,
+.mobile-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobile-topbar-center {
+  flex: 1;
+  text-align: center;
+}
+
+.mobile-player-name {
+  font-weight: 600;
+  color: var(--stargate-text-primary);
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mobile-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--stargate-card-bg);
+  border: 1px solid var(--stargate-card-border);
+  color: var(--stargate-text-secondary);
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.mobile-nav-btn:hover,
+.mobile-nav-btn.active {
+  background: var(--stargate-card-hover);
+  color: var(--stargate-text-primary);
+  border-color: var(--stargate-border-accent);
+}
+
+.mobile-nav-item {
+  position: relative;
+}
+
+.mobile-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: auto;
+  min-width: 220px;
+  margin-top: 8px;
+}
+
+.mobile-dropdown-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  color: var(--stargate-text-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.mobile-dropdown-header i {
+  font-size: 1.2rem;
+  color: var(--stargate-primary);
+}
+
+/* Desktop navbar */
+.desktop-navbar {
+  /* Existing desktop styles remain the same */
+}
