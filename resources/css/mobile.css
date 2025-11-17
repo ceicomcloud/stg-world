@@ -93,7 +93,12 @@ html, body {
   box-shadow: 0 10px 20px rgba(0,0,0,0.35);
 }
 
-/* Tiroir latéral des ressources (mobile) */
+/* Sidebar fixe pour desktop (cachée sur mobile par défaut) */
+.game-sidebar {
+  display: none; /* Caché sur mobile */
+}
+
+/* Tiroir latéral des ressources (mobile) - gardé pour la version mobile */
 .drawer-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 80; }
 .game-drawer { position: fixed; top: 0; bottom: 0; padding-top: env(safe-area-inset-top); padding-bottom: calc(64px + env(safe-area-inset-bottom)); width: 85%; max-width: 420px; background: var(--sg-surface); border-right: 1px solid var(--sg-border); box-shadow: 12px 0 30px rgba(0,0,0,0.35); z-index: 90; display: flex; flex-direction: column; }
 .game-drawer.right { right: 0; }

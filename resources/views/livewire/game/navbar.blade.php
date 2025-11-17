@@ -15,7 +15,8 @@
     <div class="navbar-container">
         <!-- Navigation Links -->
         <div class="navbar-nav">
-            <button x-on:click="$dispatch('toggle-drawer')" class="nav-link">
+            <!-- Bouton menu hamburger (visible uniquement sur mobile) -->
+            <button x-on:click="$dispatch('toggle-drawer')" class="nav-link d-lg-none">
                 <i class="fas fa-bars"></i>
             </button>
 

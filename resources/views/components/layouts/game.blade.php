@@ -21,28 +21,40 @@
         : ['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="game-body">
-    <div class="game-layout" x-data="{ drawerOpen: false }" x-on:toggle-drawer.window="drawerOpen = !drawerOpen" x-effect="document.documentElement.classList.toggle('no-scroll', drawerOpen); document.body.classList.toggle('no-scroll', drawerOpen)">
+    <div class="game-layout" x-data="{ drawerOpen: false }" x-on:toggle-drawer.window="drawerOpen = !drawerOpen" x-effect="document.documentElement.classList.toggle('no-scroll', drawerOpen && window.innerWidth < 1024); document.body.classList.toggle('no-scroll', drawerOpen && window.innerWidth < 1024)">
         <header class="game-header">
             <livewire:game.navbar />
         </header>
 
-        <main id="game-content" class="game-main" role="main">
-            <section class="game-content" aria-label="Contenu de la page">
-                {{ $slot }}
-            </section>
-        </main>
+        <div class="game-container-with-sidebar">
+            <!-- Sidebar fixe des ressources (desktop) -->
+            <aside class="game-sidebar d-none d-lg-flex" aria-label="Ressources">
+                <div class="sidebar-header">
+                    <h2>Ressources</h2>
+                </div>
+                <div class="sidebar-body">
+                    <livewire:game.resource />
+                </div>
+            </aside>
 
-        <!-- Overlay et tiroir latéral des ressources -->
-        <div class="drawer-overlay" style="display: none;" x-show="drawerOpen" x-transition.opacity x-on:click="drawerOpen = false" aria-hidden="true"></div>
-        <aside class="game-drawer left" style="display: none;" aria-label="Ressources" x-show="drawerOpen" x-transition>
-            <div class="drawer-header">
-                <h2>Ressources</h2>
-                <button class="drawer-close" aria-label="Fermer" x-on:click="drawerOpen = false"><i class="fas fa-times"></i></button>
-            </div>
-            <div class="drawer-body">
-                <livewire:game.resource />
-            </div>
-        </aside>
+            <!-- Drawer pour mobile -->
+            <div class="drawer-overlay d-lg-none" style="display: none;" x-show="drawerOpen" x-transition.opacity x-on:click="drawerOpen = false" aria-hidden="true"></div>
+            <aside class="game-drawer left d-lg-none" style="display: none;" aria-label="Ressources" x-show="drawerOpen" x-transition>
+                <div class="drawer-header">
+                    <h2>Ressources</h2>
+                    <button class="drawer-close" aria-label="Fermer" x-on:click="drawerOpen = false"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="drawer-body">
+                    <livewire:game.resource />
+                </div>
+            </aside>
+
+            <main id="game-content" class="game-main" role="main">
+                <section class="game-content" aria-label="Contenu de la page">
+                    {{ $slot }}
+                </section>
+            </main>
+        </div>
 
         <div class="daily-quests-icon" onclick="Livewire.dispatch('openModal', { component: 'game.modal.daily-quests', arguments: { title: 'Quêtes journalières' } })">
             <i class="fas fa-list-check"></i>
