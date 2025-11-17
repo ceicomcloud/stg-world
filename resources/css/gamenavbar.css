@@ -245,13 +245,14 @@
   right: 0;
   background: var(--stargate-card-bg);
   border: 1px solid var(--stargate-card-border);
-  border-radius: 12px;
-  box-shadow: var(--stargate-shadow-lg);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
   backdrop-filter: blur(10px);
   min-width: 200px;
   z-index: 1000;
   padding: 8px 0;
   margin-top: 8px;
+  overflow: hidden;
 }
 
 [layout="gamenavbar"] .dropdown-item {

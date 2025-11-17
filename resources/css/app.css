@@ -424,7 +424,8 @@ input[type=number] {
     width: 280px; /* Légèrement réduit */
     min-width: 280px;
     background: var(--stargate-card-bg);
-    border-right: 1px solid var(--stargate-border);
+    border: 1px solid var(--stargate-card-border);
+    border-radius: 12px;
     backdrop-filter: blur(6px);
     display: flex;
     flex-direction: column;
@@ -436,6 +437,8 @@ input[type=number] {
     overflow-y: auto; /* Scrollbar intégrée */
     scrollbar-width: thin; /* Firefox - scrollbar fine */
     scrollbar-color: var(--stargate-border) transparent; /* Firefox - couleur scrollbar */
+    box-shadow: var(--stargate-shadow-lg);
+    margin: 0 8px 8px 8px;
 }
 
 /* Webkit - scrollbar personnalisée */
@@ -477,8 +480,8 @@ input[type=number] {
 
 /* Contenu principal qui s'adapte */
 .game-container-with-sidebar .game-main {
-    margin-left: 280px; /* Décaler pour ne pas être sous la sidebar */
-    width: calc(100% - 280px); /* Prendre le reste de la largeur */
+    margin-left: 296px; /* Décaler pour ne pas être sous la sidebar (280px + 16px de marges) */
+    width: calc(100% - 296px); /* Prendre le reste de la largeur */
     margin-top: 0; /* Retirer la marge car on est dans le container */
     padding: 20px;
     min-width: 0; /* Permet au contenu de réduire si nécessaire */
