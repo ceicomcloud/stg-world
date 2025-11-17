@@ -9,13 +9,14 @@
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--stargate-border-accent);
   box-shadow: var(--stargate-shadow-md);
+  padding-left: env(safe-area-inset-left, 0);
 }
 
 [layout="gamenavbar"] .navbar-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0 20px;
+  justify-content: flex-start;
+  padding: 0 15px 0 max(15px, env(safe-area-inset-left, 15px));
   height: 80px;
   max-width: 1400px;
   margin: 0 auto;
@@ -112,7 +113,8 @@
 /* Spécifique pour le bouton menu hamburger (premier élément) */
 [layout="gamenavbar"] .navbar-nav > .nav-link:first-child {
   margin-left: 0;
-  padding-left: 12px;
+  padding-left: max(8px, env(safe-area-inset-left, 8px));
+  margin-right: 4px;
 }
 
 /* Assurer que le conteneur permet le défilement horizontal si nécessaire */
@@ -147,10 +149,23 @@
   }
 }
 
+/* Support des safe areas pour les écrans avec encoche */
+@supports (padding-left: env(safe-area-inset-left)) {
+  [layout="gamenavbar"] {
+    padding-left: env(safe-area-inset-left, 0);
+    padding-right: env(safe-area-inset-right, 0);
+  }
+  
+  [layout="gamenavbar"] .navbar-container {
+    padding-left: max(15px, env(safe-area-inset-left, 15px));
+    padding-right: max(15px, env(safe-area-inset-right, 15px));
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   [layout="gamenavbar"] .navbar-container {
-    padding: 0 10px;
+    padding: 0 max(10px, env(safe-area-inset-left, 10px)) 0 max(10px, env(safe-area-inset-right, 10px));
     height: 70px;
   }
   
@@ -166,7 +181,7 @@
   }
   
   [layout="gamenavbar"] .navbar-nav > .nav-link:first-child {
-    padding-left: 8px;
+    padding-left: max(8px, env(safe-area-inset-left, 8px));
     margin-left: 0;
   }
   
@@ -187,7 +202,7 @@
 
 @media (max-width: 480px) {
   [layout="gamenavbar"] .navbar-container {
-    padding: 0 5px;
+    padding: 0 max(5px, env(safe-area-inset-left, 5px)) 0 max(5px, env(safe-area-inset-right, 5px));
     height: 60px;
   }
   
@@ -205,7 +220,7 @@
   }
   
   [layout="gamenavbar"] .navbar-nav > .nav-link:first-child {
-    padding-left: 6px;
+    padding-left: max(6px, env(safe-area-inset-left, 6px));
     margin-left: 0;
   }
   
