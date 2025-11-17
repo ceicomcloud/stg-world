@@ -1,5 +1,5 @@
 <div class="game-resource-panel" layout="gameresource">
-    <!-- Planet Selector at Top -->
+    <!-- 1. Planet Selector at Top -->
     <div class="planet-selector-top">
         <div class="planet-dropdown" x-data="{ open: false }" x-on:click.outside="open = false">
             <button class="planet-button-top" x-on:click="open = !open" :class="{ 'open': open }">
@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <!-- Compact Player Info -->
+    <!-- 2. Player Info -->
     <div class="player-info-compact">
         <div class="player-level-info">
             <span class="player-name-compact">{{ Auth::user()->username }}</span>
@@ -37,27 +37,27 @@
         </div>
     </div>
 
-    <!-- Compact Stats -->
+    <!-- 3. Energy and Stats -->
     <div class="stats-compact">
         <div class="stat-compact">
-            <i class="fas fa-brain"></i>
-            <span>{{ number_format($researchPointsProduction ?? 0) }}</span>
-        </div>
-        <div class="stat-compact">
-            <i class="fas fa-bolt"></i>
+            <i class="fas fa-bolt" title="Énergie"></i>
             <span>{{ number_format($totalEnergyRemaining ?? 0) }}</span>
         </div>
         <div class="stat-compact">
-            <i class="fas fa-star"></i>
+            <i class="fas fa-brain" title="Points de Recherche"></i>
+            <span>{{ number_format($researchPointsProduction ?? 0) }}</span>
+        </div>
+        <div class="stat-compact">
+            <i class="fas fa-star" title="Réputation"></i>
             <span>{{ number_format(Auth::user()->reputation ?? 0) }}</span>
         </div>
         <div class="stat-compact">
-            <i class="fas fa-medal"></i>
+            <i class="fas fa-medal" title="Classement"></i>
             <span>#{{ Auth::user()->ranking ?? '-' }}</span>
         </div>
     </div>
 
-    <!-- Compact Resource List -->
+    <!-- 4. Resources -->
     <div class="resource-list-compact">
         @foreach($primaryResources as $resource)
         <div class="resource-item-compact">
