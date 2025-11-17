@@ -991,3 +991,348 @@
   background: var(--stargate-card-hover);
   border-color: var(--stargate-border-accent);
 }
+
+/* ===== NEW COMPACT DESIGN ===== */
+
+/* Planet Selector at Top */
+[layout="gameresource"] .planet-selector-top {
+  padding: 12px 16px;
+  background: var(--stargate-bg-secondary);
+  border-bottom: 1px solid var(--stargate-border);
+}
+
+[layout="gameresource"] .planet-button-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--stargate-card-bg);
+  border: 1px solid var(--stargate-card-border);
+  border-radius: 8px;
+  color: var(--stargate-text-secondary);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  justify-content: space-between;
+}
+
+[layout="gameresource"] .planet-button-top:hover {
+  background: var(--stargate-card-hover);
+  border-color: var(--stargate-border-accent);
+  color: var(--stargate-text-primary);
+}
+
+[layout="gameresource"] .planet-button-top i.fas.fa-globe {
+  color: var(--stargate-primary);
+  font-size: 0.8rem;
+}
+
+[layout="gameresource"] .planet-button-top .dropdown-icon {
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+  color: var(--stargate-text-muted);
+}
+
+[layout="gameresource"] .planet-button-top .dropdown-icon.rotated {
+  transform: rotate(180deg);
+}
+
+[layout="gameresource"] .planet-button-top.open {
+  background: var(--stargate-card-hover);
+  border-color: var(--stargate-border-accent);
+}
+
+/* Compact Player Info */
+[layout="gameresource"] .player-info-compact {
+  padding: 10px 16px;
+  background: var(--stargate-bg-secondary);
+  border-bottom: 1px solid var(--stargate-border);
+}
+
+[layout="gameresource"] .player-level-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+[layout="gameresource"] .player-name-compact {
+  font-weight: 600;
+  color: var(--stargate-text-primary);
+  font-size: 0.85rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+[layout="gameresource"] .player-level-compact {
+  font-size: 0.75rem;
+  color: var(--stargate-primary);
+  font-weight: 500;
+  background: var(--stargate-card-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--stargate-card-border);
+}
+
+[layout="gameresource"] .player-xp-compact {
+  width: 100%;
+}
+
+[layout="gameresource"] .xp-bar-compact {
+  height: 3px;
+  background: var(--stargate-bg-primary);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+[layout="gameresource"] .xp-fill-compact {
+  height: 100%;
+  background: linear-gradient(90deg, var(--stargate-primary), var(--stargate-accent));
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* Compact Stats */
+[layout="gameresource"] .stats-compact {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  padding: 10px 16px;
+  background: var(--stargate-bg-secondary);
+  border-bottom: 1px solid var(--stargate-border);
+}
+
+[layout="gameresource"] .stat-compact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 4px;
+  background: var(--stargate-card-bg);
+  border-radius: 6px;
+  border: 1px solid var(--stargate-card-border);
+}
+
+[layout="gameresource"] .stat-compact i {
+  font-size: 0.7rem;
+  color: var(--stargate-primary);
+}
+
+[layout="gameresource"] .stat-compact span {
+  font-size: 0.65rem;
+  color: var(--stargate-text-primary);
+  font-weight: 600;
+}
+
+/* Compact Resource List */
+[layout="gameresource"] .resource-list-compact {
+  padding: 10px 16px;
+  max-height: calc(100vh - 300px);
+  overflow-y: auto;
+}
+
+[layout="gameresource"] .resource-item-compact {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  background: var(--stargate-bg-secondary);
+  border: 1px solid var(--stargate-border);
+  border-radius: 8px;
+  margin-bottom: 6px;
+  transition: all 0.3s ease;
+}
+
+[layout="gameresource"] .resource-item-compact:last-child {
+  margin-bottom: 0;
+}
+
+[layout="gameresource"] .resource-item-compact:hover {
+  background: var(--stargate-card-hover);
+  border-color: var(--stargate-border-accent);
+}
+
+[layout="gameresource"] .resource-icon-compact {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+[layout="gameresource"] .resource-icon-compact img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+[layout="gameresource"] .resource-info-compact {
+  flex: 1;
+  min-width: 0;
+}
+
+[layout="gameresource"] .resource-name-compact {
+  font-weight: 500;
+  color: var(--stargate-text-primary);
+  font-size: 0.75rem;
+  margin-bottom: 2px;
+}
+
+[layout="gameresource"] .resource-amount-compact {
+  font-weight: 600;
+  color: var(--stargate-secondary);
+  font-size: 0.8rem;
+  margin-bottom: 2px;
+}
+
+[layout="gameresource"] .resource-production-compact {
+  font-size: 0.65rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+[layout="gameresource"] .resource-production-compact.positive {
+  color: var(--stargate-success);
+}
+
+[layout="gameresource"] .resource-production-compact.negative {
+  color: var(--stargate-danger);
+}
+
+[layout="gameresource"] .resource-production-compact.neutral {
+  color: var(--stargate-text-muted);
+}
+
+[layout="gameresource"] .resource-production-compact i {
+  font-size: 0.5rem;
+}
+
+[layout="gameresource"] .resource-storage-compact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  min-width: 50px;
+}
+
+[layout="gameresource"] .storage-bar-compact {
+  width: 40px;
+  height: 3px;
+  background: var(--stargate-bg-primary);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+[layout="gameresource"] .storage-fill-compact {
+  height: 100%;
+  background: linear-gradient(90deg, var(--stargate-success), var(--stargate-accent));
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+[layout="gameresource"] .storage-text-compact {
+  font-size: 0.6rem;
+  color: var(--stargate-text-muted);
+  font-weight: 500;
+}
+
+/* Compact Actions */
+[layout="gameresource"] .resource-actions-compact {
+  padding: 12px 16px;
+  border-top: 1px solid var(--stargate-border);
+  display: flex;
+  gap: 8px;
+}
+
+[layout="gameresource"] .action-btn-compact {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+[layout="gameresource"] .action-btn-compact.primary {
+  background: var(--stargate-gradient-primary);
+  color: var(--stargate-text-primary);
+}
+
+[layout="gameresource"] .action-btn-compact.primary:hover {
+  background: var(--stargate-gradient-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--stargate-shadow-glow);
+}
+
+[layout="gameresource"] .action-btn-compact.secondary {
+  background: var(--stargate-card-bg);
+  color: var(--stargate-text-secondary);
+  border: 1px solid var(--stargate-card-border);
+}
+
+[layout="gameresource"] .action-btn-compact.secondary:hover {
+  background: var(--stargate-card-hover);
+  color: var(--stargate-text-primary);
+  border-color: var(--stargate-border-accent);
+  transform: translateY(-1px);
+}
+
+[layout="gameresource"] .action-btn-compact i {
+  font-size: 0.8rem;
+}
+
+/* Responsive for compact design */
+@media (max-width: 768px) {
+  [layout="gameresource"] .stats-compact {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  [layout="gameresource"] .resource-list-compact {
+    max-height: 300px;
+  }
+  
+  [layout="gameresource"] .resource-item-compact {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  
+  [layout="gameresource"] .resource-storage-compact {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  [layout="gameresource"] .storage-bar-compact {
+    flex: 1;
+    margin-right: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  [layout="gameresource"] .stats-compact {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+  }
+  
+  [layout="gameresource"] .stat-compact {
+    padding: 4px 2px;
+  }
+  
+  [layout="gameresource"] .stat-compact span {
+    font-size: 0.6rem;
+  }
+  
+  [layout="gameresource"] .resource-actions-compact {
+    flex-direction: column;
+  }
+}
